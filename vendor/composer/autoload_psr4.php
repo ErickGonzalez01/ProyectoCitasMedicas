@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Usuario\\ProyectoCitasMedicas\\' => array($baseDir . '/src'),
+    'Controller\\' => array($baseDir . '/controller'),
 );
