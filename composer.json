@@ -1,0 +1,16 @@
+{
+    "name": "usuario/proyecto-citas-medicas",
+    "description": "Creacion de una aplicaion web en la nube que sea adaptable a moviles para la generacion de citas de viajero.",
+    "autoload": {
+        "psr-4": {
+            "Usuario\\ProyectoCitasMedicas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Erick",
+            "email": "erickjoelg@gmail.com"
+        }
+    ],
+    "require": {}
+}
