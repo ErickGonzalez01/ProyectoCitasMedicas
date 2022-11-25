@@ -13,10 +13,7 @@ class Router{
             $fn = $this->rutasGET[$urlActual] ?? null;
         }
         if($fn){
-            // La url existe y hay una funcion asociada 
-            //echo "<pre>";
-            //var_dump($urlActual);
-            //echo "</pre>";
+            // La url existe y hay una funcion asociada            
             call_user_func($fn, $this);            
         }else{
             echo "<h1>404</h1>";
@@ -24,6 +21,12 @@ class Router{
         }
     }
     public function Render($view){
+        ob_start();
         include __DIR__."/view/$view.php";
+
+        $contenido= ob_get_clean();
+
+        include __DIR__."/view/calendario.php";
+
     }
 }

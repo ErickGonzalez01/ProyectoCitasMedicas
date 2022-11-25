@@ -3,9 +3,7 @@
     use MVC\Router;
     class PropiedadController{
         public static function Admin(Router $router){  
-            echo "<pre>";
-            var_dump($router);
-            echo "</pre>";
+            debuguear($router);
             echo "Controller: bienbenido Admin";            
         }
         public static function Admin_Home(){
@@ -25,7 +23,7 @@
         }
         //----------------CALENDARIO----------------//
         public static function Calendario(Router $router){
-            $router->render("heron/index");
+            $router->render("calendario_contenido");
         }
     }
 ?>

@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'loto',sans-serif;
+}
+body{
+    background: #f1f1f1;
+}
+.contenido{
+    left:50%;
+    margin: 0 0 0 -250px;
+    position: absolute;
+    width: 500px;
+        
+}
+.calendario{
+    text-align: center;
+}
+.contenido .calendario header{
+    position: relative;
+}
+h2{
+    margin-top: 20px;
+    font-size: 32px;
+    text-transform: uppercase;
+}
+.btn-ant,.btn-pro{
+    position: absolute;
+    top: 50%;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    margin-top: -16px;
+    border: 2px solid #cbd1d2;
+    border-radius: 50%;
+    color: #cbd1d2;
+    font-size: 16px;
+    font-weight: bold;
+}
+.btn-ant{
+    left: 80px;
+}
+.btn-pro{
+    right: 80px;
+}
+
+.btn-ant:hover,.btn-pro:hover{
+    background: #cbd1d2;
+    color: #f9f9f9;
+}
+table{
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+.calendario thead{
+    background: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+}
+.calendario thead td{
+    height: 69.4px;
+}
+.calendario thead td:first-child{
+    border-left: 2px solid red;
+}
+.calendario thead td:last-child{
+    border-right: 2px solid red;
+}
+.calendario td{
+    border: 1px solid #cbd1d2;
+    height: 71.4px;
+    text-align: center;
+    width: 71.4px;
+}
+.calendario tbody td{
+    cursor: pointer;
+}
+.calendario tbody td:hover{
+    background: rgba(0, 173, 223, 0.8);
+    color: #f9f9f9;
+}
+
+.calendario table .dia-actual{
+    background: #00addf;
+    color: #f9f9f9;
+}
+.calendario .mes-anterior, .calendario .proximo-mes{
+    color: #cbd1d2;
+}
+.calendario .mes-anterior:hover, .calendario .proximo-mes:hover{
+    background: #98a0a0;
+}
+.event{
+    position: relative;
+}
+.event:after{
+    content: "";
+    width: 7px;
+    height: 7px;
+    left: 50%;
+    bottom: 7px;
+    margin: -3px 0 0 -3px;
+    background: #00addf;
+    display:block;
+    position: absolute;
+    border-radius: 50%;
+}
+.event:hover:after{
+    background: #f9f9f9;
+}
+.event.dia-actual:after{
+    background: #f9f9f9;
+}
