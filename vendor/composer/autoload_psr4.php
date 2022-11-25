@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Usuario\\ProyectoCitasMedicas\\' => array($baseDir . '/src'),
+    'Model\\' => array($baseDir . '/model'),
+    'MVC\\' => array($baseDir . '/'),
     'Controller\\' => array($baseDir . '/controller'),
 );

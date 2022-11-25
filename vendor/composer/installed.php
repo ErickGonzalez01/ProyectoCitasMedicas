@@ -3,7 +3,7 @@
         'name' => 'usuario/proyecto-citas-medicas',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '8ebfe3dc29586d474e73b833c0ad055244a391dd',
+        'reference' => '80b59e91da00c2f78f52a37876283ddc567446d3',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'usuario/proyecto-citas-medicas' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '8ebfe3dc29586d474e73b833c0ad055244a391dd',
+            'reference' => '80b59e91da00c2f78f52a37876283ddc567446d3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
