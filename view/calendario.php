@@ -12,6 +12,6 @@
     <h1>Inicio de la pagina</h1>
     <?php echo $contenido ?>
     <h1>Fin de la pagina</h1>
-    
+    <script src="js/calendario.js"></script>
 </body>
 </html>

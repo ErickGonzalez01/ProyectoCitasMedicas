@@ -1,9 +1,9 @@
 <div class="contenido">
     <div class="calendario">
         <header>
-            <h2 id="mes">Abirl</h2>
-            <a class="btn-ant"><</a>
-            <a class="btn-pro">></a>
+            <h2 id="mes">Abril</h2>
+            <a class="btn-ant" id="btn-prev"><</a>
+            <a class="btn-pro" id="btn-ant">></a>
         </header>
         <table>
             <thead>
@@ -19,24 +19,6 @@
             </thead>
             <tbody id="dias">
                 <tr>
-                    <td class="mes-anterior">1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td class="dia-actual event">1</td>
-                    <td class="event">2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                </tr>
-                <tr>
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -70,10 +52,30 @@
                     <td>4</td>
                     <td>5</td>
                     <td>6</td>
-                    <td class="proximo-mes">7</td>
+                    <td>7</td>
                 </tr>
-            </tbody>
-            
-        </table>        
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+            </tbody>            
+        </table>
+        <footer>
+            <h2 id="ano">2020</h2>
+        </footer>        
     </div>
 </div>

@@ -13,6 +13,16 @@ body{
     width: 500px;
         
 }
+@media(min-whith:720px){
+    .contenido{
+        left:50%;
+        margin: 0 0 0 -150px;
+        position: absolute;
+        width: 250px;
+            
+    }  
+
+}
 .calendario{
     text-align: center;
 }
