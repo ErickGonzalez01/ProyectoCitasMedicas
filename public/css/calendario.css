@@ -3,31 +3,28 @@
     margin: 0;
     font-family: 'loto',sans-serif;
 }
-body{
-    background: #f1f1f1;
-}
+
 .contenido{
-    left:50%;
-    margin: 0 0 0 -250px;
-    position: absolute;
-    width: 500px;
+    /*left:50%;*/
+    /*margin: 0 0 0 -250px;*/
+    margin: 0 auto;
+    /*position: absolute;*/
+    /*width: 500px;*/
+    /*width: 100px;*/
+    width: auto;
+    /*height: 100px;*/
         
 }
-@media(min-whith:720px){
-    .contenido{
-        left:50%;
-        margin: 0 0 0 -150px;
-        position: absolute;
-        width: 250px;
-            
-    }  
-
+table{
+    width: 200px;
 }
+
 .calendario{
     text-align: center;
 }
 .contenido .calendario header{
     position: relative;
+    margin: 0 auto;
 }
 h2{
     margin-top: 20px;
@@ -37,10 +34,10 @@ h2{
 .btn-ant,.btn-pro{
     position: absolute;
     top: 50%;
-    height: 32px;
-    width: 32px;
-    line-height: 32px;
-    margin-top: -16px;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    margin-top: -12.5px;
     border: 2px solid #cbd1d2;
     border-radius: 50%;
     color: #cbd1d2;
@@ -48,10 +45,10 @@ h2{
     font-weight: bold;
 }
 .btn-ant{
-    left: 80px;
+    left: 0px;
 }
 .btn-pro{
-    right: 80px;
+    right: 0px;
 }
 
 .btn-ant:hover,.btn-pro:hover{
@@ -59,28 +56,30 @@ h2{
     color: #f9f9f9;
 }
 table{
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     border-collapse: collapse;
+    margin:0 auto;
 }
 .calendario thead{
-    background: white;
-    font-weight: 600;
+    background: rgb(223, 223, 226);
+    /*font-weight: 600;*/
     text-transform: uppercase;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
+    /*border-top: 2px solid rgb(19, 125, 224);*/
+    border-bottom: 2px solid rgb(77, 79, 197);
+    
 }
 .calendario thead td{
-    height: 69.4px;
+    height: 40px;
 }
 .calendario thead td:first-child{
-    border-left: 2px solid red;
+    /*border-left: 2px solid rgb(49, 148, 179);*/
 }
 .calendario thead td:last-child{
-    border-right: 2px solid red;
+    /*border-right: 2px solid rgb(25, 102, 153);*/
 }
 .calendario td{
     border: 1px solid #cbd1d2;
-    height: 71.4px;
+    height: 40px;
     text-align: center;
     width: 71.4px;
 }
@@ -122,4 +121,8 @@ table{
 }
 .event.dia-actual:after{
     background: #f9f9f9;
+}
+.paciente_evento{
+    display: flex;
+    justify-content: space-between;
 }
