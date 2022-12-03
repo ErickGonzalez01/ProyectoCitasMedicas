@@ -1,39 +1,92 @@
 <?php
 namespace Model;
-
-use App\ConfigDB;
-
+use App\ConfigDb;
 class Paciente{
 
     protected static $db;
-    
+
     public $id;
     public $cedula;
     public $nombre;
     public $apellido;
     public $fecha_nacimiento;
     public $telefono;
-    public $data;
 
     function __construct($json){          
-        $paciente = json_decode($json,true) ;             
+        $paciente = json_decode($json,true);             
         $this->cedula=$paciente['cedula'];
         $this->nombre=$paciente['nombre'];
         $this->apellido=$paciente['apelldo'];
         $this->fecha_nacimiento=$paciente['fecha_nacimiento'];
-        $this->telefono=$paciente['telefono'];        
-        $this->data = new ConfigDB();
+        $this->telefono=$paciente['telefono'];
     }
 
     public function Crear(){
         $sql="INSERT INTO pacientes(cedula,nombre,apellido,fecha_nacimiento,telefono) VALUE('$this->cedula','$this->nombre','$this->apellido','$this->fecha_nacimiento','$this->telefono')";        
-        $resultado = $this->data->Get()->query($sql);
-        return json_encode($resultado);
+        try {
+            //code...
+            $resultado = ConfigDb::Get()->query($sql);
+            ConfigDb::Close();
+            return json_encode($resultado);
+        } catch (\Throwable $th) {
+            //throw $th;
+            return json_encode($th);
+        }
+       
     }
-    public  function GetPaciente($id){
+    public static  function GetPaciente($id){
         $sql="SELECT * FROM pacientes where id='$id'";
-        $resultado = $this->data->Get()->query($sql);
-        return json_encode($resultado->fetch_array());
+        try {
+            //code...
+            $resultado = ConfigDb::Get()->query($sql);
+            ConfigDb::Close();
+            return \json_encode($resultado->fetch_array(MYSQLI_ASSOC));
+        } catch (\Throwable $th) {
+            return json_encode($th);
+        }      
+    }  
+    public static  function GetAllPaciente(){
+        $sql="SELECT * FROM pacientes";
+        try {
+            //code...
+            $resultado = ConfigDb::Get()->query($sql);
+            ConfigDb::Close();
+            return \json_encode($resultado->fetch_all(MYSQLI_ASSOC));
+        } catch (\Throwable $th) {
+            return json_encode($th);
+        }      
+    }   
+    public static  function Delete($id){
+        $request=json_decode($id,true);
+
+        if($request["id_usuario"]=="1"){
+            $id_usuario=intval($request["id_paciente_delete"]);
+            $sql="DELETE FROM pacientes WHERE id='$id_usuario'";
+            try {
+                //code...
+                $resultado = ConfigDb::Get()->query($sql);
+                ConfigDb::Close();
+                return \json_encode($resultado);
+            } catch (\Throwable $th) {
+                return json_encode($th);
+            } 
+        }else{
+            return "No tiene autorizacion para eliminar";
+        }            
+    }   
+    public static function Busqueda($busqueda){
+        $busq=json_decode($busqueda,true);
+        
+        $sql="DELETE FROM pacientes WHERE id like '%".$busq['busqueda']."%' or nombre like '%".$busq['busqueda']."%'"." or apellido like '%".$busq['busqueda']."%'";
+        /*try {
+            //code...
+            $resultado = ConfigDb::Get()->query($sql);
+            ConfigDb::Close();
+            return \json_encode($resultado);
+        } catch (\Throwable $th) {
+            return json_encode($th);
+        } */
+        return $sql;
     }
 }
 ?>

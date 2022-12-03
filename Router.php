@@ -32,8 +32,7 @@ class Router{
                 echo "<h1>404</h1>";
                 echo "<p>Pagina no encontrada</P>";
             }
-        }
-        
+        }  
     }
     public function Render($view){
         ob_start();

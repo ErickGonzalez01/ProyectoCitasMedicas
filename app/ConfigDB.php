@@ -2,12 +2,19 @@
 namespace App;
 use Exception;
 use mysqli;
-  function ConectarBD():mysqli{       
+
+class ConfigDB{
+    public static function Get(){          
         try {           
             $mysql = new mysqli("localhost","root","","citas");
+            return $mysql;
         } catch (Exception $th) {
-            echo $th;
-        }        
-        return $mysql;
-    } 
+            return $th;
+        }       
+    }
+    public static function Close(){                 
+        self::Get()->Close();      
+    }
+}
+    
 ?>

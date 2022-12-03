@@ -23,7 +23,7 @@ use Model\Paciente;
     //[POST]
     $router->Post("/api/paciente/crear",[PacienteController::class,"Crear"]);
     $router->Post("/api/paciente/delete",[PacienteController::class,"Delete"]);  
-   
+   $router->Post("/api/paciente/busqueda",[PacienteController::class,"Busqueda"]);
     $router->ComprobarRutas();
 
 ?>   
