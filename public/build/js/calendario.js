@@ -116,7 +116,6 @@ let mes_r;
             $("#telefono").val("");
             }else{
                 alert(datos);
-            }
-      
+            }      
         });
     });

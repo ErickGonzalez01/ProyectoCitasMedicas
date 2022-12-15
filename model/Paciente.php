@@ -40,6 +40,8 @@ class Paciente{
             //code...
             $resultado = ConfigDb::Get()->query($sql);
             ConfigDb::Close();
+            header("content-type:aplication/json");
+            http_response_code(200);
             return \json_encode($resultado->fetch_array(MYSQLI_ASSOC));
         } catch (\Throwable $th) {
             return json_encode($th);
@@ -51,6 +53,8 @@ class Paciente{
             //code...
             $resultado = ConfigDb::Get()->query($sql);
             ConfigDb::Close();
+            header("content-type:aplication/json");
+            http_response_code(200);
             return \json_encode($resultado->fetch_all(MYSQLI_ASSOC));
         } catch (\Throwable $th) {
             return json_encode($th);
@@ -66,27 +70,34 @@ class Paciente{
                 //code...
                 $resultado = ConfigDb::Get()->query($sql);
                 ConfigDb::Close();
+                header("content-type:aplication/json");
+                http_response_code(200);
                 return \json_encode($resultado);
             } catch (\Throwable $th) {
                 return json_encode($th);
             } 
         }else{
+            header("content-type:aplication/json");
+            http_response_code(400);
             return "No tiene autorizacion para eliminar";
         }            
     }   
     public static function Busqueda($busqueda){
         $busq=json_decode($busqueda,true);
         
-        $sql="DELETE FROM pacientes WHERE id like '%".$busq['busqueda']."%' or nombre like '%".$busq['busqueda']."%'"." or apellido like '%".$busq['busqueda']."%'";
-        /*try {
+        $sql="SELECT * FROM pacientes WHERE id like '%".$busq["busqueda"]."%' OR nombre LIKE '%".$busq["busqueda"]."%'"." OR apellido LIKE '%".$busq["busqueda"]."%' OR telefono LIKE '%".$busq["busqueda"]."%'";
+        try {
             //code...
             $resultado = ConfigDb::Get()->query($sql);
             ConfigDb::Close();
-            return \json_encode($resultado);
+            header("content-type:aplication/json");
+            http_response_code(200);
+            return \json_encode($resultado->fetch_all(MYSQLI_ASSOC));
         } catch (\Throwable $th) {
+            header("content-type:aplication/json");
+            http_response_code(400);
             return json_encode($th);
-        } */
-        return $sql;
+        }
     }
 }
 ?>

@@ -34,13 +34,16 @@ class Router{
             }
         }  
     }
-    public function Render($view){
+    public function Render($view, $datos=[]){
+        foreach($datos as $key => $value){
+            $$key=$value;
+        }
         ob_start();
         include __DIR__."/view/$view.php";
 
         $contenido= ob_get_clean();
 
-        include __DIR__."/view/calendario.php";
+        include __DIR__."/view/main.php";
 
     }
     public function RenderAPI($response){

@@ -89,8 +89,8 @@
             <form id="form_paciente" method="POST" action="/api/paciente/crear"">
                 <div>
                     <label for="cedula">Cédula:</label>
-                    <input class="form-control" type="text" name="cedula" id="cedula">
-                </div>
+                    <input class="form-control" type="text" name="cedula" id="cedula">                 
+                </div>                    
                 <div>
                     <label for="nombre">Nombre:</label>
                     <input class="form-control" type="text" name="nombre" id="nombre">
@@ -101,15 +101,15 @@
                 </div>
                 <div>
                     <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-                    <input class="form-control" type="" name="fecha_nacimiento" id="fecha_nacimiento">
+                    <input class="form-control" type="date" name="fecha_nacimiento" id="fecha_nacimiento">
                 </div>
                 <div>
                     <label for="telefono">Telefono:</label>
-                    <input class="form-control" type="" name="telefono" id="telefono">
+                    <input class="form-control" type="text" name="telefono" id="telefono">
                 </div>
-                <!--<div>
-                    <label for="fecha">Fecha:</label>
-                    <input class="form-control" type="date" name="fecha" id="fecha">
+                <div>
+                    <label for="fecha">Fecha de la cita:</label>
+                    <input readonly class="form-control" type="date" name="fecha" id="fecha">
                 </div>
                 <div>
                     <label for="now_cite">Elegir hora de cita:</label>
@@ -126,7 +126,7 @@
                         <option value="04:00pm">04:00pm</option>
                         <option value="05:00pm">05:00pm</option>
                     </select>
-                </div>-->
+                </div>
                 <div>
                     <button class="btn btn-primary" type="submit">Enviar</button>
                     <button class="btn btn-secondary" type="delete">Limpiar</button>

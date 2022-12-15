@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>heron</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/build/heron/css/bootstrap.min.css">
+    <!-- owl css 
+    <link rel="stylesheet" href="/build/heron/css/owl.carousel.min.css">-->    
+    <!-- responsive-->
+    <link rel="stylesheet" href="/build/heron/css/responsive.css">
+    <!-- style css estilos propios de la aplicacion--> 
+    <link rel="stylesheet" href="/build/heron/css/style.css">
+    <!-- awesome fontfamily -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="/build/heron/images/loading.gif" alt="" /></div>
+    </div>
+
+    <div class="wrapper">
+        <!-- end loader -->
+
+        <div class="sidebar">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+
+                <div id="dismiss">
+                    <i class="fa fa-arrow-left"></i>
+                </div>
+
+                <ul class="list-unstyled components">
+
+                    <li class="active">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">Reservar cita</a>
+                    </li>
+                    <li>
+                        <a href="service.html">Recervar citas por lote</a>
+                    </li>
+                    <li>
+                        <a href="pricing.html">Citas programadas</a>
+                    </li>
+
+                    <li>
+                        <a href="barbers.html">Reportes</a>
+
+                    </li>
+
+                    <li>
+                        <a href="contact.html">Registrarse</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+        <div id="content">
+            <!-- header -->
+            <header>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="full">
+                                <a class="logo" href="index.html"><img src="/build/heron/images/logo.png" alt="#" /></a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="full">
+                                <div class="right_header_info">
+                                    <ul>
+                                        <li class="dinone"><img style="margin-right: 15px;margin-left: 15px;" src="/build/heron/images/phone_icon.png" alt="#"><a href="#">+505 85487782</a></li>
+                                        <li class="dinone"><img style="margin-right: 15px;" src="/build/heron/images/mail_icon.png" alt="#"><a href="#">correo@correo.com</a></li>
+
+                                        <!--<li class="dinone"><img style="margin-right: 15px;" src="/build/heron/images/search_icon.png" alt="#"></li>-->
+                                        <li class="button_user"> <a class="button" href="#">Reserva ahora</a></li>
+
+                                        <li>
+                                            <button type="button" id="sidebarCollapse">
+                                                <a href="#">MENú</a>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- end header -->
+            <!-- start slider section -->
+            <div class="row">
+                <img class="col" src="/build/heron/images/clinic.jpg">
+                <div class="col container">        
+                    <form id="form_paciente" method="POST" action="/api/paciente/crear"">
+                        <div class="form-group">
+                            <label for=" cedula">Identificacion:</label>
+                            <input class="form-control" type="text" name="cedula" id="cedula">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input class="form-control" type="text" name="nombre" id="nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido:</label>
+                            <input class="form-control" type="text" name="apelldo" id="apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                            <input class="form-control" type="date" name="fecha_nacimiento" id="fecha_nacimiento">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono:</label>
+                            <input class="form-control" type="text" name="telefono" id="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha">Fecha de la cita:</label>
+                            <input class="form-control" type="date" name="fecha" id="fecha">
+                        </div>
+                        <div class="form-group">
+                            <label for="now_cite">Elegir hora de cita:</label>
+                            <select class="form-control" name="new_cite" id="new_cite">
+                                <section></section>
+                                <option value="08:00am">08:00am</option>
+                                <option value="09:00am">09:00am</option>
+                                <option value="10:00am">10:00am</option>
+                                <option value="11:00am">11:00am</option>
+                                <option value="12:00pm">12:00pm</option>
+                                <option value="01:00pm">01:00pm</option>
+                                <option value="02:00pm">02:00pm</option>
+                                <option value="03:00pm">03:00pm</option>
+                                <option value="04:00pm">04:00pm</option>
+                                <option value="05:00pm">05:00pm</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Enviar</button>
+                            <button class="btn btn-secondary" type="delete">Limpiar</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+        <!-- end slider section -->
+    </div>
+    <fooetr>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer_logo">
+                            <a href="index.html"><img src="/build/heron/images/logo1.png" alt="logo" /></a>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="address">
+                            <h3>address</h3>
+                            <p>
+                                Address: 73 Canal Street, New York, NY
+                                <br> Tel: +1 123 456 789
+                                <br> Fax: +1 123 456 789
+                                <br> Email: support@demo.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <ul class="lik">
+
+                            <li> <img src="/build/heron/images/fb.png" alt="#" /></li>
+                            <li> <img src="/build/heron/images/tw.png" alt="#" /></li>
+                            <li> <img src="/build/heron/images/you.png" alt="#" /></li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <p>© 2019 All Rights Reserved. <a href="https://html.design/"> Free Html Templates</a></p>
+                </div>
+            </div>
+        </div>
+
+    </fooetr>
+    <!-- end footer -->
+
+    </div>
+
+    <div class="overlay"></div>
+    <!-- Javascript files-->
+    <script src="/build/heron/js/jquery.min.js"></script>
+    <script src="/build/heron/js/popper.min.js"></script>
+    <script src="/build/heron/js/bootstrap.bundle.min.js"></script>
+    <script src="/build/heron/js/owl.carousel.min.js"></script>
+    <script src="/build/heron/js/custom.js"></script>
+    <script src="/build/heron/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script src="/build/heron/js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function() {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <style>
+        #owl-demo .item {
+            margin: 3px;
+        }
+
+        #owl-demo .item img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

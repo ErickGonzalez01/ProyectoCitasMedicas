@@ -737,14 +737,31 @@
      color: #fff;
      opacity: 1;
 }
+.form-group{
+    margin: 0;
+}
+label{
+    margin-top: 10px;
+}
+.btn{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
  .form-control {
-     border: #00aeef solid 2px;
-     border-radius: inherit;
-     margin-bottom: 25px;
-     padding: 12px 20px;
-     background: #00aeef;
-     color: #fff;
+     border: #b4d6e2 solid 1px;
+     border-radius: 5px;
+     background: #eaf2f5;
+     color: rgb(80, 76, 76);
      font-family: poppins;
+     width: 500px;
+     padding: 2px;
+}
+.form-control-s{
+    border: #b4d6e2 solid 2px;
+    border-radius: 5px;
+    background: #eaf2f5;
+    color: rgb(80, 76, 76);
+    font-family: poppins;
 }
  .form-control:focus {
      box-shadow: inherit;
