@@ -45,7 +45,8 @@
     //Login
     $router->Get("/login",[LoginController::class,"Start"]);
     $router->Post("/api/usuario",[UsuarioController::class,"Usuario"]);
-    $router->Get("/home",[PaguesController::class,"inicio"]);
+    $router->Get("/home",[PaguesController::class,"Home"]);
+    $router->Get("/home/traveler",[PaguesController::class,"Traveler"]);
 
     //   FOOTER
     //==============================
