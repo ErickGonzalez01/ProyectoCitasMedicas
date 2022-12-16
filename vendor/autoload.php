@@ -28,4 +28,5 @@ function debuguear($objeto){
     echo "<pre>";
     var_dump($objeto);
     echo "</pre>";
+    exit;
 }

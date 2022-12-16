@@ -21,7 +21,7 @@
             <div class="card-body">
               <h5 class="card-title">Cito para viajeros</h5>
               <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, mollitia eum debitis earum odio neque voluptate veniam saepe et cumque minus consequatur sit assumenda, laboriosam providen explicabo quam tenetur.</p>
-              <a href="home/traveler" class="btn btn-primary">Programar cita</a>
+              <a href="/traveler" class="btn btn-primary">Programar cita</a>
             </div>
           </div>
         </div>

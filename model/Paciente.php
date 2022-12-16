@@ -1,6 +1,8 @@
 <?php
 namespace Model;
 use App\ConfigDb;
+use mysqli_sql_exception;
+
 class Paciente{
 
     protected static $db;
@@ -12,11 +14,10 @@ class Paciente{
     public $fecha_nacimiento;
     public $telefono;
 
-    function __construct($json){          
-        $paciente = json_decode($json,true);             
+    function __construct($paciente){
         $this->cedula=$paciente['cedula'];
         $this->nombre=$paciente['nombre'];
-        $this->apellido=$paciente['apelldo'];
+        $this->apellido=$paciente['apellido'];
         $this->fecha_nacimiento=$paciente['fecha_nacimiento'];
         $this->telefono=$paciente['telefono'];
     }
@@ -24,15 +25,12 @@ class Paciente{
     public function Crear(){
         $sql="INSERT INTO pacientes(cedula,nombre,apellido,fecha_nacimiento,telefono) VALUE('$this->cedula','$this->nombre','$this->apellido','$this->fecha_nacimiento','$this->telefono')";        
         try {
-            //code...
             $resultado = ConfigDb::Get()->query($sql);
             ConfigDb::Close();
-            return json_encode($resultado);
-        } catch (\Throwable $th) {
-            //throw $th;
-            return json_encode($th);
-        }
-       
+            return $resultado;
+        } catch (mysqli_sql_exception $th) {
+            return $th->getMessage();
+        }       
     }
     public static  function GetPaciente($id){
         $sql="SELECT * FROM pacientes where id='$id'";

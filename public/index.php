@@ -9,6 +9,7 @@
     use Controller\LoginController;
     use Controller\UsuarioController;
     use Controller\PaguesController;
+    use Controller\TravelerController;
 
     $router = new Router();    
     $router->Get('/admin',[PropiedadController::class,"Admin"]);
@@ -45,9 +46,11 @@
     //Login
     $router->Get("/login",[LoginController::class,"Start"]);
     $router->Post("/api/usuario",[UsuarioController::class,"Usuario"]);
-    $router->Get("/home",[PaguesController::class,"Home"]);
-    $router->Get("/home/traveler",[PaguesController::class,"Traveler"]);
-
+    $router->Get("/",[PaguesController::class,"Home"]);
+    $router->Get("/traveler",[TravelerController::class,"Get"]);
+    //$router->Post("/traveler",[PaguesController::class,"CreateTraveler"]);
+    $router->Get("/paciente",[PacienteController::class,"Get"]);
+    $router->Post("/paciente",[PacienteController::class,"Crear"]);
     //   FOOTER
     //==============================
     $router->ComprobarRutas();
