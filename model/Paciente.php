@@ -83,14 +83,15 @@ class Paciente{
     public static function Busqueda($busqueda){
         $busq=json_decode($busqueda,true);
         
-        $sql="SELECT * FROM pacientes WHERE id like '%".$busq["busqueda"]."%' OR nombre LIKE '%".$busq["busqueda"]."%'"." OR apellido LIKE '%".$busq["busqueda"]."%' OR telefono LIKE '%".$busq["busqueda"]."%'";
+        //$sql="SELECT * FROM pacientes WHERE id like '%".$busq["busqueda"]."%' OR nombre LIKE '%".$busq["busqueda"]."%'"." OR apellido LIKE '%".$busq["busqueda"]."%' OR telefono LIKE '%".$busq["busqueda"]."%'";
+        $sql="SELECT * FROM pacientes WHERE cedula LIKE '%".$busq["busqueda"]."%'";
         try {
             //code...
             $resultado = ConfigDb::Get()->query($sql);
             ConfigDb::Close();
             header("content-type:aplication/json");
             http_response_code(200);
-            return \json_encode($resultado->fetch_all(MYSQLI_ASSOC));
+            return json_encode($resultado->fetch_array(MYSQLI_ASSOC));
         } catch (\Throwable $th) {
             header("content-type:aplication/json");
             http_response_code(400);
