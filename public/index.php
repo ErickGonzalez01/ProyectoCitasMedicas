@@ -45,9 +45,15 @@
 
     //Login
     $router->Get("/login",[LoginController::class,"Start"]);
+    $router->Get("/registrate",[LoginController::class,"Registrate"]);
+    $router->Post("/registrate",[LoginController::class,"NuevoUsuario"]);
+    $router->Post("/login",[LoginController::class,"LogIn"]);
+    $router->Get("/cerrar",[LoginController::class,"LogAut"]);
+    //
     $router->Post("/api/usuario",[UsuarioController::class,"Usuario"]);
     $router->Get("/",[PaguesController::class,"Home"]);
     $router->Get("/traveler",[TravelerController::class,"Get"]);
+    $router->Post("/traveler",[TravelerController::class,"Crear"]);
     //$router->Post("/traveler",[PaguesController::class,"CreateTraveler"]);
     $router->Get("/paciente",[PacienteController::class,"Get"]);
     $router->Post("/paciente",[PacienteController::class,"Crear"]);

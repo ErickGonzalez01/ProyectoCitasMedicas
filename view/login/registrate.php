@@ -1,14 +1,15 @@
 <div class="position-absolute top-50 start-50 translate-middle">
-    <?php
-        if(isset($errores)){
-            foreach($errores as $err){
-                echo "<div class=\"alert alert-danger\" role=\"alert\">";
-                echo $err;
-                echo "</div>";
-            }
+    <?php 
+    if(isset($errores)){
+        foreach($errores as $err){
+            echo "<div class=\"alert alert-danger\" role=\"alert\">";
+            echo $err;
+            echo "</div>";
         }
+    }
+        
     ?>
-    <form action="/login" method="post" >
+    <form action="/registrate" method="post" >
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
         <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp">
@@ -16,16 +17,16 @@
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="clave" name="clave">
-    </div>
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+        <input type="password" class="form-control" id="clave1" name="clave1">
     </div>
     <div class="mb-3">
+        <label class="form-label" for="pass2">Comprobar contraseña</label>
+        <input type="password" class="form-control" id="clave2" name="clave2">        
+    </div>
+    <!--<div class="mb-3">
         <a href="#" class="link-primary">¿Olvidaste tu contraseña?</a>
         <a href="#" class="link-primary">¡Registrate!</a>
-    </div>
-    <button type="submit" class="btn btn-primary">Iniciar secion</button>
+    </div>-->
+    <button type="submit" class="btn btn-primary">Registrate</button>
     </form>    
 </div>

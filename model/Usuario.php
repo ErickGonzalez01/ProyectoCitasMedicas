@@ -1,31 +1,35 @@
 <?php
     namespace Model;
     use App\ConfigDB;
-    use mysqli_sql_exception;
+use mysqli;
+use mysqli_sql_exception;
     class Usuario{
         public $correo;
         public $clave;
 
-        public function __construct($json){
-            $decode = json_decode($json,true);
-            $this->correo=$decode["correo"];
-            $this->clave=$decode["clave"];
+        public function __construct($post){
+           
+            $this->correo=$post["correo"];
+            $this->clave=$post["clave"];
         }
-        public function Login(){
-            $sql= "SELECT correo FROM administracion WHERE correo='$this->correo' and clave=MD5('$this->clave')";
+        public function UsuarioExiste(){
+            $sql= "SELECT * FROM administracion WHERE correo='$this->correo' LIMIT 1";
             try {
-                $resultado=ConfigDB::Get()->query($sql)->fetch_array(MYSQLI_ASSOC);
+                $resultado=ConfigDB::Get()->query($sql);                
                 ConfigDB::Close();
-                if($resultado["correo"]===$this->correo){
-                    return true;
-                }
-                header("content-type:aplicacion/json");
-                http_response_code(200);
-                return json_encode($resultado);
+                return $resultado;
             } catch (mysqli_sql_exception $th) {
-                header("content-type:aplicacion/json");
-                http_response_code(200);
-                return json_encode($th->getMessage());
+                return $th->getMessage();
+            }
+        }
+        public function Crear(){
+            $sql = "INSERT INTO administracion() VALUE('$this->correo','$this->clave')";
+            try {
+                $resultado= ConfigDB::Get()->query($sql);
+                ConfigDB::Close();
+                return $resultado;                
+            } catch (mysqli_sql_exception $th) {                
+                return $th->getMessage();
             }
         }
     }

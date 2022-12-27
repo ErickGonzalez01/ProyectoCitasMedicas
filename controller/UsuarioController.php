@@ -4,7 +4,7 @@ use MVC\Router;
 use Model\Usuario;
     class UsuarioController{
         public static function Usuario(Router $router){
-            $usuario = new Usuario(file_get_contents("php://input"));
+            $usuario = new Usuario($_POST);
             if($usuario->Login()==true){
                 session_start();
                 $_SESSION["correo"]=$usuario->correo;

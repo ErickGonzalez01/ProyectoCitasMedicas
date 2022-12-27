@@ -10,31 +10,37 @@ class Router{
         $this->rutasPOST[$url]=$fn;
     }
     public function ComprobarRutas(){
+        session_start();
+        $aut=$_SESSION["login"] ?? null;
+        //debuguear($_SESSION);
+        //var_dump($_SESSION);
+        $rutas_protegidas=["/","/traveler","/paciente"
+        ];
+
         $urlActual =$_SERVER['PATH_INFO']?? "/";
         $metodo = $_SERVER['REQUEST_METHOD'];
+
+        
+
         if($metodo==='GET'){
             $fn = $this->rutasGET[$urlActual] ?? null;
-            if($fn){
-                // La url existe y hay una funcion asociada            
-                call_user_func($fn, $this);            
-            }else{
-                echo "<h1>404</h1>";
-                echo "<p>Pagina no encontrada</P>";
-            }
         }
         if($metodo==='POST'){
             $fn = $this->rutasPOST[$urlActual] ?? null;
-            if($fn){
-                // La url existe y hay una funcion asociada            
-                call_user_func($fn, $this);            
-                //echo "POST";
-            }else{
-                echo "<h1>404</h1>";
-                echo "<p>Pagina no encontrada</P>";
-            }
-        }  
+        } 
+        if(in_array($urlActual,$rutas_protegidas) && !$aut){
+            header("location: /login");
+        }
+        if($fn){          
+            call_user_func($fn, $this);            
+        }else{
+            echo "<h1>404</h1>";
+            echo "<p>Pagina no encontrada</P>";
+        } 
     }
     public function Render($view, $datos=[]){
+        $usuario=$_SESSION["usuario"] ?? "";
+
         foreach($datos as $key => $value){
             $$key=$value;
         }
@@ -48,5 +54,12 @@ class Router{
     }
     public function RenderAPI($response){
         echo $response;
+    }
+    public function RenderElement($element,$datos=[]){
+        foreach($datos as $key => $value){
+            $$key=$value;
+        }
+        ob_start();
+        include __DIR__."/view/$element.php";
     }
 }

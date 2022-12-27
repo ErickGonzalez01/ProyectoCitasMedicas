@@ -6,7 +6,7 @@ use MVC\Router;
 
 class PacienteController{
     public static function Get(Router $router){
-        $router->Render("pagues/paciente");
+        $router->Render("pagues/paciente",["active"=>"paciente"]);
     }
 
     public static function Crear(Router $router){    

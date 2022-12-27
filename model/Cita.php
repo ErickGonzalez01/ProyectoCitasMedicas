@@ -11,12 +11,11 @@ class Cita{
     public $hora_cita;
     public $status_cita;
 
-    public function __construct($citas){
-        $json = json_decode($citas,true);
-        $this->id_paciente =$json["id_paciente"];
-        $this->fecha_registro=$json["fecha_registro"];
-        $this->fecha_cita=$json["fecha_cita"];
-        $this->hora_cita=$json["hora_cita"];
+    public function __construct($cita){        
+        $this->id_paciente =$cita["id_paciente"];
+        $this->fecha_registro=date("Y-m-d");
+        $this->fecha_cita=$cita["fecha_cita"];
+        $this->hora_cita=$cita["hora_cita"];
         $this->status_cita="Activa";
     }
     //Crear una cita
@@ -51,18 +50,12 @@ class Cita{
             $sql = "INSERT INTO citas_medicas(id_paciente,fecha_registro,fecha_cita,hora_cita,status_cita) VALUE('$this->id_paciente','$this->fecha_registro','$this->fecha_cita','$this->hora_cita','$this->status_cita');";
             try {
                 $resultado = ConfigDB::Get()->query($sql);
-                header("Content-Type:aplication/json");
-                http_response_code(200);
-                return json_encode($resultado);                          
+                return $resultado;                          
             } catch (mysqli_sql_exception $th) {            
-                header("Content-Type:aplication/json");
-                http_response_code(404);
-                return json_encode($th->getMessage());                
+                return $th->getMessage();                
             }
          }else{
-            header("content-type:aplication/json");
-            http_response_code(400);
-            return "no hay citas disponibles";
+            return false;
          }
         
     }

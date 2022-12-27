@@ -5,7 +5,7 @@ use MVC\Router;
 class CitaController{
     //POST
     public static function Crear(Router $router){
-        $cita = new Cita(file_get_contents("php://input"));
+        $cita = new Cita($_POST);
         $router->RenderAPI($cita->Crear());
     }
     //GET

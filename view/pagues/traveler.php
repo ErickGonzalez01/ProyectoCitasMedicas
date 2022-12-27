@@ -1,18 +1,34 @@
 <div class="container">
-    <form name="paciente" id="paciente">
+    <?php  
+    if(isset($status)||isset($errores)){  
+        if($status===true){
+            foreach($errores as $err){
+                echo "<div class=\"alert alert-primary\" role=\"alert\">".$err."</div>";
+            }
+            
+        }else{
+            foreach($errores as $err){
+                echo "<div class=\"alert alert-danger\" role=\"alert\">".$err."</div>";
+            }
+            
+        }
+    }
+    
+    ?>
+    <form method="POST" action="/traveler">
         <div class="row">
             <div class="col">
                 <div class="mb-4">
                     <label for="exampleInputEmail1" class="form-label">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="id_paciente" name="id_paciente" readonly>
                 </div>
                 <div class="mb-4">
                     <label for="exampleInputEmail1" class="form-label">Numero de cedula</label>
-                    <input type="text" class="form-control" id="cedula" name="cedula" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="cedula" name="cedula">
                 </div>
                 <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre">
+                    <input type="text" class="form-control" id="nombre" name="nombre" readonly>
                 </div>
             </div>
             <div class="col">
@@ -22,7 +38,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Hora de la cita</label>
-                    <input type="time" class="form-control" id="exampleInputPassword1" name="nombre">
+                    <input type="time" class="form-control" id="exampleInputPassword1" name="hora_cita">
                 </div>                
             </div>
         </div>
@@ -32,7 +48,7 @@
 
     <script src="/build/js/jquery.js"></script>
     <script>
-        let consts=0;
+        //let consts=0;
         $("#cedula").keyup(function(e) {
             
             if($("#cedula").val().length==16){
@@ -47,20 +63,20 @@
                     type:"post",
                     data: json
                 }).done(function(response){
-                    console.log(consts)
-                    console.log(response);
-                    consts++;    
+                    //console.log(consts)
+                    //console.log(response);
+                    //consts++;    
 
                     if(response!=null){
                         //Recuperar valor
                         $("#nombre").val(response.nombre + " " + response.apellido);
-                        $("#id").val(response.id);
+                        $("#id_paciente").val(response.id);
 
                         //Inhabilitar elementos
-                        console.log("Inhabilitar");
-                        $("#id").prop("disabled",true);
-                        $("#cedula").prop("disabled",true);
-                        $("#nombre").prop("disabled",true);
+                        //console.log("Inhabilitar");
+                        //$("#id_paciente").prop("disabled",true);
+                        //$("#cedula").prop("disabled",true);
+                        //$("#nombre").prop("disabled",true);
 
                         //Focus
                         $("#fecha_cita").focus();
