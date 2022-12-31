@@ -10,10 +10,10 @@
             header("location: /login");
         }
         public static function Start(Router $router){
-            $router->Render("login/login");
+            $router->RenderPague("login/login");
         }
         public static function Registrate(Router $router){
-            $router->Render("login/registrate");
+            $router->RenderPague("login/registrate");
         }
         public static function NuevoUsuario(Router $router){
             $correo=$_POST["correo"];
@@ -46,10 +46,10 @@
                     header("location: /login");
                 }else{
                     $errores[]=$estado;
-                    $router->Render("login/registrate",$errores);
+                    $router->RenderPague("login/registrate",$errores);
                 }
             }else{
-                $router->Render("login/registrate",["errores"=>$errores]);
+                $router->RenderPague("login/registrate",["errores"=>$errores]);
             }
         }
         public static function LogIn(Router $router){
@@ -82,7 +82,7 @@
 
             }
             if(!empty($errores)){
-                $router->Render("login/login",["errores"=>$errores]);
+                $router->RenderPague("login/login",["errores"=>$errores,"post"=>$_POST]);
             }
         }
     }

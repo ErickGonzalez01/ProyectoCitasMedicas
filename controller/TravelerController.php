@@ -2,11 +2,16 @@
 namespace Controller;
 use MVC\Router;
 use Model\Cita;
+use Model\Servicio;
 
 class TravelerController{
+    //[Router("/traveler"),Method("GET")]
     public static function Get(Router $router){
-        $router->Render("pagues/traveler");
+        $servicios=Servicio::Listar();
+        $router->Render("pagues/traveler",["sider"=>["cita"=>"active"],"servicios"=>$servicios]);
     }
+
+    //[Router("/traveler"),Method("POST")]
     public static function Crear(Router $router){
         //debuguear($_POST);
         $id_paciente=$_POST["id_paciente"];

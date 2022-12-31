@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="build/bootstrap/css/bootstrap.css">
+    <title>Document</title>
+</head>
+<body>
 <div class="position-absolute top-50 start-50 translate-middle">
     <?php
         if(isset($errores)){
@@ -24,8 +34,10 @@
     </div>
     <div class="mb-3">
         <a href="#" class="link-primary">¿Olvidaste tu contraseña?</a>
-        <a href="#" class="link-primary">¡Registrate!</a>
+        <a href="/registrate" class="link-primary">¡Registrate!</a>
     </div>
     <button type="submit" class="btn btn-primary">Iniciar secion</button>
     </form>    
 </div>
+</body>
+</html>

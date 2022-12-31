@@ -22,8 +22,8 @@
             </div>
 
             <ul class="list-unstyled px-2">
-                <li id="cita" class=""><a class="text-decoration-none px-3 py-2 d-block" href="/traveler"><i class="fal fa-home"></i>Registrar cita</a></li>
-                <li id="paciente" class=""><a class="text-decoration-none px-3 py-2 d-block" href="/paciente"><i class="fal fa-home"></i>Registrar paciente</a></li>
+                <li id="cita" class="<?php echo $sider["cita"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/traveler"><i class="fal fa-home"></i>Registrar cita</a></li>
+                <li id="paciente" class="<?php echo $sider["paciente"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/paciente"><i class="fal fa-home"></i>Registrar paciente</a></li>
                 <li class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i>citas programadas</a></li>
                 <li class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i>lorem</a></li>
                 <li class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i>lorem</a></li>
@@ -52,19 +52,16 @@
                     </div>
                 </nav>
             </div>
-            <div class="container">
-                <hr>
-                <div id="cargar">
-                    <?php echo $contenido; ?>
-                </div>
+            <div id="cargar" class="container">
+                <?php echo $contenido; ?>
             </div>
         </div>
     </div>
     <script>
-        $(".sidebar ul li").on("click", function() {
+        /*$(".sidebar ul li").on("click", function() {
             $(".sidebar ul li.active").removeClass("active");
             $(this).addClass("active");
-        });
+        });*/
         //$(document).ready(function(){
         /*$("#cita").on("click", function() {
             $("#cargar").empty();

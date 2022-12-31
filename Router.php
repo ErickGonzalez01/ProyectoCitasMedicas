@@ -62,4 +62,10 @@ class Router{
         ob_start();
         include __DIR__."/view/$element.php";
     }
+    public function RenderPague($view, $datos=[]){
+        foreach($datos as $key => $value){
+            $$key=$value;
+        }
+        include __DIR__."/view/$view.php";
+    }
 }

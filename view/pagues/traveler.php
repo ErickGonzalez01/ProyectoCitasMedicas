@@ -1,21 +1,39 @@
-<div class="container">
-    <?php  
-    if(isset($status)||isset($errores)){  
-        if($status===true){
-            foreach($errores as $err){
-                echo "<div class=\"alert alert-primary\" role=\"alert\">".$err."</div>";
+<div>
+    <p class="text-warning bg-dark">Programar cita</p>
+    <?php
+    if (isset($status) || isset($errores)) {
+        if ($status === true) {
+            foreach ($errores as $err) {
+                echo "<div class=\"alert alert-primary\" role=\"alert\">" . $err . "</div>";
             }
-            
-        }else{
-            foreach($errores as $err){
-                echo "<div class=\"alert alert-danger\" role=\"alert\">".$err."</div>";
+        } else {
+            foreach ($errores as $err) {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">" . $err . "</div>";
             }
-            
         }
     }
-    
+
     ?>
     <form method="POST" action="/traveler">
+        <div class="row">
+            <div class="col">
+                <div class="mb-6">
+                    <h3>Servicio</h3>
+                    <hr>
+                    <label for="servicio">Seleccione el tipo de cita</label>
+                    <select name="servicio" id="">
+                        <?php
+                        foreach ($servicios as $ser) {
+                            echo "<option value=" . $ser["id"] . ">" . $ser["nombre_servicio"] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3>Programar cita</h3>
+        <hr>
         <div class="row">
             <div class="col">
                 <div class="mb-4">
@@ -39,7 +57,7 @@
                 <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Hora de la cita</label>
                     <input type="time" class="form-control" id="exampleInputPassword1" name="hora_cita">
-                </div>                
+                </div>
             </div>
         </div>
         <button id="enviar" type="submit" class="btn btn-primary">Programar cita</button>
@@ -50,24 +68,24 @@
     <script>
         //let consts=0;
         $("#cedula").keyup(function(e) {
-            
-            if($("#cedula").val().length==16){
+
+            if ($("#cedula").val().length == 16) {
 
                 let busqueda = new Object();
-                busqueda.busqueda=$("#cedula").val();
-            
+                busqueda.busqueda = $("#cedula").val();
+
                 let json = JSON.stringify(busqueda);
 
                 $.ajax({
-                    url:"/api/paciente/busqueda",
-                    type:"post",
+                    url: "/api/paciente/busqueda",
+                    type: "post",
                     data: json
-                }).done(function(response){
+                }).done(function(response) {
                     //console.log(consts)
                     //console.log(response);
                     //consts++;    
 
-                    if(response!=null){
+                    if (response != null) {
                         //Recuperar valor
                         $("#nombre").val(response.nombre + " " + response.apellido);
                         $("#id_paciente").val(response.id);
@@ -83,7 +101,7 @@
                     }
                 });
             }
-           
+
         });
     </script>
 </div>

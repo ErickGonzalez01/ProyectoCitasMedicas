@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="build/bootstrap/css/bootstrap.css">
+    <title>Document</title>
+</head>
+<body>
 <div class="position-absolute top-50 start-50 translate-middle">
     <?php 
     if(isset($errores)){
@@ -30,3 +40,5 @@
     <button type="submit" class="btn btn-primary">Registrate</button>
     </form>    
 </div>
+</body>
+</html>
