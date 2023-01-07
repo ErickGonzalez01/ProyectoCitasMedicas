@@ -31,7 +31,7 @@ class TravelerController{
 
         if(empty($errores)){
             $cita = new Cita(["id_paciente"=>$id_paciente,"fecha_cita"=>$fecha_cita,"hora_cita"=>$hora_cita]);
-            $status=$cita->Crear();
+            $status=$cita->Crearcitas();
             if($status){
                 $status=true;
                 $errores[]="Se guardo con exito el paciente";
