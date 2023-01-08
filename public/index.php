@@ -57,6 +57,8 @@
     //$router->Post("/traveler",[PaguesController::class,"CreateTraveler"]);
     $router->Get("/paciente",[PacienteController::class,"Get"]);
     $router->Post("/paciente",[PacienteController::class,"Crear"]);
+
+    $router->Get("/listarcitas",[CitaController::class,"Listar_Citas_Star"]);
     //   FOOTER
     //==============================
     $router->ComprobarRutas();

@@ -1,5 +1,4 @@
 <div>
-    <p class="text-warning bg-dark">Programar cita</p>
     <?php
     if (isset($status) || isset($errores)) {
         if ($status === true) {
@@ -14,54 +13,45 @@
     }
 
     ?>
+    <br>
     <form method="POST" action="/traveler">
         <div class="row">
-            <div class="col">
-                <div class="mb-6">
-                    <h3>Servicio</h3>
-                    <hr>
+            <div>
+                <div>
                     <label for="servicio">Seleccione el tipo de cita</label>
-                    <select name="servicio" id="">
+                    <select name="id_servicio" id="servicio">
                         <?php
-                        foreach ($servicios as $ser) {
-                            echo "<option value=" . $ser["id"] . ">" . $ser["nombre_servicio"] . "</option>";
-                        }
+                            foreach ($servicios as $ser) {
+                                echo "<option value=" . $ser["id"] . ">" . $ser["nombre_servicio"] . "</option>";
+                            }
                         ?>
                     </select>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleInputEmail1" class="form-label">ID</label>
+                        <input type="text" class="form-control" id="id_paciente" name="id_paciente" readonly>
+                    </div>
+                    <div class="col">
+                        <label for="exampleInputEmail1" class="form-label">Numero de cedula</label>
+                        <input type="text" class="form-control" id="cedula">
+                    </div>
+                    <div class="col">
+                        <label for="exampleInputPassword1" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" readonly>
+                    </div>
+                    <div class="col">
+                        <label for="exampleInputEmail1" class="form-label">Fecha de la cita</label>
+                        <input type="date" class="form-control" id="fecha_cita" name="fecha_cita" aria-describedby="emailHelp">
+                    </div>
+                </div>                
             </div>
         </div>
-        <hr>
-        <h3>Programar cita</h3>
-        <hr>
-        <div class="row">
-            <div class="col">
-                <div class="mb-4">
-                    <label for="exampleInputEmail1" class="form-label">ID</label>
-                    <input type="text" class="form-control" id="id_paciente" name="id_paciente" readonly>
-                </div>
-                <div class="mb-4">
-                    <label for="exampleInputEmail1" class="form-label">Numero de cedula</label>
-                    <input type="text" class="form-control" id="cedula" name="cedula">
-                </div>
-                <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" readonly>
-                </div>
-            </div>
-            <div class="col">
-                <div class="mb-4">
-                    <label for="exampleInputEmail1" class="form-label">Fecha de la cita</label>
-                    <input type="date" class="form-control" id="fecha_cita" name="fecha_cita" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Hora de la cita</label>
-                    <input type="time" class="form-control" id="exampleInputPassword1" name="hora_cita">
-                </div>
-            </div>
+        <br>
+        <div>
+            <button id="enviar" type="submit" class="btn btn-primary">Programar cita</button>
+            <button id="enviar" type="reset" class="btn btn-primary">Cancelar</button>
         </div>
-        <button id="enviar" type="submit" class="btn btn-primary">Programar cita</button>
-        <button id="enviar" type="reset" class="btn btn-primary">Cancelar</button>
     </form>
 
     <script src="/build/js/jquery.js"></script>

@@ -13,11 +13,13 @@ class TravelerController{
 
     //[Router("/traveler"),Method("POST")]
     public static function Crear(Router $router){
-        //debuguear($_POST);
+        //debuguear($_POST);        
         $id_paciente=$_POST["id_paciente"];
-        $fecha_cita=$_POST["fecha_cita"];
-        $hora_cita=$_POST["hora_cita"];
+        $id_servicio=$_POST["id_servicio"];
+        $fecha_cita=$_POST["fecha_cita"];        
         $errores=[];
+
+        //debuguear($_POST);
 
         if(empty($id_paciente)){
             $errores[]="El id del paciente es requerido";
@@ -25,25 +27,26 @@ class TravelerController{
         if(empty($fecha_cita)){
             $errores[]="El campo fecha de la cita es requerido";
         }
-        if(empty($hora_cita)){
-            $errores[]="Debe especificar una hora valida";
+        if(empty($id_servicio)){
+            $errores[]="Debe seleccionar un servicio especifico";
         }
-
+        $servicios=Servicio::Listar();
         if(empty($errores)){
-            $cita = new Cita(["id_paciente"=>$id_paciente,"fecha_cita"=>$fecha_cita,"hora_cita"=>$hora_cita]);
+            $cita = new Cita($_POST);
             $status=$cita->Crearcitas();
-            if($status){
-                $status=true;
-                $errores[]="Se guardo con exito el paciente";
-                $router->Render("pagues/traveler",["status"=>$status,"errores"=>$errores]);
+            if($status===true){
+                $errores[]="Se guardo con exito la cita";
+                $router->Render("pagues/traveler",["status"=>$status,"errores"=>$errores,"servicios"=>$servicios]);
+            }elseif($status===false){
+                $errores[]="No hay citas disponibles";                
+                $router->Render("pagues/traveler",["status"=>false,"errores"=>$errores,"servicios"=>$servicios]);
             }else{
-                $status=false;
-                $errores[]="No hay citas disponibles";
-                $router->Render("pagues/traveler",["status"=>$status,"errores"=>$errores]);
+                $errores[]=$status;                
+                $router->Render("pagues/traveler",["status"=>false,"errores"=>$errores,"servicios"=>$servicios]);
             }
         }else{
-            $status=false;
-            $router->Render("pagues/traveler",["status"=>$status,"errores"=>$errores]);
+            $status=false;            
+            $router->Render("pagues/traveler",["status"=>$status,"errores"=>$errores,"servicios"=>$servicios,"form"=>$_POST]);
         }      
     }
 }

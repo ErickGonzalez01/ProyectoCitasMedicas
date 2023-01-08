@@ -21,16 +21,13 @@ class Cita
     public $ciclo_servicio;
 
     public function __construct($cita)
-    { // implementar real escape mas adelante         
-        $this->id_paciente = $cita["id_paciente"] ?? "";
+    { // implementar real escape mas adelante 
+        $this->id_paciente=$cita["id_paciente"];
         $this->id_servicio = $cita["id_servicio"]?? "";
-        $this->fecha_registro = date("Y-m-d")?? "";
+        $this->fecha_registro = date("Y-m-d");
         $this->fecha_cita = $cita["fecha_cita"]?? "";
-        $this->hora_cita = $cita["hora_cita"]?? "";
         $this->status_cita = "Activa"?? "";
-        $this->duracion_cita = $cita["duracion_cita"]?? "";
-        $this->citas_lote = $cita["citas_lote"]?? "";
-        $this->ciclo_servicio = $cita["ciclo_servicio"]?? "";
+        $this->citas_lote = $cita["citas_lote"]?? 0;
     }
   
     private function Establecer_Hora_De_La_Cita($fecha_cita,$id_servicio,$ciclo){
@@ -62,16 +59,16 @@ class Cita
         $servicio_duracion=intval($servicio->duracion_cita);
         $hora_fija="";
         $i=1;
-        $errores=[];
-        $dia_de_la_semana=["Lunes","Martes","Miercoles","Jueves","viernes","Sabado","Domingo"];
+        $estado=true;
+        $ciclo_actual="";
         while(true){
-            if($this->Establecer_Hora_De_La_Cita("2023-01-03",1,$i)==null){
+            if($this->Establecer_Hora_De_La_Cita($this->fecha_cita,$this->id_servicio,$i)==null){
                 $hora_fija=$servicio->hora_inicio_servicio;
                 break;
             }else{
-                $max_hora= $this->Establecer_Hora_De_La_Cita("2023-01-03",1,$i);
+                $max_hora= $this->Establecer_Hora_De_La_Cita($this->fecha_cita,$this->id_servicio,$i);
                 $val=strtotime($max_hora) + ($servicio_duracion*60);
-                $dateval=date("h:i:sa",$val);
+                //$dateval=date("h:i:sa",$val);
                 if($val < strtotime($servicio_hora_final)){
                     $datetime= date($max_hora);
                     $date_mas1mm = date("h:i:sa",strtotime($datetime."+1 minute"));
@@ -80,14 +77,14 @@ class Cita
                 }else{
                     if(date("N",strtotime("2023-01-01"))>5){
                         if($servicio_ciclo_fin_de_semana>$i){
-                            $errores[]="No hay citas disponibles en la fecha selecionada";
+                            $estado=false;
                             break;
                         }
                         $i++;
                     }
                     if(date("N",strtotime("2023-01-01"))<=5){
                         if($servicio_ciclo_dia>$i){
-                            $errores[]="No hay citas disponibles en la fecha selecionada";
+                            $estado=false;
                             break;
                         }
                         $i++;
@@ -96,61 +93,20 @@ class Cita
                 }
             }             
         } 
-        //Validacion de campos a guardar
-        $id=$this->id;
-        $id_paciente=$this->id_paciente;
-        $id_servicio=$this->id_servicio;
-        $fecha_registro=$this->fecha_registro;
-        $fecha_cita=$this->fecha_cita;
-        $hora_cita=$this->hora_cita;
-        $status_cita=$this->status_cita;
-        $duracion_cita=$this->duracion_cita;
-        $citas_lote=$this->citas_lote;
-        $ciclo_servicio=$this->ciclo_servicio;
-
-        if(empty($id_paciente)){
-            $errores[]="id del paciente esta vacio";
-        }
-        if(empty($id_servicio)){
-            $errores[]="id del servicio esta vacio";
-        }
-        if(empty($fecha_registro)){
-            $errores[]="No se encontro fech de registro";
-        }
-        if(empty($fecha_cita)){
-            $errores[]="No hay fecha de cita";
-        }
-        if(empty($hora_cita)){
-            $errores[]="hora de cita esta vacio";
-        }
-        if(empty($status_cita)){
-            $errores[]="estado de la cita esta vacio";
-        }
-        if(empty($duracion_cita)){
-            $errores[]="duracion de la cita no establecido";
-        }
-        if(empty($citas_lote)){
-            $errores[]="citas por lote no existe";
-        }
-        if(empty($ciclo_servicio)){
-            $errores[]="ciclo del servicio desconocido";
-        }
-
-        $errores[]="inicio del servicio =>".$servicio->hora_inicio_servicio;
-
-        $errores[]="Ciclo del servicio =>".$i;
-
-        $errores[]="hora de la cita =>". $hora_fija;
-
-        $errores[]="03-01-2023";
+        //Insertar nueva cita
+        $sql="INSERT INTO citas_medicas(id_paciente,id_servicio,fecha_registro,fecha_cita,hora_cita,status_cita,duracion_cita,ciclo_servicio) VALUE($this->id_paciente,$this->id_servicio,'$this->fecha_registro','$this->fecha_cita','$hora_fija','$this->status_cita',$servicio_duracion,$i)";
         
-        $errores[]="Horin fin del servicio =>". date("h:i:sa",strtotime($servicio_hora_final));
-
-        $errores[]=date("h:i:sa",strtotime($max_hora));
-
-        debuguear($errores);
-
-
+        if($estado){
+            try {
+                $resultado=ConfigDB::Get()->query($sql);
+                return $resultado;
+            } catch (mysqli_sql_exception $th) {
+                $resultado=$th->getMessage();
+                return $resultado;
+            }
+        }else{
+            return $estado;
+        }
     }
 
     public function CrearCitasPorLotes()
@@ -170,5 +126,14 @@ class Cita
             http_response_code(404);
             return json_encode($th->getMessage());
         }
+    }
+    public static function Busqueda($argumentos=[]){
+        $sql="SELECT * FROM citas_medicas WHERE fecha_cita='2023-01-03'";
+        /*foreach($argumentos as $parametro=> $value){
+            $sql += $$parametro."=".$value . "";
+        }*/
+        $resultado = ConfigDB::Get()->query($sql);
+        $array_citas_get = $resultado->fetch_all(MYSQLI_ASSOC);
+        return $array_citas_get;
     }
 }
