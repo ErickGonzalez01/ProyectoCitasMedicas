@@ -14,7 +14,7 @@ class CitaController{
 
     public static function Listar_Citas_Star(Router $router){
         $lista_de_citas = Cita::Busqueda();
-        $router->RenderElement("pagues/listar_citas",$lista_de_citas);
+        $router->Render("pagues/listar_citas",["citas"=>$lista_de_citas,"sider"=>["citas_programadas"=>"active"]]);
     }
 }
 

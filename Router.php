@@ -14,8 +14,7 @@ class Router{
         $aut=$_SESSION["login"] ?? null;
         //debuguear($_SESSION);
         //var_dump($_SESSION);
-        $rutas_protegidas=["/","/traveler","/paciente"
-        ];
+        $rutas_protegidas=["/","/traveler","/paciente","/listarcitas"];
 
         $urlActual =$_SERVER['PATH_INFO']?? "/";
         $metodo = $_SERVER['REQUEST_METHOD'];
