@@ -11,6 +11,7 @@
                     <th class="col">Fecha de la cita</th>
                     <th class="col">Hora</th>
                     <th class="col">Estado</th>
+                    <th class="col">Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +27,12 @@
                             echo "<td>".$cita["fecha_cita"]."</td>";
                             echo "<td>".$cita["hora_cita"]."</td>";
                             echo "<td>".$cita["status_cita"]."</td>";
+                            echo "<td>
+                                <form>
+                                    <a class=\"btn btn-secundary\" type=\"submit\" href=\"#\"></a>
+                                    <a class=\"btn btn-primary\" type=\"submit\" href=\"#\"></a>
+                                </form>
+                                </td>";
                             echo "</tr>";
                         }
                     }       

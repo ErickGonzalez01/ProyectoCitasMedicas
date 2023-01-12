@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="build/css/styles.css">
+    <link rel="stylesheet" href="build/css/app.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <!--<script src="build/bootstrap/js/bootstrap.bundle.min.js"></script>-->
     <script src="build/js/jquery.js"></script>
@@ -22,13 +21,13 @@
             </div>
 
             <ul class="list-unstyled px-2">
-                <li id="cita" class="<?php echo $sider["cita"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/traveler"><i class="fal fa-home"></i>Registrar cita</a></li>
+                <li id="cita" class="<?php echo $sider["cita"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/traveler"><i class="bi bi-whatsapp"></i> Registrar cita</a></li>
                 <li id="paciente" class="<?php echo $sider["paciente"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/paciente"><i class="fal fa-home"></i>Registrar paciente</a></li>
                 <li class="<?php echo $sider["citas_programadas"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/listarcitas"><i class="fal fa-home"></i>Citas programadas</a></li>
                 <li class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i>lorem</a></li>
                 <li class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i>lorem</a></li>
             </ul>
-            <hr class="h-color mx-3">
+            <hr class="h-css">
             <ul class="list-unstyled px-2">
                 <li class=""><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i>Prolife</a></li>
             </ul>
@@ -76,6 +75,7 @@
 
         //});
     </script>
+    <script src="build/js/bootstrap.min.js"></script>
 
 </body>
 
