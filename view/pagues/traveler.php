@@ -15,11 +15,11 @@
     ?>
     <br>
     <form method="POST" action="/traveler">
-        <div class="row">
+        <div>
             <div>
-                <div>
-                    <label for="servicio">Seleccione el tipo de cita</label>
-                    <select name="id_servicio" id="servicio">
+                <div class="row g-3">
+                    <label class="col-md-6" for="servicio">Seleccione el tipo de cita</label>
+                    <select class="col-md-6" name="id_servicio" id="servicio">
                         <?php
                             foreach ($servicios as $ser) {
                                 echo "<option value=" . $ser["id"] . ">" . $ser["nombre_servicio"] . "</option>";
@@ -27,20 +27,20 @@
                         ?>
                     </select>
                 </div>
-                <div class="row">
-                    <div class="col">
+                <div class="row g-3">
+                    <div class="col-md-4">
                         <label for="exampleInputEmail1" class="form-label">ID</label>
                         <input type="text" class="form-control" id="id_paciente" name="id_paciente" readonly>
                     </div>
-                    <div class="col">
+                    <div class="col-md-4">
                         <label for="exampleInputEmail1" class="form-label">Numero de cedula</label>
                         <input type="text" class="form-control" id="cedula">
                     </div>
-                    <div class="col">
+                    <div class="col-md-4">
                         <label for="exampleInputPassword1" class="form-label">Nombre:</label>
                         <input type="text" class="form-control" id="nombre" readonly>
                     </div>
-                    <div class="col">
+                    <div class="col-md-4">
                         <label for="exampleInputEmail1" class="form-label">Fecha de la cita</label>
                         <input type="date" class="form-control" id="fecha_cita" name="fecha_cita" aria-describedby="emailHelp">
                     </div>

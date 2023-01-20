@@ -59,6 +59,8 @@
     $router->Post("/paciente",[PacienteController::class,"Crear"]);
 
     $router->Get("/listarcitas",[CitaController::class,"Listar_Citas_Star"]);
+    $router->Post("/listarcitas",[CitaController::class,"Filtro"]);
+    $router->Post("/api/listarcitas",[CitaController::class,"Filtro"]);
     //   FOOTER
     //==============================
     $router->ComprobarRutas();

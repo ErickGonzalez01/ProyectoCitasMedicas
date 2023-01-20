@@ -21,9 +21,9 @@
             </div>
 
             <ul class="list-unstyled px-2">
-                <li id="cita" class="<?php echo $sider["cita"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/traveler"><i class="bi bi-whatsapp"></i> Registrar cita</a></li>
-                <li id="paciente" class="<?php echo $sider["paciente"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/paciente"><i class="fal fa-home"></i>Registrar paciente</a></li>
-                <li class="<?php echo $sider["citas_programadas"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/listarcitas"><i class="fal fa-home"></i>Citas programadas</a></li>
+                <li id="cita" class="<?php echo $sider["cita"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/traveler"><i class="bi bi-file-earmark-plus-fill"></i> Registrar cita</a></li>
+                <li id="paciente" class="<?php echo $sider["paciente"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/paciente"><i class="bi bi-person-plus"></i> Registrar paciente</a></li>
+                <li class="<?php echo $sider["citas_programadas"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/listarcitas"><i class="bi bi-card-checklist"></i> Citas programadas</a></li>
                 <li class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i>lorem</a></li>
                 <li class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i>lorem</a></li>
             </ul>

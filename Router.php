@@ -51,8 +51,9 @@ class Router{
         include __DIR__."/view/main.php";
 
     }
-    public function RenderAPI($response){
-        echo $response;
+    public function RenderAPI(string $json){
+        header("content-type:application/json");
+        echo $json;
     }
     public function RenderElement($element,$datos=[]){
         foreach($datos as $key => $value){

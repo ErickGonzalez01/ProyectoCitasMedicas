@@ -38,7 +38,7 @@
         <div class="col-md-6">
             <label for="exampleInputPassword1" class="form-label">Telefono:</label>
             <input type="phone" class="form-control" id="telefono" name="telefono" value="<?php echo $post["telefono"] ?? "" ?>">
-        </div class="mb-4">
+        </div>
         <div class="d-inline-flex p-2 bd-highlight">
             <button type="submit" class="btn btn-primary">Guardar paciente</button>
         </div>

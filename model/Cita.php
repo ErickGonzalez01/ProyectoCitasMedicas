@@ -48,8 +48,7 @@ class Cita
         $resultado = ConfigDB::Get()->query($sql_ciclo_servicio);
         $obj_ciclo_servicio = $resultado->fetch_object();
         return $obj_ciclo_servicio;
-    }
-    
+    }    
     public function Crearcitas(){
         date_default_timezone_set("America/Managua");
         $servicio=$this->Consultar_Servicio(1); //objeto servicio
@@ -98,7 +97,10 @@ class Cita
         
         if($estado){
             try {
-                $resultado=ConfigDB::Get()->query($sql);
+                //$resultado=ConfigDB::Get()->query($sql);
+                $conn=ConfigDB::Get();
+                $resultado = $conn->query($sql);  //->query($sql);
+                $id = $conn->insert_id;
                 return $resultado;
             } catch (mysqli_sql_exception $th) {
                 $resultado=$th->getMessage();
@@ -108,12 +110,9 @@ class Cita
             return $estado;
         }
     }
-
-    public function CrearCitasPorLotes()
-    {
+    public function CrearCitasPorLotes(){
     }
-    public static function Listar()
-    {
+    public static function Listar(){
         $sql = "select *from citas_medicas";
         try {
             $result = ConfigDB::Get()->query($sql);
@@ -136,4 +135,41 @@ class Cita
         $array_citas_get = $resultado->fetch_all(MYSQLI_ASSOC);
         return $array_citas_get;
     }
+    public static function Filtro($parametro=[]){
+        //debuguear($parametro);
+
+        $sql="select cm.id, p.nombre, p.apellido, s.nombre_servicio, cm.fecha_registro, cm.fecha_cita, cm.hora_cita, cm.status_cita from citas_medicas as cm inner join servicios as s on cm.id_servicio = s.id inner join pacientes as p on cm.id_paciente=p.id";
+        
+        if(!empty($parametro[0]) || !empty($parametro[1]) || !empty($parametro[2])){ //agregando el where
+            $sql.=" where";
+        }
+
+        if(!empty($parametro[0])){ //fecha
+            $sql.=" cm.fecha_cita='".$parametro[0]."'";              
+        }
+
+        if(!empty($parametro[1])){ //servicio  
+            if(!empty($parametro[0])){
+                $sql.=" and cm.id_servicio='".$parametro[1]."'";
+            }else{
+                $sql.=" cm.id_servicio='".$parametro[1]."'";
+            }         
+            
+        }
+
+        if(!empty($parametro[2])){ //busqueda
+            if(!empty($parametro[0]) || !empty($parametro[1])){
+                $sql.=" and p.nombre like '%".$parametro[2]."%' or p.apellido like '%".$parametro[2]."%'"; 
+            }else{
+                $sql.=" p.nombre like '%".$parametro[2]."%' or p.apellido like '%".$parametro[2]."%'"; 
+            }    
+        }
+
+        $respuesta=ConfigDB::Get()->query($sql);
+
+        $array = $respuesta->fetch_all(MYSQLI_ASSOC);
+
+        return $array; //debuguear($array);
+    }
+    
 }
