@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="build/css/app.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <!--<script src="build/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-    <script src="build/js/jquery.js"></script>
     <title>Citas Medicas</title>
 </head>
 
@@ -57,25 +56,11 @@
         </div>
     </div>
     <script>
-        /*$(".sidebar ul li").on("click", function() {
-            $(".sidebar ul li.active").removeClass("active");
-            $(this).addClass("active");
-        });*/
-        //$(document).ready(function(){
-        /*$("#cita").on("click", function() {
-            $("#cargar").empty();
-            $("#cargar").load("/traveler");
-            //return false;
-        });
-        $("#paciente").on("click", function() {
-            $("#cargar").empty();
-            $("#cargar").load("/paciente");
-            //return false;
-        });*/
-
-        //});
+        
     </script>
     <script src="build/js/bootstrap.min.js"></script>
+    <script src="build/js/jquery.js"></script>
+    <script src="build/js/main.js"></script>
 
 </body>
 

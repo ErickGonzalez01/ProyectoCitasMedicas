@@ -72,5 +72,21 @@ class PacienteController{
         $resultado = Paciente::Busqueda(file_get_contents("php://input"));
         $router->renderAPI($resultado);
     }
+    public static function pacienteExiste(Router $router){
+        $get=$_GET["cedula"];
+        $existente=Paciente::Existe($get);
+        $response["existe"]=false;
+       
+        if(is_null($existente)){
+            $json=json_encode($response);
+            $router->RenderAPI($json);
+        }else{
+            $response["existe"]=true;
+            $json=json_encode($response);
+            $router->RenderAPI($json);
+        }
+        
+    }
+
 }
 ?>

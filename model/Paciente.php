@@ -98,5 +98,9 @@ class Paciente{
             return json_encode($th);
         }
     }
+    public static function Existe($cedula){
+        $sql="select * from pacientes where cedula='$cedula'";
+        $resultado=ConfigDb::Get()->query($sql);
+        return $resultado->fetch_array(MYSQLI_ASSOC);
+    }
 }
-?>

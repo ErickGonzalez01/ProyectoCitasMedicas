@@ -1,24 +1,24 @@
 <div>
     <?php
-    if(isset($errores)){
-        if($estado==false){
-            foreach($errores as $err){
+    if (isset($errores)) {
+        if ($estado == false) {
+            foreach ($errores as $err) {
                 echo "<div class=\"alert alert-danger\" role=\"alert\">
                 $err
             </div>";
             }
         }
-        if($estado==true){
-            foreach($errores as $err){
+        if ($estado == true) {
+            foreach ($errores as $err) {
                 echo "<div class=\"alert alert-primary\" role=\"alert\">
                 $err
             </div>";
             }
         }
     }
-    
+
     ?>
-    <form class="row g-3" method="post" action="/paciente">
+    <form id="FrmPaciente" class="row g-3" method="post" action="/paciente">
         <div class="col-md-4">
             <label for="exampleInputEmail1" class="form-label">Cedula:</label>
             <input type="text" class="form-control" id="cedula" name="cedula" aria-describedby="emailHelp" value="<?php echo $post["cedula"] ?? "" ?>">
@@ -40,9 +40,7 @@
             <input type="phone" class="form-control" id="telefono" name="telefono" value="<?php echo $post["telefono"] ?? "" ?>">
         </div>
         <div class="d-inline-flex p-2 bd-highlight">
-            <button type="submit" class="btn btn-primary">Guardar paciente</button>
+            <button id="paciente_submit" type="submit" class="btn btn-primary">Guardar paciente</button>
         </div>
-        
-
     </form>
 </div>
