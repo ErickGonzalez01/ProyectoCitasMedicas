@@ -46,9 +46,16 @@ class PacienteController{
     
         if(empty($errores)){
             $paciente= new Paciente($_POST);
-            $paciente->Crear();
-            $errores[]="Se guardo correctamente.";
-            $router->Render("pagues/paciente",["errores"=>$errores,"estado"=>true,"sider"=>["paciente"=>"active"]]);
+            $estado=$paciente->Crear();
+            if($estado===true){
+                $errores[]="Se guardo correctamente.";
+                $router->Render("pagues/paciente",["errores"=>$errores,"estado"=>true,"sider"=>["paciente"=>"active"]]);
+            }else{
+                $errores[]=$estado;
+                $router->Render("pagues/paciente",["errores"=>$errores,"estado"=>false,"sider"=>["paciente"=>"active"]]);
+            }
+            //$errores[]="Se guardo correctamente.";
+            //$router->Render("pagues/paciente",["errores"=>$errores,"estado"=>true,"sider"=>["paciente"=>"active"]]);
         }else{
             $router->Render("pagues/paciente",["errores"=>$errores,"post"=>$_POST,"estado"=>false,"sider"=>["paciente"=>"active"]]);
         }
@@ -72,21 +79,21 @@ class PacienteController{
         $resultado = Paciente::Busqueda(file_get_contents("php://input"));
         $router->renderAPI($resultado);
     }
-    public static function pacienteExiste(Router $router){
-        $get=$_GET["cedula"];
-        $existente=Paciente::Existe($get);
-        $response["existe"]=false;
+    // public static function pacienteExiste(Router $router){
+    //     $get=$_GET["cedula"];
+    //     $existente=Paciente::Existe($get);
+    //     $response["existe"]=false;
        
-        if(is_null($existente)){
-            $json=json_encode($response);
-            $router->RenderAPI($json);
-        }else{
-            $response["existe"]=true;
-            $json=json_encode($response);
-            $router->RenderAPI($json);
-        }
+    //     if(is_null($existente)){
+    //         $json=json_encode($response);
+    //         $router->RenderAPI($json);
+    //     }else{
+    //         $response["existe"]=true;
+    //         $json=json_encode($response);
+    //         $router->RenderAPI($json);
+    //     }
         
-    }
+    // }
 
 }
 ?>

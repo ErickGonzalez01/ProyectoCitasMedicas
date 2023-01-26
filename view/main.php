@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="build/css/app.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <script src="build/js/bootstrap.min.js"></script>
+    <script src="build/js/jquery.js"></script>
     <!--<script src="build/bootstrap/js/bootstrap.bundle.min.js"></script>-->
     <title>Citas Medicas</title>
 </head>
@@ -15,7 +17,7 @@
     <div class="main-container d-flex">
         <div class="sidebar" id="side_nav">
             <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
-                <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2">CL</span><span class="text-white">Coding League</span></h1>
+                <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2">CM</span><span class="text-white">Citas Medicas</span></h1>
                 <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fal fa-stream"></i></button>
             </div>
 
@@ -55,12 +57,8 @@
             </div>
         </div>
     </div>
-    <script>
-        
-    </script>
-    <script src="build/js/bootstrap.min.js"></script>
-    <script src="build/js/jquery.js"></script>
-    <script src="build/js/main.js"></script>
+    
+    <!-- <script src="build/js/main.js"></script> -->
 
 </body>
 

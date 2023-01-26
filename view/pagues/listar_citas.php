@@ -4,7 +4,7 @@
         <div class="row g-3">
             <div class="col-auto d-flex gap-1">
                 <label for="date">Fecha</label>
-                <input class="form-control" type="date" name="date" id="date">
+                <input class="form-control" type="date" name="date" id="date" value="<?php echo date("Y-m-d"); ?>">
             </div>
             <div class="col-auto d-flex gap-1">
                 <label for="servicio">Servicio</label>
@@ -72,28 +72,28 @@
 
         </table>
     </div>
-<script>
-    $("#filtro").submit(function(ev){
-        $.ajax({
-            type: $("#filtro").attr("method"),
-            url: $("#filtro").attr("action"),
-            data: $("#filtro").serialize(),
-            success: function(data){
-                LoadTable(data);
-            }
-        })
-        ev.preventDefault();
-    });
+    <script>
+        $("#filtro").submit(function(ev) {
+            $.ajax({
+                type: $("#filtro").attr("method"),
+                url: $("#filtro").attr("action"),
+                data: $("#filtro").serialize(),
+                success: function(data) {
+                    LoadTable(data);
+                }
+            })
+            ev.preventDefault();
+        });
 
-    function LoadTable(datos){
-        let arrayPersona =datos;
-        $("#tb-body").empty();
-        for(let i=0;i<=arrayPersona.length-1;i++){
-            console.log(arrayPersona[i]);
-            let strFila= "<tr><td>"+arrayPersona[i].id+"</td><td>"+arrayPersona[i].nombre+" "+arrayPersona[i].apellido+"</td><td>"+arrayPersona[i].nombre_servicio+"</td><td>"+arrayPersona[i].fecha_registro+"</td><td>"+arrayPersona[i].fecha_cita+"</td><td>"+arrayPersona[i].hora_cita+"</td><td>"+arrayPersona[i].status_cita+"</td><td  class=\"d-flex gap-1\"><form action=\"\"><input type=\"hidden\" name=\"id\" value=\""+arrayPersona[i].id+"\"><button type=\"submit\" class=\"btn btn-danger\"><i class=\"bi bi-trash3\"></i></button></form><form action=\"\"><input type=\"hidden\" name=\"id\" value=\""+arrayPersona[i].id+"\"><button type=\"submit\" class=\"btn btn-warning\"><i class=\"bi bi-x-circle-fill\"></i></button></form><form action=\"\"><input type=\"hidden\" name=\"id\" value=\""+arrayPersona[i].id+"\"><button type=\"submit\" class=\"btn btn-primary\"><i class=\"bi bi-person-x\"></i></button></form></td></tr>";
-            $("#tb-body").append(strFila);
+        function LoadTable(datos) {
+            let arrayPersona = datos;
+            $("#tb-body").empty();
+            for (let i = 0; i <= arrayPersona.length - 1; i++) {
+                console.log(arrayPersona[i]);
+                let strFila = "<tr><td>" + arrayPersona[i].id + "</td><td>" + arrayPersona[i].nombre + " " + arrayPersona[i].apellido + "</td><td>" + arrayPersona[i].nombre_servicio + "</td><td>" + arrayPersona[i].fecha_registro + "</td><td>" + arrayPersona[i].fecha_cita + "</td><td>" + arrayPersona[i].hora_cita + "</td><td>" + arrayPersona[i].status_cita + "</td><td  class=\"d-flex gap-1\"><form action=\"\"><input type=\"hidden\" name=\"id\" value=\"" + arrayPersona[i].id + "\"><button type=\"submit\" class=\"btn btn-danger\"><i class=\"bi bi-trash3\"></i></button></form><form action=\"\"><input type=\"hidden\" name=\"id\" value=\"" + arrayPersona[i].id + "\"><button type=\"submit\" class=\"btn btn-warning\"><i class=\"bi bi-x-circle-fill\"></i></button></form><form action=\"\"><input type=\"hidden\" name=\"id\" value=\"" + arrayPersona[i].id + "\"><button type=\"submit\" class=\"btn btn-primary\"><i class=\"bi bi-person-x\"></i></button></form></td></tr>";
+                $("#tb-body").append(strFila);
+            }
+
         }
-        
-    }
-</script>
+    </script>
 </div>

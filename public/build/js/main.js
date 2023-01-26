@@ -1,21 +1,20 @@
-document.addEventListener("DOMContentLoaded", function () {
-    main();
-});
-
-
-function main() {
-    Eventos();
-}
 
 
 
-function Eventos() {    
-    //PacienteExiste();
-    document.getElementById("FrmPaciente").addEventListener("submit",function(e){
-        e.preventDefault();
 
-    });    
-        
-}
+// const pacienteExiste = async () => {
+//     try {
+//         const res = await fetch("/test?cedula="+document.getElementById("cedula").value);
+//         const data = await res.json();
+//         //return data.existe;
+//         return data.existe;
+// } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+//const pacienteExiste = fetch("/test?cedula="+document.getElementById("cedula")).then(res => res.json());
 
 //=======================================
+
+
