@@ -47,9 +47,10 @@ class PacienteController{
         if(empty($errores)){
             $paciente= new Paciente($_POST);
             $estado=$paciente->Crear();
-            if($estado===true){
+            if($estado[0]===true){
                 $errores[]="Se guardo correctamente.";
-                $router->Render("pagues/paciente",["errores"=>$errores,"estado"=>true,"sider"=>["paciente"=>"active"]]);
+                $paciente=Paciente::GetPacienteId($estado[1]);
+                $router->Render("pagues/paciente",["errores"=>$errores,"estado"=>true,"sider"=>["paciente"=>"active"],"paciente"=>$paciente]);
             }else{
                 $errores[]=$estado;
                 $router->Render("pagues/paciente",["errores"=>$errores,"estado"=>false,"sider"=>["paciente"=>"active"]]);

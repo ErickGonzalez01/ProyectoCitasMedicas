@@ -42,7 +42,7 @@
             if(empty($errores)){
                 $usuario = new Usuario(["correo"=>$correo,"clave"=>$hast]);
                 $estado=$usuario->Crear();
-                if($estado){
+                if($estado===true){
                     header("location: /login");
                 }else{
                     $errores[]=$estado;

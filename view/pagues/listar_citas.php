@@ -1,31 +1,55 @@
-<div>
-    <h2>Lista de citas programadas de hoy</h2>
-    <form class="form" action="/listarcitas" method="POST" id="filtro">
-        <div class="row g-3">
-            <div class="col-auto d-flex gap-1">
-                <label for="date">Fecha</label>
-                <input class="form-control" type="date" name="date" id="date" value="<?php echo date("Y-m-d"); ?>">
+<div class="card p-3 mt-1">
+    <div class="text-black">
+        <u>
+            <h3>Lista de citas programadas de hoy</h3>
+        </u>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis reiciendis voluptas excepturi eaque incidunt amet, aut asperiores natus. Unde iure placeat sunt blanditiis assumenda ut beatae nesciunt aliquam perferendis.</p>
+    </div>
+
+    <form class="p-1 m-b-3" action="/listarcitas" method="POST" id="filtro">
+
+        <div class="row row g-3 align-items-center">
+
+            <div class="col-auto">
+                <label class="col-auto form-label" for="date">Fecha</label>
             </div>
-            <div class="col-auto d-flex gap-1">
-                <label for="servicio">Servicio</label>
+
+            <div class="col-auto">
+                <input class="col-auto form-control" type="date" name="date" id="date">
+            </div>
+
+            <div class="col-auto">
+                <label class="form-label" for="servicio">Servicio</label>
+            </div>
+
+            <div class="col-auto">
                 <select class="form-control" name="servicio" id="servivio">
                     <option selected value="">--Seleccione--</option>
                     <option value="1">TB Test</option>
                     <option value="2">Traveler</option>
                 </select>
             </div>
-            <div class="col-auto d-flex gap-1">
-                <label for="buqueda">Buscar</label>
+
+            <div class="col-auto">
+                <label class="form-label" for="buqueda">Buscar</label>
+            </div>
+
+            <div class="col-auto">
                 <input class="form-control" type="text" name="busqueda" id="busqueda">
             </div>
-            <div class="col-auto d-flex gap-1">
+
+            <div class="col-auto">
                 <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
+            </div>
+
+            <div class="col-auto">
                 <button type="reset" class="btn btn-warning"><i class="bi bi-x-circle-fill"></i></button>
+
             </div>
         </div>
     </form>
-    <div class="scroll">
-        <table class="table table-dark">
+    <div class="container">
+        <table class="table table-bordered border-primary">
             <thead>
                 <tr>
                     <th class="col">Id</th>
@@ -43,57 +67,86 @@
 
                     <?php foreach ($citas as $cita) : ?>
                         <tr>
-                            <td> <?php echo $cita["id"] ?> </td>
-                            <td> <?php echo $cita["nombre"] . " " . $cita["apellido"] ?> </td>
-                            <td> <?php echo $cita["nombre_servicio"] ?> </td>
-                            <td> <?php echo $cita["fecha_registro"] ?> </td>
-                            <td> <?php echo $cita["fecha_cita"] ?> </td>
-                            <td> <?php echo $cita["hora_cita"] ?> </td>
-                            <td> <?php echo $cita["status_cita"] ?> </td>
-                            <td class="d-flex gap-1">
-                                <form action="">
-                                    <input type="hidden" name="id" value="<?php echo $cita["id"] ?>">
-                                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
-                                </form>
-                                <form action="">
-                                    <input type="hidden" name="id" value="<?php echo $cita["id"] ?>">
-                                    <button type="submit" class="btn btn-warning"><i class="bi bi-x-circle-fill"></i></button>
-                                </form>
-                                <form action="">
-                                    <input type="hidden" name="id" value="<?php echo $cita["id"] ?>">
-                                    <button type="submit" class="btn btn-primary"><i class="bi bi-person-x"></i></button>
-                                </form>
+                            <td><?php echo $cita["id"] ?></td>
+                            <td><?php echo $cita["nombre"] . " " . $cita["apellido"] ?></td>
+                            <td><?php echo $cita["nombre_servicio"] ?></td>
+                            <td><?php echo $cita["fecha_registro"] ?></td>
+                            <td><?php echo $cita["fecha_cita"] ?></td>
+                            <td><?php echo $cita["hora_cita"] ?></td>
+                            <td><?php echo $cita["status_cita"] ?></td>
+                            <td>
+                                <a class="btn btn-primary" href="#">
+                                    <i class="bi bi-check-lg"></i>
+                                </a>
+                                <a class="btn btn-primary" href="#">
+                                    <i class="bi bi-repeat"></i>
+                                </a>
+                                <a class="btn btn-primary" href="#">
+                                    <i class="bi bi-x"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
-
-
         </table>
     </div>
+    <div class="datepiker">
+        
+    </div>
     <script>
+
+        //Evento submit del formulario de busqueda
         $("#filtro").submit(function(ev) {
+
+            //Solicitud post con ajax 
             $.ajax({
-                type: $("#filtro").attr("method"),
-                url: $("#filtro").attr("action"),
-                data: $("#filtro").serialize(),
-                success: function(data) {
-                    LoadTable(data);
+                type: $("#filtro").attr("method"), //Metodo de la solicitud
+                url: $("#filtro").attr("action"), //Direcion url a quien se le va a realizar la peticion, al servidor
+                data: $("#filtro").serialize(), //Datos que se enviaran al servidor
+                success: function(data) { //Funcion de ajax cuando se finaliza la solicitud y es exitosa
+                    LoadTableV2(data); //Llamada al metodo para rellenar la tabla con los nuevos datos que el servidor le ha enviado
                 }
             })
-            ev.preventDefault();
+            ev.preventDefault(); //Previniendo que el formulario desencadene su evento por defecto
         });
 
-        function LoadTable(datos) {
-            let arrayPersona = datos;
-            $("#tb-body").empty();
-            for (let i = 0; i <= arrayPersona.length - 1; i++) {
-                console.log(arrayPersona[i]);
-                let strFila = "<tr><td>" + arrayPersona[i].id + "</td><td>" + arrayPersona[i].nombre + " " + arrayPersona[i].apellido + "</td><td>" + arrayPersona[i].nombre_servicio + "</td><td>" + arrayPersona[i].fecha_registro + "</td><td>" + arrayPersona[i].fecha_cita + "</td><td>" + arrayPersona[i].hora_cita + "</td><td>" + arrayPersona[i].status_cita + "</td><td  class=\"d-flex gap-1\"><form action=\"\"><input type=\"hidden\" name=\"id\" value=\"" + arrayPersona[i].id + "\"><button type=\"submit\" class=\"btn btn-danger\"><i class=\"bi bi-trash3\"></i></button></form><form action=\"\"><input type=\"hidden\" name=\"id\" value=\"" + arrayPersona[i].id + "\"><button type=\"submit\" class=\"btn btn-warning\"><i class=\"bi bi-x-circle-fill\"></i></button></form><form action=\"\"><input type=\"hidden\" name=\"id\" value=\"" + arrayPersona[i].id + "\"><button type=\"submit\" class=\"btn btn-primary\"><i class=\"bi bi-person-x\"></i></button></form></td></tr>";
-                $("#tb-body").append(strFila);
-            }
+        //Funcion para rellenar tabla de citas programadas
+        function LoadTableV2(data){
 
+            //Limpiando las filas del table->body
+            $("#tb-body").empty();
+            
+            //Recorriendo el objeto data como un array
+            Object.values(data).forEach(val => {//recorriendo las filas
+
+                //Creando elemento fila para la table
+                let fila=$("<tr></tr>");
+
+                //Creando enlaces para la columna opciones, en la tabla
+                let a1=$('<a class="btn btn-primary" href="#"><i class="bi bi-check-lg"></i></a>');
+                let a2=$('<a class="btn btn-primary" href="#"><i class="bi bi-repeat"></i></a>');
+                let a3=$('<a class="btn btn-primary" href="#"><i class="bi bi-x"></i></a>');
+
+                //Creando la celda opciones y agregando los enlaces
+                let celda_opciones=$("<td></td>");
+                celda_opciones.append(a1);
+                celda_opciones.append(a2);
+                celda_opciones.append(a3);
+                
+                //Rellenando las celdas de las filas con los valores del data
+                fila.append("<td>"+val.id+"</td>");
+                fila.append("<td>"+val.nombre+" "+val.apellido+"</td>");
+                fila.append("<td>"+val.nombre_servicio+"</td>");
+                fila.append("<td>"+val.fecha_registro+"</td>");
+                fila.append("<td>"+val.fecha_cita+"</td>");
+                fila.append("<td>"+val.hora_cita+"</td>");
+                fila.append("<td>"+val.status_cita+"</td>");
+                fila.append(celda_opciones); //Agregando la celda de opciones a la fila
+                
+                //Peganfo las fila en la tabla
+                $("#tb-body").append(fila);
+            });
         }
     </script>
 </div>

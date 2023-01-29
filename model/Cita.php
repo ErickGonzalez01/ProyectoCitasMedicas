@@ -130,7 +130,7 @@ class Cita
         date_default_timezone_set("America/Managua");
         $hoy = date("Y-m-d");
         //debuguear($hoy);
-        $sql="select cm.id, p.nombre, p.apellido, s.nombre_servicio, cm.fecha_registro, cm.fecha_cita, cm.hora_cita, cm.status_cita from citas_medicas as cm inner join servicios as s on cm.id_servicio = s.id inner join pacientes as p on cm.id_paciente=p.id where fecha_cita="."'$hoy'";
+        $sql="select cm.id, p.nombre, p.apellido, s.nombre_servicio, cm.fecha_registro, cm.fecha_cita, cm.hora_cita, cm.status_cita from citas_medicas as cm inner join servicios as s on cm.id_servicio = s.id inner join pacientes as p on cm.id_paciente=p.id";// where fecha_cita="."'$hoy'";
         /*foreach($argumentos as $parametro=> $value){
             $sql += $$parametro."=".$value . "";
         }*/

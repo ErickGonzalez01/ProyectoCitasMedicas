@@ -23,7 +23,7 @@ use mysqli_sql_exception;
             }
         }
         public function Crear(){
-            $sql = "INSERT INTO administracion() VALUE('$this->correo','$this->clave')";
+            $sql = "INSERT INTO administracion(correo,clave) VALUE('$this->correo','$this->clave')";
             try {
                 $resultado= ConfigDB::Get()->query($sql);
                 ConfigDB::Close();

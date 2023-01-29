@@ -2,13 +2,26 @@
 namespace Controller;
 use MVC\Router;
 use Model\Cita;
+use Model\Paciente;
 use Model\Servicio;
+
 
 class TravelerController{
     //[Router("/traveler"),Method("GET")]
     public static function Get(Router $router){
         $servicios=Servicio::Listar();
         $router->Render("pagues/traveler",["sider"=>["cita"=>"active"],"servicios"=>$servicios]);
+    }
+    public static function GetIdPaciente(Router $router){
+        $intIdPaciente= $_GET["id"];
+        $arrayServicios=Servicio::Listar();
+        $objPaciente=Paciente::GetPacienteId($intIdPaciente);
+        if(!is_null($objPaciente)){
+            $router->Render("pagues/traveler",["sider"=>["cita"=>"active"],"servicios"=>$arrayServicios,"paciente"=>$objPaciente]);
+        }else{
+            header("location: /traveler");
+        }
+        
     }
 
     //[Router("/traveler"),Method("POST")]
@@ -27,8 +40,11 @@ class TravelerController{
         if(empty($fecha_cita)){
             $errores[]="El campo fecha de la cita es requerido";
         }
-        if(empty($id_servicio)){
-            $errores[]="Debe seleccionar un servicio especifico";
+        if(!empty($id_servicio)){
+            if(!is_numeric($id_servicio)){
+                $errores[]="Debe seleccionar un servicio especifico";
+            }
+            
         }
         $servicios=Servicio::Listar();
         if(empty($errores)){

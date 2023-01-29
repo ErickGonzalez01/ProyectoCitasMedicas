@@ -31,9 +31,11 @@ class Paciente
         //if ($this->Existe($this->cedula)) {
             $sql = "INSERT INTO pacientes(cedula,nombre,apellido,fecha_nacimiento,telefono) VALUE('$this->cedula','$this->nombre','$this->apellido','$this->fecha_nacimiento','$this->telefono')";
             try {
-                $resultado = ConfigDb::Get()->query($sql);
+                $mysqli = ConfigDb::Get();
+                $resultado = $mysqli->query($sql);
+                $find_id_paciente=$mysqli->insert_id;
                 ConfigDb::Close();
-                return $resultado;
+                return [$resultado,$find_id_paciente];
             } catch (mysqli_sql_exception $th) {
                 return $th->getMessage();
             }
@@ -54,6 +56,12 @@ class Paciente
         } catch (\Throwable $th) {
             return json_encode($th);
         }
+    }
+    public static function GetPacienteId(int $id): object|null{
+        $sql="SELECT * FROM pacientes WHERE id='$id'";
+        $resultado = ConfigDb::Get()->query($sql);
+        $objPaciente = $resultado->fetch_object() ?? null;
+        return $objPaciente;
     }
     public static  function GetAllPaciente()
     {
