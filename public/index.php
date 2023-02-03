@@ -63,6 +63,7 @@
     $router->Post("/api/listarcitas",[CitaController::class,"Filtro"]);
     $router->get("/test",[PacienteController::class,"pacienteExiste"]);
     $router->get("/programarcita",[TravelerController::class,"GetIdPaciente"]);
+    $router->get("/listarpacientes",[PacienteController::class,"lista_pacientes"]);
 
     //   FOOTER
     //==============================

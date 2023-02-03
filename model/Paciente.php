@@ -4,6 +4,7 @@ namespace Model;
 
 use App\ConfigDb;
 use mysqli_sql_exception;
+use PSpell\Config;
 
 class Paciente
 {
@@ -130,5 +131,9 @@ class Paciente
         } else {
             return false;
         }
+    }
+    public static function lista_paciente(){
+        $sql="select * from pacietes order by asc";
+        $resultado=ConfigDb::Get()->query($sql);
     }
 }

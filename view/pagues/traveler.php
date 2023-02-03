@@ -30,7 +30,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    <label class="form-label" servicio">Servicio</label>
+                    <label class="form-label">Servicio</label>
                     <select class="form-select" name="id_servicio" id="servicio">
                         <option>--Seleccione--</option>
                         <?php foreach ($servicios as $ser) : ?>
@@ -44,59 +44,63 @@
                 </div>
                 <div class="col">
                     <label for="exampleInputPassword1" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" readonly value="<?php
-                        $nom=$paciente->nombre ?? "";
-                        $app = $paciente->apellido ?? "";
-                        $nom_app=$nom." ".$app;
-                        echo $nom_app?>">
+                    <input type="text" class="form-control" id="nombre" readonly value="<?php $nom=$paciente->nombre ?? ""; $app = $paciente->apellido ?? ""; $nom_app=$nom." ".$app;  echo $nom_app?>">
                 </div>
                 <div class="col">
                     <label for="exampleInputEmail1" class="form-label">Fecha de la cita</label>
                     <input type="date" class="form-control" id="fecha_cita" name="fecha_cita" aria-describedby="emailHelp">
+                    <input type="hidden" class="form-control" id="paciente_id" name="paciente_id" value="<?php echo $paciente->id ?? "" ?>"> <!------>
                 </div>
             </div>
         </div>
         <div class="row p-3">
             <div class="col">
                 <div>
-                    <button id="enviar" type="submit" class="btn btn-primary">Programar cita</button>
-                    <button id="enviar" type="reset" class="btn btn-primary">Cancelar</button>
-                    <input type="hidden" class="form-control" id="id_paciente" name="id_paciente" readonly value="<?php echo $paciente->id ?? "" ?>">
+                    <button type="submit" class="btn btn-primary">Programar cita</button>
+                    <button type="reset" class="btn btn-primary">Cancelar</button>
                 </div>
             </div>
         </div>
     </form>
-    <script src="/build/js/jquery.js"></script>
+    <!-- <script src="/build/js/jquery.js"></script> -->
     <script>
         //let consts=0;
         $("#cedula").keyup(function(e) {
 
             if ($("#cedula").val().length == 16) {
 
-                let busqueda = new Object();
+                let busqueda = new FormData();  //creando el FormData
                 busqueda.busqueda = $("#cedula").val();
 
                 let json = JSON.stringify(busqueda);
 
+                //fetch("/api/paciente/busqueda",{method:"POST",body:busqueda}).then(response=>response.json()).then(data => {
+                    //console.log(data);
+                //});
+                console.log(busqueda);
                 $.ajax({
                     url: "/api/paciente/busqueda",
                     type: "post",
                     data: json
                 }).done(function(response) {
-                    //console.log(consts)
-                    //console.log(response);
-                    //consts++;    
-
+                    // console.log(consts)
+                    // console.log(response);
+                    // consts++;    
+                    console.log(response);
                     if (response != null) {
                         //Recuperar valor
                         $("#nombre").val(response.nombre + " " + response.apellido);
-                        $("#id_paciente").val(response.id);
+                        $("#paciente_id").val(response.id);
+                        
+                        //prueva 
+                        console.log(response.id);
+                        console.log($("#id_paciente"));
 
                         //Inhabilitar elementos
                         //console.log("Inhabilitar");
-                        //$("#id_paciente").prop("disabled",true);
-                        //$("#cedula").prop("disabled",true);
-                        //$("#nombre").prop("disabled",true);
+                        $("#id_paciente").prop("disabled",true);
+                        $("#cedula").prop("disabled",true);
+                        $("#nombre").prop("disabled",true);
 
                         //Focus
                         $("#fecha_cita").focus();
