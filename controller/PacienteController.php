@@ -4,6 +4,7 @@ namespace Controller;
 use Model\Paciente;
 use MVC\Router;
 use Model\Cita;
+use stdClass;
 
 class PacienteController{
     public static function Get(Router $router){
@@ -81,8 +82,17 @@ class PacienteController{
         $resultado = Paciente::Busqueda(file_get_contents("php://input"));
         $router->renderAPI($resultado);
     }
-    public function lista_pacientes(){
-        
+    public static function lista_pacientes(Router $router){
+        $lista_pacientes = Paciente::lista_paciente()->fetch_all(MYSQLI_ASSOC);
+        //$arrayObject= json_decode(json_encode($lista_pacientes,JSON_FORCE_OBJECT)); //$fileObjeto = json_decode(json_encode($fileArray, JSON_FORCE_OBJECT));
+        //$objeto = (object)(object) $lista_pacientes;
+        $objetoArray= array_map(function($item){return (object) $item;} ,$lista_pacientes);
+        $datos=[
+            "sider"=>["lista_de_pacientes"=>"active"],
+            "lista_de_pacientes"=>$objetoArray
+        ];
+        return $router->Render("pagues/listar_paciente",$datos);
+        //debuguear($objetoArra);
     }
 
 }

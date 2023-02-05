@@ -19149,3 +19149,18 @@ hr.h-color {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.inline {
+  display: none;
+}
+
+.online {
+  display: block;
+}
+
+.bg {
+  background: #333332;
+  border-radius: 10px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

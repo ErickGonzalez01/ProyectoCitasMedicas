@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="build/css/app.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <script src="build/js/bootstrap.min.js"></script>
     <script src="build/js/jquery.js"></script>
     <title>Citas Medicas</title>
@@ -22,15 +22,51 @@
                 </div>
 
                 <ul class="list-unstyled px-2">
-                    <li id="cita" class="<?php echo $sider["cita"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/traveler"><i class="bi bi-file-earmark-plus-fill"></i> Registrar cita</a></li>
-                    <li id="paciente" class="<?php echo $sider["paciente"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/paciente"><i class="bi bi-person-plus"></i> Registrar paciente</a></li>
-                    <li class="<?php echo $sider["citas_programadas"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/listarcitas"><i class="bi bi-card-checklist"></i> Citas programadas</a></li>
-                    <li class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i>lorem</a></li>
-                    <li class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i>lorem</a></li>
+                    <li id="cita" class="<?php echo $sider["cita"] ?? "" ?>">
+                        <a class="text-decoration-none px-3 py-2 d-block" href="/traveler">
+                            <i class="bi bi-file-earmark-plus-fill"></i>
+                            Registrar cita
+                        </a>
+                    </li>
+                    <li id="paciente" class="<?php echo $sider["paciente"] ?? "" ?>">
+                        <a class="text-decoration-none px-3 py-2 d-block" href="/paciente">
+                            <i class="bi bi-person-plus"></i>
+                            Registrar paciente
+                        </a>
+                    </li>
+                    <li class="<?php echo $sider["citas_programadas"] ?? "" ?>">
+                        <a class="text-decoration-none px-3 py-2 d-block" href="/listarcitas">
+                            <i class="bi bi-card-checklist"></i>
+                            Citas programadas
+                        </a>
+                    </li>
+                    <li class="<?php echo $sider["lista_de_pacientes"] ?? "" ?>">
+                        <a class="text-decoration-none px-3 py-2 d-block" href="/listarpacientes">
+                            <i class="bi bi-list-ol"></i>
+                            Lista de pacientes
+                        </a>
+                    </li>
+
                 </ul>
                 <hr class="h-css">
-                <ul class="list-unstyled px-2">
-                    <li class=""><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i>Prolife</a></li>
+                <ul class="list-unstyled px-2 bg">
+                    <li id="menu_lista" class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="bi bi-gear-fill"></i> Configuraciones</a></li>
+                    <li>
+                        <ul id="menu" class="list-unstyled px-2 inline bg">
+                            <li id="servicio"><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i> Servicios</a></li>
+                            <ul id="servicio-item" class="inline">
+                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Lista de servicios</a></li>
+                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Servicios</a></li>
+                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Servicios</a></li>
+                            </ul>
+                            <li id="usuario"><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i> Usuarios</a></li>
+                            <ul id="usuario-item" class="inline">
+                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Servicios</a></li>
+                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Servicios</a></li>
+                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Servicios</a></li>
+                            </ul>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div class="content">
@@ -58,9 +94,8 @@
             </div>
         </div>
     </div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="build/js/main.js"></script> -->
-
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <script src="build/js/jquery_main.js"></script>
 </body>
 
 </html>
