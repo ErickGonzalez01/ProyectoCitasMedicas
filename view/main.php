@@ -52,11 +52,11 @@
                 <ul class="list-unstyled px-2 bg">
                     <li id="menu_lista" class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="bi bi-gear-fill"></i> Configuraciones</a></li>
                     <li>
-                        <ul id="menu" class="list-unstyled px-2 inline bg">
+                        <ul id="menu" class="list-unstyled px-2 bg <?php echo $menu ? "online" : "inline" ?>">
                             <li id="servicio"><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i> Servicios</a></li>
-                            <ul id="servicio-item" class="inline">
-                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Lista de servicios</a></li>
-                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Servicios</a></li>
+                            <ul id="servicio-item" class="<?php echo $servicio ? "online" : "inline" ?>">
+                                <li class="<?php echo $sider["listar_servicio"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/servicios"><i class="fal fa-home"></i> Lista de servicios</a></li>
+                                <li class="<?php echo $sider["nuevo_servicio"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/servicionuevo"><i class="bi bi-plus"></i> Nuevo</a></li>
                                 <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Servicios</a></li>
                             </ul>
                             <li id="usuario"><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i> Usuarios</a></li>

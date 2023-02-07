@@ -10,6 +10,7 @@
     use Controller\UsuarioController;
     use Controller\PaguesController;
     use Controller\TravelerController;
+    use Controller\ServicioController;
 
     $router = new Router();    
     $router->Get('/admin',[PropiedadController::class,"Admin"]);
@@ -64,6 +65,9 @@
     $router->get("/test",[PacienteController::class,"pacienteExiste"]);
     $router->get("/programarcita",[TravelerController::class,"GetIdPaciente"]);
     $router->get("/listarpacientes",[PacienteController::class,"lista_pacientes"]);
+    $router->get("/servicios",[ServicioController::class,"listaServicio"]);
+    $router->get("/servicionuevo",[ServicioController::class,"nuevoServicio"]);
+    $router->Post("/servicionuevo",[ServicioController::class,"Guardar"]);
 
     //   FOOTER
     //==============================

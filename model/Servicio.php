@@ -33,6 +33,13 @@ class Servicio{
         $resultado = ConfigDB::Get()->query($sql);
         return $resultado->fetch_all((MYSQLI_ASSOC));
     }
+    public static function ListarShow(){
+        $sql="select id,nombre_servicio,descripcion,detalle from servicios";
+        $resultado = ConfigDB::Get()->query($sql);
+        return $resultado->fetch_all((MYSQLI_ASSOC));
+    }
+
+
 
 }
 
