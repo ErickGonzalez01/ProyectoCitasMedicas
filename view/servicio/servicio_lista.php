@@ -3,7 +3,7 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos nobis, ipsa, optio aperiam nulla alias sint cupiditate excepturi commodi consequuntur illum! Sit ducimus quaerat accusantium deleniti blanditiis at quisquam autem?</p>
     <div class="card">
         <div class="card-header">
-            <button class="btn btn-success"><i class="bi bi-plus"></i></button>
+            <a href="/servicionuevo" class="btn btn-success"><i class="bi bi-plus"></i></a>
         </div>
         <div class="card-body">
             <table class="table table-hover align-middle">
