@@ -12,6 +12,21 @@
                         laboriosam alias adipisci exercitationem culpa harum debitis non fugit, consectetur optio quasi! Et
                         quibusdam iure odio!
                     </p>
+                    <?php if (isset($error)) : ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php foreach ($error as $key => $contenido): ?>
+                                <p><?=$contenido?></p>
+                            <?php endforeach ?>
+                        </div>
+                    <?php endif ?>
+                    <?php if(isset($done)):?>
+                        <div class="alert alert-success" role="alert">
+                            <p>
+                                <?=$done?>
+                            </p>
+                        </div>
+                    <?php endif?>
+
                 </div>
                 <div class="p-2 flex-shrink-1 bd-highlight">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-question-lg"></i></button>
@@ -24,47 +39,47 @@
                 <div class="row align-items-end">
                     <div class="col-4">
                         <label class="form-label" for="nombre_servicio">Nombre del servicio</label>
-                        <input name="nombre_servicio" class="form-control" type="text">
+                        <input name="nombre_servicio" class="form-control" type="text" value="<?= $datos["nombre_servicio"] ?? "" ?>">
                     </div>
                     <div class="col-4">
                         <label class="form-label" for="nombre_servicio">Descripcion</label>
-                        <input name="descripcion" class="form-control" type="text">
+                        <input name="descripcion" class="form-control" type="text" value="<?= $datos["descripcion"] ?? "" ?>">
                     </div>
                     <div class="col-4">
                         <label class="form-label" for="nombre_servicio">Detalle</label>
-                        <input name="detalle" class="form-control" type="text">
+                        <input name="detalle" class="form-control" type="text" value="<?= $datos["detalle"] ?? "" ?>">
                     </div>
                     <div class="col-4">
                         <label class="form-label" for="nombre_servicio">Hora de inicio</label>
-                        <input name="hora_inicio_servicio" class="form-control" type="time">
+                        <input name="hora_inicio_servicio" class="form-control" type="time" value="<?= $datos["hora_inicio_servicio"] ?? "" ?>">
                     </div>
                     <div class="col-4">
                         <label class="form-label" for="nombre_servicio">Hora que finaliza el servicio</label>
-                        <input name="hora_fin_servicio" class="form-control" type="time">
+                        <input name="hora_fin_servicio" class="form-control" type="time" value="<?= $datos["hora_fin_servicio"] ?? "" ?>">
                     </div>
                     <div class="col-4">
                         <label class="form-label" for="nombre_servicio">Ciclo del servicio aplica de lunes a
                             viernes</label>
-                        <input name="ciclo_citas_dia" class="form-control" type="number">
+                        <input name="ciclo_citas_dia" class="form-control" type="number" value="<?= $datos["ciclo_citas_dia"] ?? "" ?>">
                     </div>
                     <div class="col-4">
                         <label class="form-label" for="nombre_servicio">Ciclo del servicio en fin de semana si esta
                             disponible</label>
-                        <input name="ciclos_citas_fin_de_semana" class="form-control" type="number">
+                        <input name="ciclos_citas_fin_de_semana" class="form-control" type="number" value="<?= $datos["ciclos_citas_fin_de_semana"] ?? "" ?>">
                     </div>
                     <div class="col-4">
                         <label class="form-label" for="nombre_servicio">Duracion de las citas estimas en minutod
                             (m)</label>
-                        <input name="duracion_cita" class="form-control" type="number">
+                        <input name="duracion_cita" class="form-control" type="number" value="<?= $datos["duracion_cita"] ?? "" ?>">
                     </div>
                     <div class="col-4">
                         <label class="form-label" for="nombre_servicio">Duracion de las citas por lote en minutos
                             (m)</label>
-                        <input name="duracion_cita_lote" class="form-control" type="number">
+                        <input name="duracion_cita_lote" class="form-control" type="number" value="<?= $datos["duracion_cita_lote"] ?? "" ?>">
                     </div>
                     <div class="col-4">
                         <label for="">Servicio durante finde semana</label>
-                        <select class="form-select" aria-label="Default select example" name="fin_de_semana">
+                        <select class="form-select" aria-label="Default select example" name="fin_de_semana" value="<?= $datos["fin_de_semana"] ?? "" ?>">
                             <option selected>Servio en finde semana</option>
                             <option value="true">Si</option>
                             <option value="false">No</option>

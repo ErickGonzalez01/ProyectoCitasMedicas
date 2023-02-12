@@ -24,9 +24,8 @@ require_once __DIR__ . '/composer/autoload_real.php';
 
 return ComposerAutoloaderInit59867e18792555d2a7e00dc6375bd98e::getLoader();
 
-function debuguear($objeto){
+function debuguear($valor){
     echo "<pre>";
-    var_dump($objeto);
+    var_dump($valor);
     echo "</pre>";
-    exit;
 }
