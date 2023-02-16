@@ -143,8 +143,11 @@ abstract class Validacion
     {
 
         if (empty($val)) {//devuelve true si la cadena es "0"
-            //self::setError("Valor requerido");
+            if($val==="0"){
+                return true;
+            }
             return false;
+            
         }
         return true;
     }
@@ -221,6 +224,8 @@ abstract class Validacion
         if(is_bool($boolArgument)){
             return true;
         }elseif($boolArgument ==="true"){
+            return true;
+        }elseif($boolArgument ==="false"){
             return true;
         }
         return false;

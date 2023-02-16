@@ -4,8 +4,9 @@
     use Model\Usuario;
     class LoginController{
         public static function LogAut(){
-            session_start();
-            $_SESSION=[];
+            //session_start();
+            session_destroy();
+            //$_SESSION=[];
             //debuguear($_SESSION);
             header("location: /login");
         }
@@ -71,10 +72,20 @@
                     $obj = $resultado->fetch_object();
                     $hast_clave = password_verify($clave,$obj->clave);
                     if($hast_clave){
-                        session_start();
-                        $_SESSION["usuario"]=$correo;
-                        $_SESSION["login"]=true;
-                        header("location: /");
+                        if (session_status() === PHP_SESSION_ACTIVE) {
+                            //session_start();
+                            // Realiza otras acciones necesarias aquí
+                            $_SESSION["usuario"]=$correo;
+                            $_SESSION["login"]=true;
+                            header("location: /");
+                        }else{
+                            session_start();
+                            $_SESSION["usuario"]=$correo;
+                            $_SESSION["login"]=true;
+                            header("location: /");
+                        }                       
+                        //session_start();
+                        
                     }else{
                         $errores[]="La contraseña no es valida";
                     }

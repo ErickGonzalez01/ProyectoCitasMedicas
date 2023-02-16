@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="build/css/app.css">
+    <!-- <link rel="stylesheet" href="<?=$dir?>"> -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <script src="build/js/bootstrap.min.js"></script>
     <script src="build/js/jquery.js"></script>
@@ -52,9 +52,9 @@
                 <ul class="list-unstyled px-2 bg">
                     <li id="menu_lista" class=""><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="bi bi-gear-fill"></i> Configuraciones</a></li>
                     <li>
-                        <ul id="menu" class="list-unstyled px-2 bg <?php echo $menu ? "online" : "inline" ?>">
+                        <ul id="menu" class="list-unstyled px-2 bg <?php if (isset($menu)) {echo $menu ? "online" : "inline";}else{echo "inline";}?>">
                             <li id="servicio"><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i> Servicios</a></li>
-                            <ul id="servicio-item" class="<?php echo $servicio ? "online" : "inline" ?>">
+                            <ul id="servicio-item" class="<?php if (isset($servicio)) {echo $servicio ? "online" : "inline";}else{echo "inline";}?>">
                                 <li class="<?php echo $sider["listar_servicio"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/servicios"><i class="fal fa-home"></i> Lista de servicios</a></li>
                                 <li class="<?php echo $sider["nuevo_servicio"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/servicionuevo"><i class="bi bi-plus"></i> Nuevo</a></li>
                                 <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Servicios</a></li>

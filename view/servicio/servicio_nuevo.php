@@ -15,14 +15,14 @@
                     <?php if (isset($error)) : ?>
                         <div class="alert alert-danger" role="alert">
                             <?php foreach ($error as $key => $contenido): ?>
-                                <p><?=$contenido?></p>
+                                <p><?="• ".$contenido?></p>
                             <?php endforeach ?>
                         </div>
                     <?php endif ?>
                     <?php if(isset($done)):?>
                         <div class="alert alert-success" role="alert">
                             <p>
-                                <?=$done?>
+                                <?="• ".$done?>
                             </p>
                         </div>
                     <?php endif?>

@@ -9,12 +9,11 @@ class Router{
     public function Post($url, $fn){
         $this->rutasPOST[$url]=$fn;
     }
-    public function ComprobarRutas(){
-        session_start();
+    public function ComprobarRutas(){        
+        session_start();                    
         $aut=$_SESSION["login"] ?? null;
-        //debuguear($_SESSION);
-        //var_dump($_SESSION);
-        $rutas_protegidas=["/","/traveler","/paciente","/listarcitas"];
+        
+        $rutas_protegidas=["/","/traveler","/paciente","/listarcitas","/servicios"];
 
         $urlActual =$_SERVER['PATH_INFO']?? "/";
         $metodo = $_SERVER['REQUEST_METHOD'];
@@ -27,7 +26,7 @@ class Router{
         if($metodo==='POST'){
             $fn = $this->rutasPOST[$urlActual] ?? null;
         } 
-        if(in_array($urlActual,$rutas_protegidas) && !$aut){
+        if(in_array($urlActual,$rutas_protegidas) && $aut !== true){
             header("location: /login");
         }
         if($fn){          

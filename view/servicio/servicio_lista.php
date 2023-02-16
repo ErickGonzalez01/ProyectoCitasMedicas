@@ -23,9 +23,8 @@
                                 <td><?= $servicio->descripcion ?></td>
                                 <td><?= $servicio->detalle ?></td>
                                 <td>
-                                    <a class="btn btn-primary" href="#"><i class="bi bi-pen"></i></a>
-                                    <a class="btn btn-primary" href="#"><i class="bi bi-pen"></i></a>
-                                    <a class="btn btn-primary" href="#"><i class="bi bi-pen"></i></a>
+                                    <a class="btn btn-primary" href="/servicio/delete?id=<?=$servicio->id?>"><i class="bi bi-pen"></i></a>
+                                    <a class="btn btn-primary" href="/servicio/delete?id=<?=$servicio->id?>"><i class="bi bi-trash3"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
