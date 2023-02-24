@@ -58,7 +58,10 @@ class Paciente
             return json_encode($th);
         }
     }
-    public static function GetPacienteId(int $id): object|null{
+    public static function GetPacienteId($id): object|null{
+        if(!is_numeric($id)){
+            return null;
+        }
         $sql="SELECT * FROM pacientes WHERE id='$id'";
         $resultado = ConfigDb::Get()->query($sql);
         $objPaciente = $resultado->fetch_object() ?? null;

@@ -3,7 +3,7 @@
     use MVC\Router;
     class PropiedadController{
         public static function Admin(Router $router){  
-            debuguear($router);
+            //debuguear($router);
             echo "Controller: bienbenido Admin";            
         }
         public static function Admin_Home(){

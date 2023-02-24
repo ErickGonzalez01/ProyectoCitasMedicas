@@ -25,8 +25,11 @@
             <div class="col-auto">
                 <select class="form-control" name="servicio" id="servivio">
                     <option selected value="">--Seleccione--</option>
-                    <option value="1">TB Test</option>
-                    <option value="2">Traveler</option>
+                    <?php if(isset($servicios)): ?>                        
+                        <?php foreach($servicios as $servicio): ?>
+                            <option value="<?=$servicio["id"]?>"><?=$servicio["nombre_servicio"]?></option>
+                        <?php endforeach; ?>
+                    <?php endif; ?>                    
                 </select>
             </div>
 

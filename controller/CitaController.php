@@ -2,6 +2,8 @@
 namespace Controller;
 use Model\Cita;
 use MVC\Router;
+use Model\Servicio;
+
 class CitaController{
     //POST
     public static function Crear(Router $router){
@@ -14,9 +16,19 @@ class CitaController{
     //"listarcita"
     public static function Listar_Citas_Star(Router $router){
         $lista_de_citas = Cita::Busqueda();
-        $router->Render("pagues/listar_citas",["citas"=>$lista_de_citas,"sider"=>["citas_programadas"=>"active"]]);
+        $lista_servicios=Servicio::ListarShow();
+        $data=[
+            "servicios"=>$lista_servicios,
+            "citas"=>$lista_de_citas,
+            "sider"=>[
+                "citas_programadas"=>"active"
+                ]
+        ];
+
+        return $router->Render("pagues/listar_citas",$data);
     }
     public static function Filtro(Router $router){
+
         $date = $_POST["date"]?? "";
         $servicio = $_POST["servicio"] ?? "";
         $busqueda = $_POST["busqueda"] ?? "";

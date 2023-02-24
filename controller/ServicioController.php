@@ -19,7 +19,7 @@ class ServicioController extends Validacion
             }, Servicio::ListarSHow()),
             "sider" => ["listar_servicio" => "active"],
             "menu" => true,
-            "servicio" => true
+            "servicioMenu" => true
         ];
         $route->render("servicio/servicio_lista", $data);
     }
@@ -29,7 +29,7 @@ class ServicioController extends Validacion
         $data = [
             "sider" => ["nuevo_servicio" => "active"],
             "menu" => true,
-            "servicio" => true
+            "servicioMenu" => true
         ];
         $router->Render("servicio/servicio_nuevo", $data);
     }
@@ -98,7 +98,7 @@ class ServicioController extends Validacion
             $data = [
                 "sider" => ["nuevo_servicio" => "active"],
                 "menu" => true,
-                "servicio" => true,
+                "servicioMenu" => true,
                 "datos" => $_POST,
                 "error" => self::getErrorder()
             ];
@@ -113,7 +113,7 @@ class ServicioController extends Validacion
             $data = [
                 "sider" => ["nuevo_servicio" => "active"],
                 "menu" => true,
-                "servicio" => true,
+                "servicioMenu" => true,
                 "datos" => $_POST,
                 "error" => ["Server "=>"Ocurrio un erro inesperado"]
             ];
@@ -124,7 +124,7 @@ class ServicioController extends Validacion
             $data = [
                 "sider" => ["nuevo_servicio" => "active"],
                 "menu" => true,
-                "servicio" => true,
+                "servicioMenu" => true,
                 "done" => "Se guardo con exito el nuevo servicio " . $_POST["nombre_servicio"]
             ];
     

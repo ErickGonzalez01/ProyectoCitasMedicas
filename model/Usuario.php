@@ -1,11 +1,15 @@
 <?php
     namespace Model;
+
     use App\ConfigDB;
-use mysqli;
-use mysqli_sql_exception;
+    use mysqli_sql_exception;
+
     class Usuario{
+        public $id; 
         public $correo;
         public $clave;
+        public $nombre;
+        public $apellido;
 
         public function __construct($post){
            
@@ -23,7 +27,7 @@ use mysqli_sql_exception;
             }
         }
         public function Crear(){
-            $sql = "INSERT INTO administracion(correo,clave) VALUE('$this->correo','$this->clave')";
+            $sql = "INSERT INTO administracion(correo,clave,nombre,apellido) VALUE('$this->correo','$this->clave','$this->nombre','$this->apellido')";
             try {
                 $resultado= ConfigDB::Get()->query($sql);
                 ConfigDB::Close();
