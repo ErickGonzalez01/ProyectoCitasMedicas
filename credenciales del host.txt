@@ -1,0 +1,11 @@
+user: root_citas
+
+pass: Oq<G[r?d%q8M3bk@
+
+FTP Client:
+	Nombre del anfitrion: files.00webhost.com
+	puerto: 21
+	Nombre de usuario: citasmedicas-e
+	Contraseña: df52ewd5c@d
+
+sass --watch escucha por cambiosn
