@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'usuario/proyecto-citas-medicas',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '055fe994eace909e55087515af0dc31e14840901',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '9b0e4da94b4788345f4e26787a657505e7da6abf',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'usuario/proyecto-citas-medicas' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '055fe994eace909e55087515af0dc31e14840901',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '9b0e4da94b4788345f4e26787a657505e7da6abf',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
