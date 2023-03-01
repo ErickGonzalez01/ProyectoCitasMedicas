@@ -4,7 +4,6 @@ namespace Model;
 
 use App\ConfigDb;
 use mysqli_sql_exception;
-use PSpell\Config;
 
 class Paciente
 {
