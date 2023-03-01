@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <h2>Hola desde runner acctions de github</h2>
     <div id="app">
         <div class="main-container d-flex">
             <div class="sidebar" id="side_nav">
