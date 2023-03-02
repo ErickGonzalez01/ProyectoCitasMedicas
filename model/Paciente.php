@@ -135,14 +135,13 @@ class Paciente
         }
     }
     public static function lista_paciente(){
-        $sql="select * from pacientes order by id asc";
+        $sql="SELECT * FROM pacientes ORDER BY id ASC";
         try{
             $resultado=ConfigDb::Get()->query($sql);
         }
         catch(mysqli_sql_exception $ex){
             return $ex;
-        }
-        
+        }        
         return $resultado;
     }
 }
