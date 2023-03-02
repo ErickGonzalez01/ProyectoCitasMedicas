@@ -40,7 +40,7 @@ class Cita
         $sql_consutar_citas_actuales = "select hora_cita as hora,ciclo_servicio as ciclo, duracion_cita from citas_medicas where id_servicio=1 and fecha_cita='2023-01-01'";
         $resultado = ConfigDB::Get()->query($sql_consutar_citas_actuales);
         $array_citas_actuales = $resultado->fetch_all(MYSQLI_ASSOC);
-        debuguear($array_citas_actuales);
+        //debuguear($array_citas_actuales);
         return true;
     }
     private function Consultar_Servicio($id_servicio){
