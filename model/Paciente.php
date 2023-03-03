@@ -2,12 +2,11 @@
 
 namespace Model;
 
-use App\ConfigDb;
+use App\ConfigDB;
 use mysqli_sql_exception;
 
 class Paciente
 {
-
     protected static $db;
 
     public $id;
