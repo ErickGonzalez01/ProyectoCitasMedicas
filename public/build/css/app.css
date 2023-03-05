@@ -19086,10 +19086,20 @@ body {
   background: #eee;
 }
 
-#side_nav {
+.side_nav {
+  margin-left: -250px;
+}
+
+.side_nav_cara {
   background: #212529;
   min-width: 250px;
   max-width: 250px;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.side_nav_cara_position {
+  position: fixed;
 }
 
 .content {
@@ -19114,15 +19124,12 @@ hr.h-color {
   color: #eee;
 }
 
-@media (max-width: 767px) {
-  #side_nav {
-    margin-left: -250px;
-    position: fixed;
-    min-height: 100vh;
-    z-index: 1;
+@media (min-width: 767px) {
+  .side_nav {
+    margin-left: 0px;
   }
 }
-#side_nav.active {
+.side_nav.active {
   margin-left: 0px;
 }
 

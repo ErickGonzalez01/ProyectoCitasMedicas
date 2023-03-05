@@ -30,3 +30,20 @@ $("#usuario").click(function(){
         $("#usuario-item").addClass("inline");
     }
 });
+
+let i=0;
+
+$("#sider_desplegar").click(function(){
+   $("#sider_menu_lateral").removeClass("side_nav");
+   $("#sider_menu_lateral").addClass("side_nav_cara_position");
+});
+
+$("#sider_menu_lateral_ocultar").click(function(){
+    $("#sider_menu_lateral").addClass("side_nav");
+    $("#sider_menu_lateral").removeClass("side_nav_cara_position");
+});
+
+$(document).ready(function(){
+    let size = $(window).width();
+    alert(size);
+});

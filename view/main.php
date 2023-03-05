@@ -15,10 +15,10 @@
     <!-- <h2>Hola desde runner acctions de github</h2> -->
     <div id="app">
         <div class="main-container d-flex">
-            <div class="sidebar" id="side_nav">
+            <div class="sidebar side_nav_cara side_nav" id="sider_menu_lateral">
                 <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
                     <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2">CM</span><span class="text-white">Citas Medicas</span></h1>
-                    <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fal fa-stream"></i></button>
+                    <button id="sider_menu_lateral_ocultar" class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fal fa-stream"></i></button>
                 </div>
 
                 <ul class="list-unstyled px-2">
@@ -69,20 +69,12 @@
             </div>
             <div class="content">
                 <div>
-                    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+                    <nav class="navbar bg-dark">
                         <div class="container-fluid">
+                            <a id="sider_desplegar" type="button" class="btn btn-outline-success p-0"><i class="bi bi-list"></i></a>
                             <a class="navbar-brand text-white" href="/"><?php echo $usuario ?></a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                                </ul>
-                                <div class="d-flex" role="search">
-                                    <a href="/cerrar" class="btn btn-outline-success" type="buttom">Cerrar secion</a>
-                                </div>
-                            </div>
+                            <a id="sider_cerrar_sesion_l" href="/cerrar" class="btn btn-outline-success" type="buttom">Cerrar secion</a>
+                            <a id="sider_cerrar_sesion_m" class="btn btn-outline-success p-0"><i class="bi bi-x-lg"></i></a>
                         </div>
                     </nav>
                 </div>
@@ -93,7 +85,7 @@
         </div>
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
-    <script src="build/js/jquery_main.js"></script>
+    <script src="/build/js/jquery_main.js"></script>
 </body>
 
 </html>
