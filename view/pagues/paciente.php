@@ -49,9 +49,9 @@
                 <input type="phone" class="form-control" id="telefono" name="telefono" value="<?php echo $post["telefono"] ?? "" ?>">
             </div>
         </div>
-        <div class="mt-2 row">
+        <div class="row mt-1">
             <div class="col-md">
-                <button id="paciente_submit" type="submit" class="btn btn-primary">Guardar paciente</button>
+                <button id="paciente_submit" type="submit" class="btn btn-primary">Guardar</button>
                 <button id="paciente_submit" type="reset" class="btn btn-primary">Canselar</button>
             </div>
         </div>

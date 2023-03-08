@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/build/css/app.css">
+    <link rel="stylesheet" href="/build/css/app.css?v=11">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <script src="/build/js/bootstrap.min.js"></script>
     <script src="/build/js/jquery.js"></script>
@@ -71,10 +71,10 @@
                 <div>
                     <nav class="navbar bg-dark">
                         <div class="container-fluid">
-                            <a id="sider_desplegar" type="button" class="btn btn-outline-success p-0"><i class="bi bi-list"></i></a>
+                            <a id="sider_desplegar" type="button" class="btn btn-outline-success p-0 display-visible"><i class="bi bi-list"></i></a>
                             <a class="navbar-brand text-white" href="/"><?php echo $usuario ?></a>
-                            <a id="sider_cerrar_sesion_l" href="/cerrar" class="btn btn-outline-success" type="buttom">Cerrar secion</a>
-                            <a id="sider_cerrar_sesion_m" class="btn btn-outline-success p-0"><i class="bi bi-x-lg"></i></a>
+                            <a id="sider_cerrar_sesion_l" href="/cerrar" class="btn btn-outline-success display-none" type="buttom">Cerrar secion</a>
+                            <a id="sider_cerrar_sesion_m" href="/cerrar" class="btn btn-outline-success p-0 display-visible"><i class="bi bi-x-lg"></i></a>
                         </div>
                     </nav>
                 </div>
@@ -85,7 +85,7 @@
         </div>
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
-    <script src="/build/js/jquery_main.js"></script>
+    <script src="/build/js/jquery_main.js?v=2"></script>
 </body>
 
 </html>

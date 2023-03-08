@@ -1,0 +1,12 @@
+.row-traveler{
+    display: block;
+}
+@media(min-width:767px){
+    .row-traveler{
+        display: flex;
+        gap: 1rem;
+    }
+}
+.size{
+    width: 5rem;
+}

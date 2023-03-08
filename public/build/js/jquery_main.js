@@ -45,5 +45,5 @@ $("#sider_menu_lateral_ocultar").click(function(){
 
 $(document).ready(function(){
     let size = $(window).width();
-    alert(size);
+    //alert(size);
 });

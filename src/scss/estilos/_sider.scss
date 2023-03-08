@@ -31,9 +31,19 @@ hr.h-color{
 .sidebar li a{
     color: #eee;
 }
+
+.display-none{
+    display: none;
+}
 @media(min-width:767px){
     .side_nav{
         margin-left: 0px;    
+    }
+    .display-none{
+        display: inline-block;
+    }
+    .display-visible{
+        display: none;
     }
 }
 .side_nav.active{
