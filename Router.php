@@ -3,11 +3,11 @@ namespace MVC;
 class Router{
     public $rutasGET=[];
     public $rutasPOST=[];
-    public function Get($url, $fn){        
-        $this->rutasGET[$url]= $fn;
+    public function Get($url, $fn,$collback=null){        
+        $this->rutasGET[$url]= [$fn,$collback];
     }
-    public function Post($url, $fn){
-        $this->rutasPOST[$url]=$fn;
+    public function Post($url, $fn, $collback=null){
+        $this->rutasPOST[$url]=[$fn,$collback];
     }
     public function ComprobarRutas(){        
         session_start();                    
@@ -17,20 +17,26 @@ class Router{
 
         $urlActual =$_SERVER['PATH_INFO']?? "/";
         $metodo = $_SERVER['REQUEST_METHOD'];
-
-        
+        $filtro=null;        
 
         if($metodo==='GET'){
-            $fn = $this->rutasGET[$urlActual] ?? null;
+            $fn = $this->rutasGET[$urlActual][0] ?? null;
+            $filtro=$this->rutasGET[$urlActual][1];
         }
         if($metodo==='POST'){
-            $fn = $this->rutasPOST[$urlActual] ?? null;
+            $fn = $this->rutasPOST[$urlActual][0] ?? null;
+            $filtro= $this->rutasPOST[$urlActual][1];
         } 
-        if(in_array($urlActual,$rutas_protegidas) && $aut !== true){
-            header("location: /login");
-        }
-        if($fn){          
-            call_user_func($fn, $this);            
+        // if(in_array($urlActual,$rutas_protegidas) && $aut !== true){
+        //     header("location: /login");
+        // }
+        if($fn){      
+            if($filtro !== null){
+                call_user_func($filtro); 
+                call_user_func($fn, $this);
+            }
+            call_user_func($fn, $this);
+                        
         }else{
             echo "<h1>404</h1>";
             echo "<p>Pagina no encontrada</P>";

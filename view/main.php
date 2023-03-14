@@ -85,7 +85,7 @@
         </div>
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
-    <script src="/build/js/jquery_main.js?v=2"></script>
+    <script src="/build/js/jquery_main.js?v=8"></script>
 </body>
 
 </html>

@@ -2,10 +2,14 @@
 
     namespace Controller;
 
-    use Model\Usuario;
+    use Model\PruevaModel;
 
-    class AdminControler{
-
+    class AdminController{
+        public static function index(){
+            echo "admin controller";
+            $prueva = new PruevaModel();
+            
+        }
         
 
 
