@@ -45,12 +45,12 @@
     $router->Get("/cerrar",[LoginController::class,"LogAut"]);
     //
     $router->Post("/api/usuario",[UsuarioController::class,"Usuario"]);
-    $router->Get("/",[PaguesController::class,"Home"],[Filtros::class,"UsuarioAdministrador"]);
+    $router->Get("/",[PaguesController::class,"Home"]);
     $router->Get("/traveler",[TravelerController::class,"Get"]);
     $router->Get("/traveler/cita_creada",[TravelerController::class,"CitaCreada"]);
     $router->Post("/traveler",[TravelerController::class,"Crear"]);
     //$router->Post("/traveler",[PaguesController::class,"CreateTraveler"]);
-    $router->Get("/paciente",[PacienteController::class,"Get"]);
+    $router->Get("/paciente",[PacienteController::class,"Get"],);
     $router->Post("/paciente",[PacienteController::class,"Crear"]);
  
     $router->Get("/listarcitas",[CitaController::class,"Listar_Citas_Star"]);

@@ -1,12 +1,14 @@
-.row-traveler{
+.row-traveler {
     display: block;
 }
-@media(min-width:767px){
-    .row-traveler{
+
+@media(min-width:767px) {
+    .row-traveler {
         display: flex;
         gap: 1rem;
     }
 }
-.size{
+
+.size {
     width: 5rem;
 }
