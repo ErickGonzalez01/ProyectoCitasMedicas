@@ -6,7 +6,7 @@ class Router{
     public function Get($url, $fn){        
         $this->rutasGET[$url]= $fn;
     }
-    public function Post($url, $fn, $collback=null){
+    public function Post($url, $fn){
         $this->rutasPOST[$url]=$fn;
     }
     public function ComprobarRutas(){        
