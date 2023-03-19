@@ -13,9 +13,8 @@
         <?php if ($status === true) : ?>
             <div class="alert alert-primary">
                 <?php foreach ($errores as $err) : ?>
-                    <?= $err ?>                    
+                    <?= $err ?>
                 <?php endforeach; ?>
-                <a href="/traveler/cita_creada?id=<?=$info?>">Informacion de la cita</a>
             </div>
         <?php endif ?>
         <?php if ($status === false) : ?>
@@ -27,7 +26,7 @@
         <?php endif ?>
     <?php endif; ?>
 
-    <form id="TravelerForm" class="card p-2 bg-dark-subtle border border-info container" method="POST" action="/traveler" <?=$attr ?? "" ?>>
+    <form class="card p-2 bg-dark-subtle border border-info container" method="POST" action="/traveler">
         <div class="row">
             <div class="col-md">
                 <label class="form-label">Servicio</label>
@@ -57,10 +56,57 @@
             <div class="col-md">
                 <div>
                     <button type="submit" class="btn btn-primary">Programar cita</button>
-                    <button id="TravelerCancelar" type="reset" class="btn btn-primary">Cancelar</button>
+                    <button type="reset" class="btn btn-primary">Cancelar</button>
                 </div>
             </div>
         </div>
     </form>
     <!-- <script src="/build/js/jquery.js"></script> -->
+    <script>
+        //let consts=0;
+        $("#cedula").keyup(function(e) {
+
+            if ($("#cedula").val().length == 16) {
+
+                let busqueda = new FormData(); //creando el FormData
+                busqueda.busqueda = $("#cedula").val();
+
+                let json = JSON.stringify(busqueda);
+
+                //fetch("/api/paciente/busqueda",{method:"POST",body:busqueda}).then(response=>response.json()).then(data => {
+                //console.log(data);
+                //});
+                console.log(busqueda);
+                $.ajax({
+                    url: "/api/paciente/busqueda",
+                    type: "post",
+                    data: json
+                }).done(function(response) {
+                    // console.log(consts)
+                    // console.log(response);
+                    // consts++;    
+                    console.log(response);
+                    if (response != null) {
+                        //Recuperar valor
+                        $("#nombre").val(response.nombre + " " + response.apellido);
+                        $("#paciente_id").val(response.id);
+
+                        //prueva 
+                        console.log(response.id);
+                        console.log($("#id_paciente"));
+
+                        //Inhabilitar elementos
+                        //console.log("Inhabilitar");
+                        $("#id_paciente").prop("disabled", true);
+                        $("#cedula").prop("disabled", true);
+                        $("#nombre").prop("disabled", true);
+
+                        //Focus
+                        $("#fecha_cita").focus();
+                    }
+                });
+            }
+
+        });
+    </script>
 </div>

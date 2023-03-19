@@ -1,7 +1,5 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-
-    use Controller\AdminController;
     use MVC\Router; 
     use Controller\PropiedadController;
     use Controller\CalendarioController;
@@ -13,12 +11,21 @@
     use Controller\PaguesController;
     use Controller\TravelerController;
     use Controller\ServicioController;
-    use Controller\PDFController;
-    use Model\Usuario;
-    use App\Filtros;
 
     $router = new Router();    
+    // $router->Get('/admin',[PropiedadController::class,"Admin"]);
+    // $router->Get('/admin/home',[PropiedadController::class,"Admin_Home"]);
+    // $router->Get('/home',[PropiedadController::class,"Home"]);
+    // $router->Get('/login',[PropiedadController::class,"Login"]);
+    // $router->Get('/citas',[PropiedadController::class,"citas"]);
+    // $router->Get('/reportes',[PropiedadController::class,"reportes"]);
+    // //------------CALENDARIO------------//
+    // $router->Get('/calendario',[CalendarioController::class,"Calendario"]);
     
+    
+    //============================
+    //----------------Paciente API----------------//
+    //[GET]
     $router->Get("/api/paciente",[PacienteController::class,"GetPaciente"]);
     $router->Get("/api/paciente/listar",[PacienteController::class,"GetAllPaciente"]);
     //[POST]
@@ -47,7 +54,6 @@
     $router->Post("/api/usuario",[UsuarioController::class,"Usuario"]);
     $router->Get("/",[PaguesController::class,"Home"]);
     $router->Get("/traveler",[TravelerController::class,"Get"]);
-    $router->Get("/traveler/cita_creada",[TravelerController::class,"CitaCreada"]);
     $router->Post("/traveler",[TravelerController::class,"Crear"]);
     //$router->Post("/traveler",[PaguesController::class,"CreateTraveler"]);
     $router->Get("/paciente",[PacienteController::class,"Get"],);
@@ -62,10 +68,6 @@
     $router->get("/servicios",[ServicioController::class,"listaServicio"]);
     $router->get("/servicionuevo",[ServicioController::class,"nuevoServicio"]);
     $router->Post("/servicionuevo",[ServicioController::class,"Guardar"]);
-
-    //Reportes pdf
-    $router->post("/report/pdf/cita",[PDFController::class,"CitaMedica"]);
-    $router->get("/admincontroller",[AdminController::class,"index"]);
 
     //   FOOTER
     //==============================

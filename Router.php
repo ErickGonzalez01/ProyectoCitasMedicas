@@ -6,7 +6,7 @@ class Router{
     public function Get($url, $fn){        
         $this->rutasGET[$url]= $fn;
     }
-    public function Post($url, $fn, $collback=null){
+    public function Post($url, $fn){
         $this->rutasPOST[$url]=$fn;
     }
     public function ComprobarRutas(){        
@@ -17,20 +17,20 @@ class Router{
 
         $urlActual =$_SERVER['PATH_INFO']?? "/";
         $metodo = $_SERVER['REQUEST_METHOD'];
-        // $filtro=null;        
+
+        
 
         if($metodo==='GET'){
             $fn = $this->rutasGET[$urlActual] ?? null;
         }
         if($metodo==='POST'){
             $fn = $this->rutasPOST[$urlActual] ?? null;
-            
         } 
         if(in_array($urlActual,$rutas_protegidas) && $aut !== true){
             header("location: /login");
         }
-        if($fn){      
-            call_user_func($fn, $this);                        
+        if($fn){          
+            call_user_func($fn, $this);            
         }else{
             echo "<h1>404</h1>";
             echo "<p>Pagina no encontrada</P>";
