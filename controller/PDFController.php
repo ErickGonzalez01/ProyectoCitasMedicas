@@ -14,7 +14,7 @@ class PDFController{
             "servicio"=>"required"
         ]);
         if($boolValidacion){
-            ConfirmarCitaPDF::Start($data["nombre"],$data["apellido"],$data["fecha_cita"],$data["hora_cita"],$data["servicio"]);
+            ConfirmarCitaPDF::Start($data);
         }else{
             echo "404";
         }

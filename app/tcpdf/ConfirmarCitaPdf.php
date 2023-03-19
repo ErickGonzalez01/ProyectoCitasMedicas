@@ -10,8 +10,12 @@ class ConfirmarCitaPDF{
      * 
      * @nombre
      */
-    public static function Start(string $nombre,string $apellido=null,string $fecha_cita,string $hora_cita, string $servicio){
-
+    public static function Start(array $datos){
+        $nombre=$datos["nombre"];
+        $apellido=$datos["apellido"]??"";
+        $fecha_cita=$datos["fecha_cita"];
+        $hora_cita=$datos["hora_cita"];
+        $servicio=$datos["servicio"];
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION,PDF_UNIT,PDF_PAGE_FORMAT,true,"UTF-8",false,false);
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
