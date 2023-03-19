@@ -1,9 +1,12 @@
 <?php
 namespace MVC;
+
 class Router{
+
     public $rutasGET=[];
     public $rutasPOST=[];
-    public function Get($url, $fn){        
+
+    public function Get($url, $fn){
         $this->rutasGET[$url]= $fn;
     }
     public function Post($url, $fn){
