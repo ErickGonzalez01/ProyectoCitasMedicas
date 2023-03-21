@@ -5,8 +5,7 @@ class Router{
 
     public $rutasGET=[];
     public $rutasPOST=[];
-
-    public function Get($url, $fn){
+    public function Get($url, $fn){        
         $this->rutasGET[$url]= $fn;
     }
     public function Post($url, $fn){
@@ -19,7 +18,9 @@ class Router{
         $rutas_protegidas=["/","/traveler","/paciente","/listarcitas","/servicios"];
 
         $urlActual =$_SERVER['PATH_INFO']?? "/";
-        $metodo = $_SERVER['REQUEST_METHOD'];        
+        $metodo = $_SERVER['REQUEST_METHOD'];
+
+        
 
         if($metodo==='GET'){
             $fn = $this->rutasGET[$urlActual] ?? null;
