@@ -80,7 +80,7 @@
                     <td><?php echo $cita["hora_cita"] ?></td>
                     <td><?php echo $cita["status_cita"] ?></td>
                     <td>
-                        <a class="btn btn-primary" href="#">
+                        <a href="/traveler/cita_creada?id=<?=$cita["id"]?>" class="btn btn-primary">
                             <i class="bi bi-check-lg"></i>
                         </a>
                         <a class="btn btn-primary" href="#">
