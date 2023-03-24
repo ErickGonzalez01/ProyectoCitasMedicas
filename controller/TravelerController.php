@@ -66,26 +66,26 @@ class TravelerController{
         if(empty($errores)){
             $cita = new Cita($data);
             $status=$cita->Crearcitas();
-            if($status===true){
+            if($status[0]===true){
                 $errores[]="Se guardo con exito la cita";
-                $router->Render("pagues/traveler",["status"=>$status,"errores"=>$errores,"servicios"=>$servicios]);
-            }elseif($status===false){
+                $router->Render("pagues/traveler",["status"=>$status[0],"errores"=>$errores,"servicios"=>$servicios,"info"=>$status[1]]);
+            }elseif($status[0]===false){
                 $errores[]="No hay citas disponibles";                
                 $router->Render("pagues/traveler",["status"=>false,"errores"=>$errores,"servicios"=>$servicios]);
             }else{
-                $errores[]=$status;                
+                $errores[]=$status[0];                
                 $router->Render("pagues/traveler",["status"=>false,"errores"=>$errores,"servicios"=>$servicios]);
             }
         }else{
-            $status=false;       
+            $status[0]=false;       
             $objPaciente=Paciente::GetPacienteId($data["id_paciente"]);
             $router->Render("pagues/traveler",[
                 "sider"=>["cita"=>"active"],
                 "paciente"=>$objPaciente,
-                "status"=>$status,
+                "status"=>$status[0],
                 "errores"=>$errores,
                 "servicios"=>$servicios,
-                "form"=>$_POST]                
+                "form"=>$_POST]             
             );
         }      
     }

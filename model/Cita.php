@@ -107,7 +107,7 @@ class Cita
                 $conn=ConfigDB::Get();
                 $resultado = $conn->query($sql);  //->query($sql);
                 $id = $conn->insert_id;
-                return $resultado;
+                return [$resultado,$id];
             } catch (mysqli_sql_exception $th) {
                 $resultado=$th->getMessage();
                 return $resultado;
