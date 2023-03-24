@@ -153,5 +153,3 @@ class ConfirmarCitaPDF{
         $pdf->Output('Citas_informations.pdf', 'I');
     }
 }
-
-?>

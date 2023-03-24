@@ -5,14 +5,8 @@ use Model\Cita;
 use Model\Paciente;
 use Model\Servicio;
 
+
 class TravelerController{
-    public static function CitaCreada(Router $router){
-        $id=$_GET["id"];
-        $datos=["cita"=>$citas = Cita::GetCitaId($id)];
-
-        return $router->RenderPague("info/confirmar_cita",$datos);
-    }
-
     //[Router("/traveler"),Method("GET")]
     public static function Get(Router $router){
         $servicios=Servicio::Listar();
@@ -30,8 +24,7 @@ class TravelerController{
             $router->Render("pagues/traveler",[
                 "sider"=>["cita"=>"active"],
                 "servicios"=>$arrayServicios,
-                "paciente"=>$objPaciente,
-                "attr"=>"cancel"
+                "paciente"=>$objPaciente
             ]);
         }else{
             header("location: /traveler");
@@ -65,26 +58,26 @@ class TravelerController{
         if(empty($errores)){
             $cita = new Cita($data);
             $status=$cita->Crearcitas();
-            if($status[0]===true){
+            if($status===true){
                 $errores[]="Se guardo con exito la cita";
-                $router->Render("pagues/traveler",["status"=>$status[0],"errores"=>$errores,"servicios"=>$servicios,"info"=>$status[1]]);
-            }elseif($status[0]===false){
+                $router->Render("pagues/traveler",["status"=>$status,"errores"=>$errores,"servicios"=>$servicios]);
+            }elseif($status===false){
                 $errores[]="No hay citas disponibles";                
                 $router->Render("pagues/traveler",["status"=>false,"errores"=>$errores,"servicios"=>$servicios]);
             }else{
-                $errores[]=$status[0];                
+                $errores[]=$status;                
                 $router->Render("pagues/traveler",["status"=>false,"errores"=>$errores,"servicios"=>$servicios]);
             }
         }else{
-            $status[0]=false;       
+            $status=false;       
             $objPaciente=Paciente::GetPacienteId($data["id_paciente"]);
             $router->Render("pagues/traveler",[
                 "sider"=>["cita"=>"active"],
                 "paciente"=>$objPaciente,
-                "status"=>$status[0],
+                "status"=>$status,
                 "errores"=>$errores,
                 "servicios"=>$servicios,
-                "form"=>$_POST]             
+                "form"=>$_POST]                
             );
         }      
     }
