@@ -15,6 +15,7 @@
                 <?php foreach ($errores as $err) : ?>
                     <?= $err ?>
                 <?php endforeach; ?>
+                <a href="/traveler/cita_creada?id=<?=$info?>">Informacion de la cita</a>
             </div>
         <?php endif ?>
         <?php if ($status === false) : ?>

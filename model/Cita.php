@@ -29,6 +29,12 @@ class Cita
         $this->status_cita = "Activa"?? "";
         $this->citas_lote = $cita["citas_lote"]?? 0;
     }
+
+    public static function GetCitaId($id): array{
+        $sql="call obtener_cita_id($id);";
+        $respuesta=ConfigDB::Get()->query($sql);
+        return $respuesta->fetch_array(MYSQLI_ASSOC);
+    }
   
     private function Establecer_Hora_De_La_Cita($fecha_cita,$id_servicio,$ciclo){
         $sql="select max(addtime(hora_cita, sec_to_time(duracion_cita*60))) as max_hora from citas_medicas WHERE fecha_cita='$fecha_cita' and id_servicio=$id_servicio and ciclo_servicio=$ciclo";

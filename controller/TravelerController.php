@@ -7,6 +7,14 @@ use Model\Servicio;
 
 
 class TravelerController{
+
+    public static function CitaCreada(Router $router){
+        $id=$_GET["id"];
+        $datos=["cita"=>$citas = Cita::GetCitaId($id)];
+
+        return $router->RenderPague("info/confirmar_cita",$datos);
+    }
+
     //[Router("/traveler"),Method("GET")]
     public static function Get(Router $router){
         $servicios=Servicio::Listar();

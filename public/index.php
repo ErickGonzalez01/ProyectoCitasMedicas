@@ -11,6 +11,7 @@
     use Controller\PaguesController;
     use Controller\TravelerController;
     use Controller\ServicioController;
+    use Controller\PDFController;
 
     $router = new Router();    
     // $router->Get('/admin',[PropiedadController::class,"Admin"]);
@@ -55,6 +56,7 @@
     $router->Get("/",[PaguesController::class,"Home"]);
     $router->Get("/traveler",[TravelerController::class,"Get"]);
     $router->Post("/traveler",[TravelerController::class,"Crear"]);
+    $router->Get("/traveler/cita_creada",[TravelerController::class,"CitaCreada"]);
     //$router->Post("/traveler",[PaguesController::class,"CreateTraveler"]);
     $router->Get("/paciente",[PacienteController::class,"Get"],);
     $router->Post("/paciente",[PacienteController::class,"Crear"]);
@@ -68,6 +70,8 @@
     $router->get("/servicios",[ServicioController::class,"listaServicio"]);
     $router->get("/servicionuevo",[ServicioController::class,"nuevoServicio"]);
     $router->Post("/servicionuevo",[ServicioController::class,"Guardar"]);
+
+    $router->post("/report/pdf/cita",[PDFController::class,"CitaMedica"]);
 
     //   FOOTER
     //==============================
