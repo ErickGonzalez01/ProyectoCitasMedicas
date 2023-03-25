@@ -2,8 +2,10 @@
 
 namespace App\TCPDF;
 
-require_once "./../vendor/tecnickcom/tcpdf/tcpdf.php";
 use TCPDF;
+
+// require_once "./../vendor/tecnickcom/tcpdf/tcpdf.php";
+// use TCPDF;
 
 class ConfirmarCitaPDF{
     /**
@@ -17,6 +19,7 @@ class ConfirmarCitaPDF{
         $hora_cita=$datos["hora_cita"];
         $servicio=$datos["servicio"];
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION,PDF_UNIT,PDF_PAGE_FORMAT,true,"UTF-8",false,false);
+        //$pdf = new TCPDF()
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Erick Gonzalez');
