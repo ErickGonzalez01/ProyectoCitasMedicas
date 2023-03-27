@@ -8,7 +8,7 @@ use TCPDF;
 // require_once "./../vendor/tecnickcom/tcpdf/tcpdf.php";
 // use TCPDF;
 
-class ConfirmarCitaPDF{
+class ConfirmarCitaPDF{//ConfirmarCitaPDF
     /**
      * 
      * @nombre
