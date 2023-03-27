@@ -9,5 +9,6 @@ return array(
     'Model\\' => array($baseDir . '/model'),
     'MVC\\' => array($baseDir . '/'),
     'Controller\\' => array($baseDir . '/controller'),
+    'App\\TCPDF\\' => array($baseDir . '/app/tcpdf'),
     'App\\' => array($baseDir . '/app'),
 );

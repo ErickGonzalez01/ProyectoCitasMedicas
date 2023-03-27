@@ -18,6 +18,7 @@ class ComposerStaticInit59867e18792555d2a7e00dc6375bd98e
         ),
         'A' => 
         array (
+            'App\\TCPDF\\' => 10,
             'App\\' => 4,
         ),
     );
@@ -34,6 +35,10 @@ class ComposerStaticInit59867e18792555d2a7e00dc6375bd98e
         'Controller\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controller',
+        ),
+        'App\\TCPDF\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/tcpdf',
         ),
         'App\\' => 
         array (

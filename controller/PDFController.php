@@ -1,6 +1,7 @@
 <?php
 namespace Controller;
-use App\tcpdf\ConfirmarCitaPDF;
+//use App\tcpdf\ConfirmarCitaPDF;
+use App\TCPDF\ConfirmarCitaPDF;
 use App\Validacion;
 class PDFController{
     public static function CitaMedica(){

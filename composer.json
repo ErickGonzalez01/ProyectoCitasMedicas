@@ -6,9 +6,8 @@
             "Controller\\": "./controller",
             "MVC\\":"./",
             "Model\\":"./model",
-            "App\\":"./app"
-        
-
+            "App\\":"./app",      
+            "App\\TCPDF\\":"./app/tcpdf"
         }
     },   
     "authors": [
