@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\TCPDF;
+namespace App\tcpdf;
 
 use TCPDF;
 
