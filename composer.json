@@ -17,6 +17,7 @@
         }
     ],
     "require": {
-        "tecnickcom/tcpdf": "^6.6"
+        "tecnickcom/tcpdf": "^6.6",
+        "codeigniter4/framework": "^4.4"
     }
 }

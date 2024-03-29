@@ -6,9 +6,12 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Model\\' => array($baseDir . '/model'),
     'MVC\\' => array($baseDir . '/'),
+    'Laminas\\Escaper\\' => array($vendorDir . '/laminas/laminas-escaper/src'),
     'Controller\\' => array($baseDir . '/controller'),
+    'CodeIgniter\\' => array($vendorDir . '/codeigniter4/framework/system'),
     'App\\TCPDF\\' => array($baseDir . '/app/tcpdf'),
     'App\\' => array($baseDir . '/app'),
 );
