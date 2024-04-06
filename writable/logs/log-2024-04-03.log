@@ -1,0 +1,144 @@
+INFO - 2024-04-03 02:03:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 02:03:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 02:07:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 02:08:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-03 02:10:26 --> ErrorException: Array to string conversion
+in APPPATH\Views\pagues\traveler.php on line 24.
+ 1 APPPATH\Views\pagues\traveler.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\pagues\\traveler.php', 24)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\pagues\\traveler.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pagues/traveler', [], true)
+ 5 APPPATH\Controllers\TravelerController.php(95): view('pagues/traveler', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Crear()
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-03 02:11:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 02:12:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 02:14:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-03 02:16:05 --> Error: Class "Model\Servicio" not found
+in APPPATH\Controllers\TravelerController.php on line 115.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Crear()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-03 03:01:15 --> Error: Call to a member function findAll() on null
+in APPPATH\Controllers\TravelerController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Get()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-03 03:01:25 --> Error: Call to a member function findAll() on null
+in APPPATH\Controllers\TravelerController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Get()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-03 03:01:42 --> Error: Call to a member function findAll() on null
+in APPPATH\Controllers\TravelerController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Get()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-03 03:02:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-03 03:05:04 --> BadMethodCallException: Call to undefined method CitasMedicas\Models\ServicioModel::firs
+in SYSTEMPATH\Model.php on line 879.
+ 1 APPPATH\Citas\GenerarCita.php(30): CodeIgniter\Model->__call('firs', [...])
+ 2 APPPATH\Controllers\TravelerController.php(103): CitasMedicas\Citas\GenerarCita->__construct('243', '1', '2024-04-12')
+ 3 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Crear()
+ 4 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-03 03:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-03 03:07:46 --> Error: Class "Model\Servicio" not found
+in APPPATH\Controllers\TravelerController.php on line 117.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Crear()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-03 14:46:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-03 14:48:59 --> Error: Class "Model\Servicio" not found
+in APPPATH\Controllers\TravelerController.php on line 117.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Crear()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-03 14:51:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 15:01:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 15:05:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 15:06:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 15:06:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 15:07:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 15:17:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 15:21:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 15:27:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 15:30:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 15:39:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-03 15:41:18 --> ArgumentCountError: Too few arguments to function CitasMedicas\Citas\GenerarCita::CitasMedicas\Citas\{closure}(), 1 passed and exactly 2 expected
+in APPPATH\Citas\GenerarCita.php on line 70.
+ 1 [internal function]: CitasMedicas\Citas\GenerarCita->CitasMedicas\Citas\{closure}([...])
+ 2 APPPATH\Citas\GenerarCita.php(77): array_filter([...], Object(Closure))
+ 3 APPPATH\Citas\GenerarCita.php(85): CitasMedicas\Citas\GenerarCita->IdentificarUltimaCita(2)
+ 4 APPPATH\Controllers\TravelerController.php(104): CitasMedicas\Citas\GenerarCita->GetCita()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Crear()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-03 15:58:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 16:05:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 16:14:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-03 16:25:22 --> TypeError: CitasMedicas\Citas\GenerarCita::IdentificarUltimaCita(): Return value must be of type string, array returned
+in APPPATH\Citas\GenerarCita.php on line 83.
+ 1 APPPATH\Citas\GenerarCita.php(89): CitasMedicas\Citas\GenerarCita->IdentificarUltimaCita(2)
+ 2 APPPATH\Controllers\TravelerController.php(104): CitasMedicas\Citas\GenerarCita->GetCita()
+ 3 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Crear()
+ 4 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-03 16:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 16:29:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 16:35:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 16:37:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 18:05:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 18:16:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 18:58:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:01:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:03:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:04:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:07:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:10:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:21:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:22:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:24:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:28:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:51:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 19:53:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 20:04:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 20:08:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 20:11:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 20:14:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 20:17:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 20:30:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 20:40:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-03 23:43:10 --> ParseError: syntax error, unexpected variable "$db_servicio"
+in APPPATH\Controllers\TravelerController.php on line 106.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\vendor\\composer/../../app\\Controllers\\TravelerController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('CitasMedicas\\Controllers\\TravelerController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('CitasMedicas\\Controllers\\TravelerController')
+ 4 SYSTEMPATH\CodeIgniter.php(901): class_exists('\\CitasMedicas\\Controllers\\TravelerController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-03 23:48:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-03 23:50:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

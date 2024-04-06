@@ -3,11 +3,8 @@
     "description": "Creacion de una aplicaion web en la nube que sea adaptable a moviles para la generacion de citas de viajero.",
     "autoload": {
         "psr-4": {
-            "Controller\\": "./controller",
-            "MVC\\":"./",
-            "Model\\":"./model",
-            "App\\":"./app",      
-            "App\\TCPDF\\":"./app/tcpdf"
+            "CitasMedicas\\": "app/",
+            "Test\\Support\\": "tests/_support"
         }
     },   
     "authors": [

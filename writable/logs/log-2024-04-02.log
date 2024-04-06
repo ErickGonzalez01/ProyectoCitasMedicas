@@ -1,0 +1,86 @@
+INFO - 2024-04-02 00:23:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-02 00:23:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-02 00:23:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-02 00:44:52 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 884.
+ 1 SYSTEMPATH\Model.php(663): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(236): CodeIgniter\Model->builder()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\TravelerController.php(41): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Get()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-04-02 00:52:16 --> ErrorException: Undefined variable $usuario
+in APPPATH\Views\main.php on line 75.
+ 1 APPPATH\Views\main.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $usuario', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\main.php', 75)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\main.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('main', [], true)
+ 5 APPPATH\Controllers\TravelerController.php(47): view('main', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Get()
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-04-02 00:53:21 --> Error: Call to undefined function CitasMedicas\Controllers\getFullName()
+in APPPATH\Controllers\TravelerController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Get()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-04-02 00:53:58 --> Error: Call to undefined function CitasMedicas\Controllers\getFullName()
+in APPPATH\Controllers\TravelerController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Get()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-02 00:59:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-02 01:00:35 --> ArgumentCountError: Too few arguments to function CitasMedicas\Controllers\PacienteController::Busqueda(), 0 passed in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php on line 943 and exactly 1 expected
+in APPPATH\Controllers\PacienteController.php on line 95.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\PacienteController::Busqueda()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\PacienteController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-02 01:30:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-02 01:30:47 --> ErrorException: Maximum execution time of 30 seconds exceeded
+in SYSTEMPATH\Debug\Toolbar\Collectors\History.php on line 70.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-02 01:57:20 --> ErrorException: Undefined variable $router
+in APPPATH\Controllers\PacienteController.php on line 101.
+ 1 APPPATH\Controllers\PacienteController.php(101): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $router', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Controllers\\PacienteController.php', 101)
+ 2 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\PacienteController->Busqueda()
+ 3 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\PacienteController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-04-02 02:41:32 --> ErrorException: Undefined variable $router
+in APPPATH\Controllers\PacienteController.php on line 101.
+ 1 APPPATH\Controllers\PacienteController.php(101): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $router', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Controllers\\PacienteController.php', 101)
+ 2 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\PacienteController->Busqueda()
+ 3 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\PacienteController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-02 03:24:02 --> Error: Class "Model\Servicio" not found
+in APPPATH\Controllers\TravelerController.php on line 121.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Crear()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-02 03:24:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-02 03:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-02 03:29:01 --> ErrorException: Undefined variable $usuario
+in APPPATH\Views\main.php on line 75.
+ 1 APPPATH\Views\main.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $usuario', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\main.php', 75)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\main.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('main', [], true)
+ 5 APPPATH\Controllers\TravelerController.php(109): view('main', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\TravelerController->Crear()
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\TravelerController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-02 03:35:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-02 03:43:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-02 03:46:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

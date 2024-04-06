@@ -49,7 +49,7 @@ class Router{
 
         $contenido= ob_get_clean();
 
-        include __DIR__."/view/main.php";
+        include __DIR__ . "/view/main.php";
 
     }
     public function RenderAPI(string $json){

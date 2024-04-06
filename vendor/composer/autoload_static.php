@@ -7,14 +7,13 @@ namespace Composer\Autoload;
 class ComposerStaticInit59867e18792555d2a7e00dc6375bd98e
 {
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'Test\\Support\\' => 13,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
-        ),
-        'M' => 
-        array (
-            'Model\\' => 6,
-            'MVC\\' => 4,
         ),
         'L' => 
         array (
@@ -22,46 +21,29 @@ class ComposerStaticInit59867e18792555d2a7e00dc6375bd98e
         ),
         'C' => 
         array (
-            'Controller\\' => 11,
             'CodeIgniter\\' => 12,
-        ),
-        'A' => 
-        array (
-            'App\\TCPDF\\' => 10,
-            'App\\' => 4,
+            'CitasMedicas\\' => 13,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Test\\Support\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/tests/_support',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
-        ),
-        'Model\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/model',
-        ),
-        'MVC\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/',
         ),
         'Laminas\\Escaper\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-escaper/src',
         ),
-        'Controller\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/controller',
-        ),
         'CodeIgniter\\' => 
         array (
             0 => __DIR__ . '/..' . '/codeigniter4/framework/system',
         ),
-        'App\\TCPDF\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/tcpdf',
-        ),
-        'App\\' => 
+        'CitasMedicas\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),

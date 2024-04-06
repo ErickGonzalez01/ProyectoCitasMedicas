@@ -1,0 +1,973 @@
+ERROR - 2024-04-06 00:14:17 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_m...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_m...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_m...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_m...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\CitaController.php(62): CodeIgniter\BaseModel->findAll()
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-06 00:14:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CitaController.php(62): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:14:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\CitaController.php(62): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:14:17 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CitaController.php(62): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+ERROR - 2024-04-06 00:15:25 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_m...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_m...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_m...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_m...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\CitaController.php(62): CodeIgniter\BaseModel->findAll()
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-06 00:15:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CitaController.php(62): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:15:25 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\CitaController.php(62): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:15:26 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CitaController.php(62): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+ERROR - 2024-04-06 00:15:52 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_m...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_m...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_m...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_m...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\CitaController.php(56): CodeIgniter\BaseModel->findAll()
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-06 00:15:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CitaController.php(56): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:15:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\CitaController.php(56): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:15:57 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CitaController.php(56): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-06 00:20:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-06 00:21:20 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_m...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_m...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_m...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_m...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-06 00:21:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:21:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:21:20 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+ERROR - 2024-04-06 00:21:59 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_m...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_m...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_m...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_m...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-06 00:22:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:22:03 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%miguel%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%miguel%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:22:03 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%miguel%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%miguel%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%miguel%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+ERROR - 2024-04-06 00:28:11 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_m...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_m...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_m...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_m...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-06 00:28:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:28:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%miguel%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%miguel%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:28:11 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%miguel%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%miguel%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'1\'
+AND  `pacientes`.`nombre` LIKE \'%miguel%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-06 00:29:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-06 00:32:09 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_m...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_m...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_m...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_m...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-06 00:32:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:32:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 00:32:17 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = \'\'
+AND `citas_medicas`.`id_servicio` = \'\'
+AND  `pacientes`.`nombre` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `citas_medicas`.`id` as `id`, `citas_medicas`.`fecha_cita` as `fecha_cita`, `citas_medicas`.`hora_cita` as `hora_cita`, `citas_medicas`.`status_cita` as `status_cita`, `citas_medicas`.`fecha_registro` as `fecha_registro`, `pacientes`.`nombre` as `nombre`, `pacientes`.`apellido` as `apellido`, `servicios`.`nombre_servicio` as `nombre_servicio`
+FROM `citas_medicas`
+JOIN `pacientes` ON `pacientes`.`id`=`citas_medicas`.`id_paciente`
+JOIN `servicios` ON `servicios`.`id`=`citas_medicas`.`id_servicio`
+WHERE `citas_medicas`.`fecha_cita` = :citas_medicas.fecha_cita:
+AND `citas_medicas`.`id_servicio` = :citas_medicas.id_servicio:
+AND  `pacientes`.`nombre` LIKE :pacientes.nombre: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CitaController.php(59): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Filtro()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-06 01:20:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:20:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:20:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-06 01:21:16 --> Error: Class "App\Validacion" not found
+in APPPATH\Controllers\ServicioController.php on line 11.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(311): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\vendor\\composer/../../app\\Controllers\\ServicioController.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('CitasMedicas\\Controllers\\ServicioController')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('CitasMedicas\\Controllers\\ServicioController')
+ 5 SYSTEMPATH\CodeIgniter.php(901): class_exists('\\CitasMedicas\\Controllers\\ServicioController', true)
+ 6 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-06 01:27:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:28:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:28:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:29:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:29:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:30:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:30:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:30:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:30:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-06 01:37:25 --> mysqli_sql_exception: Unknown column 'select' in 'field list' in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `select`...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `select`...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `select`...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `select`...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\ServicioController.php(22): CodeIgniter\BaseModel->findAll()
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-06 01:37:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'select' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `select` `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`', [], false)
+ 2 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\ServicioController.php(22): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 01:37:25 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'select' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `select` `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `select` `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `select` `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`', [], false)
+ 4 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\ServicioController.php(22): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 01:37:25 --> [Caused by] mysqli_sql_exception: Unknown column 'select' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `select` `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `select` `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `select` `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `select` `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`', [], false)
+ 5 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ServicioController.php(22): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+ERROR - 2024-04-06 01:38:01 --> mysqli_sql_exception: Unknown column 'detalle from' in 'field list' in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `id`, `n...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `n...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `n...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `n...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\ServicioController.php(22): CodeIgniter\BaseModel->findAll()
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-06 01:38:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'detalle from' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`', [], false)
+ 2 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\ServicioController.php(22): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 01:38:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'detalle from' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`', [], false)
+ 4 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\ServicioController.php(22): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 01:38:01 --> [Caused by] mysqli_sql_exception: Unknown column 'detalle from' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `nombre_servicio`, `descripcion`, `detalle from` `servicios`
+FROM `servicios`', [], false)
+ 5 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ServicioController.php(22): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 01:38:28 --> ErrorException: Attempt to read property "nombre_servicio" on array
+in APPPATH\Views\servicio\servicio_lista.php on line 22.
+ 1 APPPATH\Views\servicio\servicio_lista.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nombre_servicio" on array', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\servicio\\servicio_lista.php', 22)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\servicio\\servicio_lista.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('servicio/servicio_lista', [], true)
+ 5 APPPATH\Controllers\ServicioController.php(27): view('servicio/servicio_lista', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 01:40:51 --> ErrorException: Attempt to read property "nombre_servicio" on array
+in APPPATH\Views\servicio\servicio_lista.php on line 22.
+ 1 APPPATH\Views\servicio\servicio_lista.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nombre_servicio" on array', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\servicio\\servicio_lista.php', 22)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\servicio\\servicio_lista.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('servicio/servicio_lista', [], true)
+ 5 APPPATH\Controllers\ServicioController.php(27): view('servicio/servicio_lista', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 01:43:02 --> ErrorException: Attempt to read property "nombre_servicio" on array
+in APPPATH\Views\servicio\servicio_lista.php on line 22.
+ 1 APPPATH\Views\servicio\servicio_lista.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nombre_servicio" on array', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\servicio\\servicio_lista.php', 22)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\servicio\\servicio_lista.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('servicio/servicio_lista', [], true)
+ 5 APPPATH\Controllers\ServicioController.php(27): view('servicio/servicio_lista', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 01:44:23 --> ErrorException: Attempt to read property "nombre_servicio" on array
+in APPPATH\Views\servicio\servicio_lista.php on line 22.
+ 1 APPPATH\Views\servicio\servicio_lista.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nombre_servicio" on array', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\servicio\\servicio_lista.php', 22)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\servicio\\servicio_lista.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('servicio/servicio_lista', [], true)
+ 5 APPPATH\Controllers\ServicioController.php(27): view('servicio/servicio_lista', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 01:46:55 --> ErrorException: Attempt to read property "nombre_servicio" on array
+in APPPATH\Views\servicio\servicio_lista.php on line 22.
+ 1 APPPATH\Views\servicio\servicio_lista.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nombre_servicio" on array', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\servicio\\servicio_lista.php', 22)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\servicio\\servicio_lista.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('servicio/servicio_lista', [], true)
+ 5 APPPATH\Controllers\ServicioController.php(30): view('servicio/servicio_lista', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->listaServicio()
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-06 01:48:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:49:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 01:49:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-06 01:50:32 --> ArgumentCountError: Too few arguments to function CitasMedicas\Controllers\ServicioController::nuevoServicio(), 0 passed in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php on line 943 and exactly 1 expected
+in APPPATH\Controllers\ServicioController.php on line 38.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController::nuevoServicio()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-06 01:55:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-06 01:58:26 --> ArgumentCountError: Too few arguments to function CitasMedicas\Controllers\ServicioController::Guardar(), 0 passed in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php on line 943 and exactly 1 expected
+in APPPATH\Controllers\ServicioController.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController::Guardar()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-06 02:08:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-06 02:08:13 --> CodeIgniter\Validation\Exceptions\ValidationException: "timeVal" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 336.
+ 1 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('timeVal')
+ 2 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('hora_inicio_servicio', 'hora_inicio_servicio', '08:00', [...], [...])
+ 3 SYSTEMPATH\Controller.php(154): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\ServicioController.php(67): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->Guardar()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 02:10:32 --> Error: Call to undefined method CitasMedicas\Controllers\ServicioController::Validations()
+in APPPATH\Controllers\ServicioController.php on line 91.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->Guardar()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-06 02:16:43 --> Error: Call to undefined method CitasMedicas\Controllers\ServicioController::Validations()
+in APPPATH\Controllers\ServicioController.php on line 91.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->Guardar()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-06 02:17:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 02:19:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 02:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 02:22:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-06 02:23:17 --> Error: Call to undefined method CitasMedicas\Controllers\ServicioController::Validations()
+in APPPATH\Controllers\ServicioController.php on line 92.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\ServicioController->Guardar()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\ServicioController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-06 02:33:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 02:33:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 02:35:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-06 02:36:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

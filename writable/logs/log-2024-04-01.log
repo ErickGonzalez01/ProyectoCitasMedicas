@@ -1,0 +1,359 @@
+CRITICAL - 2024-04-01 00:41:15 --> ErrorException: Cannot declare class Controller\PaguesController, because the name is already in use
+in APPPATH\Controllers\PaguesController.php on line 5.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-01 00:41:56 --> ErrorException: Cannot declare class Controller\TravelerController, because the name is already in use
+in APPPATH\Controllers\TravelerController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2024-04-01 00:47:00 --> mysqli_sql_exception: Unknown column 'pacientes.deleted_at' in 'where clause' in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(200): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(577): CodeIgniter\Model->doFind(true, '77')
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\PacienteController.php(76): CodeIgniter\BaseModel->find('77')
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\PacienteController->GetPaciente()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\PacienteController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-01 00:47:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pacientes.deleted_at' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pacientes`
+WHERE `pacientes`.`deleted_at` IS NULL
+AND `pacientes`.`id` = :pacientes.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(200): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(577): CodeIgniter\Model->doFind(true, '77')
+ 4 APPPATH\Controllers\PacienteController.php(76): CodeIgniter\BaseModel->find('77')
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\PacienteController->GetPaciente()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\PacienteController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 00:47:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pacientes.deleted_at' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pacientes`
+WHERE `pacientes`.`deleted_at` IS NULL
+AND `pacientes`.`id` = \'77\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pacientes`
+WHERE `pacientes`.`deleted_at` IS NULL
+AND `pacientes`.`id` = \'77\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pacientes`
+WHERE `pacientes`.`deleted_at` IS NULL
+AND `pacientes`.`id` = :pacientes.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(200): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(577): CodeIgniter\Model->doFind(true, '77')
+ 6 APPPATH\Controllers\PacienteController.php(76): CodeIgniter\BaseModel->find('77')
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\PacienteController->GetPaciente()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\PacienteController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 00:47:01 --> [Caused by] mysqli_sql_exception: Unknown column 'pacientes.deleted_at' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `pacientes`
+WHERE `pacientes`.`deleted_at` IS NULL
+AND `pacientes`.`id` = \'77\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pacientes`
+WHERE `pacientes`.`deleted_at` IS NULL
+AND `pacientes`.`id` = \'77\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pacientes`
+WHERE `pacientes`.`deleted_at` IS NULL
+AND `pacientes`.`id` = \'77\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pacientes`
+WHERE `pacientes`.`deleted_at` IS NULL
+AND `pacientes`.`id` = :pacientes.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(200): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(577): CodeIgniter\Model->doFind(true, '77')
+ 7 APPPATH\Controllers\PacienteController.php(76): CodeIgniter\BaseModel->find('77')
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\PacienteController->GetPaciente()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\PacienteController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 00:49:23 --> ArgumentCountError: Too few arguments to function CitasMedicas\Controllers\PacienteController::GetAllPaciente(), 0 passed in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php on line 943 and exactly 1 expected
+in APPPATH\Controllers\PacienteController.php on line 79.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\PacienteController::GetAllPaciente()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\PacienteController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:00:08 --> ErrorException: Cannot declare class Controller\HeronController, because the name is already in use
+in APPPATH\Controllers\HeronController.php on line 6.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-01 01:02:19 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "heron/index.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('heron/index.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('heron/index', [], true)
+ 3 APPPATH\Controllers\HeronController.php(9): view('heron/index')
+ 4 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\HeronController->Home()
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\HeronController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:04:53 --> ErrorException: Cannot declare class Controller\CitaController, because the name is already in use
+in APPPATH\Controllers\CitaController.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-01 01:23:56 --> ArgumentCountError: Too few arguments to function CitasMedicas\Controllers\CitaController::Listar(), 0 passed in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php on line 943 and exactly 1 expected
+in APPPATH\Controllers\CitaController.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+ERROR - 2024-04-01 01:24:30 --> mysqli_sql_exception: Table 'citasmedicas.users' doesn't exist in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\app\Controllers\CitaController.php(31): CodeIgniter\BaseModel->findAll()
+#7 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+#8 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+#9 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\ci...')
+#12 {main}
+CRITICAL - 2024-04-01 01:24:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'citasmedicas.users' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`', [], false)
+ 2 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CitaController.php(31): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:24:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'citasmedicas.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `users`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `users`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`', [], false)
+ 4 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\CitaController.php(31): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:24:31 --> [Caused by] mysqli_sql_exception: Table 'citasmedicas.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `users`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `users`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `users`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`', [], false)
+ 5 SYSTEMPATH\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CitaController.php(31): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:25:14 --> TypeError: CodeIgniter\Database\BaseResult::getResult(): Argument #1 ($type) must be of type string, null given, called in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php on line 244
+in SYSTEMPATH\Database\BaseResult.php on line 104.
+ 1 SYSTEMPATH\Model.php(244): CodeIgniter\Database\BaseResult->getResult(null)
+ 2 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 3 APPPATH\Controllers\CitaController.php(31): CodeIgniter\BaseModel->findAll()
+ 4 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:27:32 --> TypeError: CodeIgniter\Database\BaseResult::getResult(): Argument #1 ($type) must be of type string, null given, called in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php on line 244
+in SYSTEMPATH\Database\BaseResult.php on line 104.
+ 1 SYSTEMPATH\Model.php(244): CodeIgniter\Database\BaseResult->getResult(null)
+ 2 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 3 APPPATH\Controllers\CitaController.php(31): CodeIgniter\BaseModel->findAll()
+ 4 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:31:02 --> TypeError: CodeIgniter\Database\BaseResult::getResult(): Argument #1 ($type) must be of type string, null given, called in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php on line 203
+in SYSTEMPATH\Database\BaseResult.php on line 104.
+ 1 SYSTEMPATH\Model.php(203): CodeIgniter\Database\BaseResult->getResult(null)
+ 2 SYSTEMPATH\BaseModel.php(577): CodeIgniter\Model->doFind(false, null)
+ 3 APPPATH\Controllers\CitaController.php(31): CodeIgniter\BaseModel->find()
+ 4 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:36:17 --> TypeError: CodeIgniter\Database\BaseResult::getResult(): Argument #1 ($type) must be of type string, null given, called in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php on line 203
+in SYSTEMPATH\Database\BaseResult.php on line 104.
+ 1 SYSTEMPATH\Model.php(203): CodeIgniter\Database\BaseResult->getResult(null)
+ 2 SYSTEMPATH\BaseModel.php(577): CodeIgniter\Model->doFind(false, null)
+ 3 APPPATH\Controllers\CitaController.php(31): CodeIgniter\BaseModel->find()
+ 4 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:37:08 --> TypeError: CodeIgniter\Database\BaseResult::getResult(): Argument #1 ($type) must be of type string, null given, called in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php on line 203
+in SYSTEMPATH\Database\BaseResult.php on line 104.
+ 1 SYSTEMPATH\Model.php(203): CodeIgniter\Database\BaseResult->getResult(null)
+ 2 SYSTEMPATH\BaseModel.php(577): CodeIgniter\Model->doFind(false, null)
+ 3 APPPATH\Controllers\CitaController.php(31): CodeIgniter\BaseModel->find()
+ 4 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:38:12 --> TypeError: CodeIgniter\Database\BaseResult::getResult(): Argument #1 ($type) must be of type string, null given, called in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\Model.php on line 203
+in SYSTEMPATH\Database\BaseResult.php on line 104.
+ 1 SYSTEMPATH\Model.php(203): CodeIgniter\Database\BaseResult->getResult(null)
+ 2 SYSTEMPATH\BaseModel.php(577): CodeIgniter\Model->doFind(false, null)
+ 3 APPPATH\Controllers\CitaController.php(31): CodeIgniter\BaseModel->find()
+ 4 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\CitaController->Listar()
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\CitaController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 01:41:12 --> ParseError: syntax error, unexpected token "*", expecting end of file
+in APPPATH\Models\CitaModel.php on line 47.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\vendor\\composer/../../app\\Models\\CitaModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('CitasMedicas\\Models\\CitaModel')
+ 3 APPPATH\Controllers\CitaController.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('CitasMedicas\\Models\\CitaModel')
+ 4 SYSTEMPATH\CodeIgniter.php(916): CitasMedicas\Controllers\CitaController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 02:44:06 --> ArgumentCountError: Too few arguments to function CitasMedicas\Controllers\LoginController::LogIn(), 0 passed in C:\Proyectos\citasmedicas_v2\ProyectoCitasMedicas\vendor\codeigniter4\framework\system\CodeIgniter.php on line 943 and exactly 1 expected
+in APPPATH\Controllers\LoginController.php on line 73.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\LoginController->LogIn()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\LoginController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 02:44:42 --> ErrorException: Undefined property: CodeIgniter\Validation\Validation::$getErrors
+in APPPATH\Controllers\LoginController.php on line 83.
+ 1 APPPATH\Controllers\LoginController.php(83): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\Validation\\Validation::$getErrors', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Controllers\\LoginController.php', 83)
+ 2 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\LoginController->LogIn()
+ 3 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 02:56:29 --> ErrorException: Undefined array key "clave"
+in APPPATH\Controllers\LoginController.php on line 88.
+ 1 APPPATH\Controllers\LoginController.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "clave"', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Controllers\\LoginController.php', 88)
+ 2 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\LoginController->LogIn()
+ 3 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 02:58:49 --> Error: Class "Model\Usuario" not found
+in APPPATH\Controllers\LoginController.php on line 101.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\LoginController->LogIn()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\LoginController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 02:59:39 --> Error: Class "Model\Usuario" not found
+in APPPATH\Controllers\LoginController.php on line 103.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\LoginController->LogIn()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\LoginController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 03:01:12 --> ErrorException: Undefined array key "clave"
+in APPPATH\Controllers\LoginController.php on line 92.
+ 1 APPPATH\Controllers\LoginController.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "clave"', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Controllers\\LoginController.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\LoginController->LogIn()
+ 3 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 03:03:12 --> ErrorException: Undefined array key "clave"
+in APPPATH\Controllers\LoginController.php on line 92.
+ 1 APPPATH\Controllers\LoginController.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "clave"', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Controllers\\LoginController.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\LoginController->LogIn()
+ 3 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 03:16:36 --> Error: Class "Model\Usuario" not found
+in APPPATH\Controllers\LoginController.php on line 101.
+ 1 SYSTEMPATH\CodeIgniter.php(943): CitasMedicas\Controllers\LoginController->LogIn()
+ 2 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(CitasMedicas\Controllers\LoginController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-01 03:38:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 03:39:02 --> ErrorException: Cannot declare class Controller\PaguesController, because the name is already in use
+in APPPATH\Controllers\PaguesController.php on line 5.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+INFO - 2024-04-01 03:48:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 03:58:43 --> ErrorException: Undefined variable $usuario
+in APPPATH\Views\main.php on line 75.
+ 1 APPPATH\Views\main.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $usuario', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\main.php', 75)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\main.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('main', [], true)
+ 5 APPPATH\Config\Routes.php(31): view('main', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(892): CodeIgniter\Router\RouteCollection->{closure}()
+ 7 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->startController()
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+CRITICAL - 2024-04-01 23:21:59 --> ErrorException: Undefined variable $usuario
+in APPPATH\Views\main.php on line 75.
+ 1 APPPATH\Views\main.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $usuario', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\main.php', 75)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\main.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('main', [], true)
+ 5 APPPATH\Config\Routes.php(31): view('main', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(892): CodeIgniter\Router\RouteCollection->{closure}()
+ 7 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->startController()
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-01 23:24:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 23:24:38 --> ErrorException: Undefined variable $contenido
+in APPPATH\Views\main.php on line 82.
+ 1 APPPATH\Views\main.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $contenido', 'C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\main.php', 82)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\app\\Views\\main.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('main', [], true)
+ 5 APPPATH\Config\Routes.php(33): view('main', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(892): CodeIgniter\Router\RouteCollection->{closure}()
+ 7 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->startController()
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-01 23:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-01 23:26:35 --> Error: Class "App\Controllers\BaseController" not found
+in APPPATH\Controllers\TravelerController.php on line 11.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(311): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\vendor\\composer/../../app\\Controllers\\TravelerController.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('CitasMedicas\\Controllers\\TravelerController')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('CitasMedicas\\Controllers\\TravelerController')
+ 5 SYSTEMPATH\CodeIgniter.php(901): class_exists('\\CitasMedicas\\Controllers\\TravelerController', true)
+ 6 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Proyectos\\citasmedicas_v2\\ProyectoCitasMedicas\\public\\index.php')
+INFO - 2024-04-01 23:27:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
