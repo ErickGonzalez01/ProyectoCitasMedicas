@@ -1,21 +1,13 @@
 <?php
-    namespace Controller;
-    use MVC\Router;
-    use Model\Paciente;
-    class PaguesController{
-        //[get]
-        public static function Home(Router $router){//en des uso 
-            $router->Render("pagues/home");
-        }
-        //[get]
-        public static function Traveler(Router $router){            
-            $router->Render("pagues/traveler");
-        }//[post]
-        public static function CreateTraveler(Router $router){
-            //debuguear($_POST);
-            $paciente = new Paciente($_POST);
-            $estado=$paciente->Crear();
-            $router->Render("pagues/traveler",["alerta"=>$estado]);
-        }
+
+namespace CitasMedicas\Controllers;
+
+class PaguesController extends BaseController {
+    
+    protected $helpers = ['usuario'];
+
+    public function Home(){
+        $view = \view('pagues/home');
+        return \view("main",["contenido"=>$view, "usuario" => \getFullName()]);
     }
-?>
+}

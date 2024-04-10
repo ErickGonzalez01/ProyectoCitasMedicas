@@ -21,12 +21,7 @@ class CitaController extends BaseController
         parent::initController($request, $response, $logger);
         $this->model = new CitaModel();
     }
-    //POST
-    public static function Crear(Router $router)
-    {
-        $cita = new Cita($_POST);
-    }
-    //GET
+
     public function Listar()
     {
         //$router->RenderAPI(Cita::Listar($status=false));

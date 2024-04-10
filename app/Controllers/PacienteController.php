@@ -81,7 +81,9 @@ class PacienteController extends BaseController {
         return $this->respond($resultado);
     }
     public static function Delete(Router $router){   
+
         $resultado = Paciente::Delete(file_get_contents("php://input"));
+        
         $router->renderAPI($resultado);
     }
     public function Busqueda(){ //ok

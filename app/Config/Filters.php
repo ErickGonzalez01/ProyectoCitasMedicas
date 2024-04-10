@@ -8,6 +8,8 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
+use CitasMedicas\Filters\Authentication;
+use CitasMedicas\Filters\Privilegios;
 
 class Filters extends BaseConfig
 {
@@ -24,6 +26,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'auth'          => Authentication::class,
+        'roll'          => Privilegios::class,
     ];
 
     /**
@@ -37,6 +41,8 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
+            'auth' => ['except' => ['authentication/*']],
+            'roll' => ['except' => ['authentication/*']]
         ],
         'after' => [
             'toolbar',

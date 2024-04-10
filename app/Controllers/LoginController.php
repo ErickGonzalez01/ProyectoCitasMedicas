@@ -2,17 +2,18 @@
 namespace CitasMedicas\Controllers;
 
 use CitasMedicas\Models\UsuarioModel;
+use CitasMedicas\Models\RollUsuarioModel;
+use CitasMedicas\Models\RollModel;
 
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
-use MVC\Router;
-use Model\Usuario;
-
 class LoginController extends BaseController{
 
     private $model;
+
+    protected $helpers = ["usuario"];
 
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger) {
     parent::initController($request, $response, $logger);
@@ -20,55 +21,62 @@ class LoginController extends BaseController{
     
     }
 
-    public static function LogAut(){
-        //session_start();
-        session_destroy();
-        //$_SESSION=[];
-        //debuguear($_SESSION);
-        header("location: /login");
+    public function LogAut(){//ok
+        $sesion = session();
+        $sesion->destroy();
+        return $this->response->redirect("/authentication/login");
     }
-    public static function Start(Router $router){
-        $router->RenderPague("login/login");
+    public function Index(){
+        return view("login/login");
     }
-    public static function Registrate(Router $router){
-        $router->RenderPague("login/registrate");
-    }
-    public static function NuevoUsuario(Router $router){
-        $correo=$_POST["correo"];
-        $clave1=$_POST["clave1"];
-        $clave2=$_POST["clave2"];
-        $clave="";
-        $errores=[];
-        $hast="";
 
-        //correo
-        if(empty($correo)){            
-            $errores[]="El correo no puede estar vacio.";
+    public function Registrate(){
+        $views = view("login/registrate",[
+            "menu" => true,
+            "usuario" => true,
+            "user_active" => "active"
+        ]);
+        return \view("main",["contenido" => $views, "usuario" => \getFullName()]);
+    }
+
+    public function NuevoUsuario(){
+
+        $arrayDataPost = [
+            "nombre"    => $this->request->getVar("nombre"),
+            "apellido"  => $this->request->getVar("apellido"),
+            "correo"    => $this->request->getVar("correo"),
+            "clave"    => \password_hash($this->request->getVar("clave1"), \PASSWORD_BCRYPT)
+        ];
+
+        $validacion = $this->validate([
+            "nombre"    => "required|string|max_length[50]",
+            "apellido"  => "required|string|max_length[50]",
+            "correo"    => "required|valid_email|is_unique[administracion.correo]",
+            "clave1"    => "required|alpha_numeric_punct|min_length[8]|max_length[12]",
+            "clave2"    => "required|alpha_numeric_punct|min_length[8]|max_length[12]|matches[clave1]"
+        ]);
+
+        if(!$validacion){
+            $views = view("login/registrate",[
+                "errores"=>$this->validator->getErrors(),
+                "post"=>$arrayDataPost,
+                "menu" => true,
+                "usuario" => true,
+                "user_active" => "active"
+            ]);
+            return \view("main",["contenido" => $views, "usuario" => \getFullName()]);
         }
-        //claves iguales
-        if($clave1===$clave2){
-            $clave=$clave1;                
-        }else{
-            $errores[]="Las claves no son iguales.";
-        }
-        //longitud
-        if(strlen($clave)>=8){
-            $hast=password_hash($clave,PASSWORD_BCRYPT);                        
-        }else{
-            $errores[]="La clave debe contener almenos 8 caracteres.";
-        }
-        if(empty($errores)){
-            $usuario = new Usuario(["correo"=>$correo,"clave"=>$hast]);
-            $estado=$usuario->Crear();
-            if($estado===true){
-                header("location: /login");
-            }else{
-                $errores[]=$estado;
-                $router->RenderPague("login/registrate",$errores);
-            }
-        }else{
-            $router->RenderPague("login/registrate",["errores"=>$errores]);
-        }
+
+        $this->model->insert($arrayDataPost);
+
+        $vista = view("login/registrate",[
+            "creado"=>"Usuario creado correctamente.",
+            "menu" => true,
+            "usuario" => true,
+            "user_active" => "active"
+        ]);
+        return \view("main",["contenido" => $vista, "usuario" => \getFullName()]);
+
     }
     public function LogIn(){//ok
         $correo= $this->request->getVar("correo");
@@ -89,9 +97,31 @@ class LoginController extends BaseController{
             return view("login/login",["errores"=>["Correo o contraseña incorrectos."],"post"=>["correo"=>$correo,"clave"=>$clave]]);
         }
         
+        $arrayDataSession = [
+            "id"        => $usuario["id"],
+            "nombre"    => $usuario["nombre"],
+            "apellido"  => $usuario["apellido"],
+            "correo"    => $usuario["correo"]
+        ];
+
+        $rollUsuarioModel = new RollUsuarioModel();
+
+        $roll = $rollUsuarioModel->getRollUsuario($usuario["id"]);
+
+        $rolles = \array_map(function($roll){
+            return $roll["roll"];
+        },$roll);
+
+        $rollModel = new RollModel();
+        $resles_generales = $rollModel->findColumn("nombre");
+
         $session = session();
 
-        $session->set($usuario);
+        $session->set(["usuario" => $arrayDataSession]);
+
+        $session->set(["rolles" => $rolles]);
+
+        $session->set(["rolles_generales" => $resles_generales]);
 
         return $this->response->redirect("/");
     }

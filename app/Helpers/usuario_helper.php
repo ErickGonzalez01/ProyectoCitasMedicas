@@ -1,5 +1,11 @@
 <?php
 
 function getFullName(){
-return session()->nombre ." ". session()->apellido;
+
+    $session = session();
+    $user = $session->get("usuario");
+    $user2 = $user["nombre"]." ".$user["apellido"];
+
+    return $user2;
+
 }

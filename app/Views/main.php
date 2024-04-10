@@ -58,10 +58,10 @@
                                 <li class="<?php echo $sider["listar_servicio"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/servicios"><i class="fal fa-home"></i> Lista de servicios</a></li>
                                 <li class="<?php echo $sider["nuevo_servicio"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/servicionuevo"><i class="bi bi-plus"></i> Nuevo</a></li>                            </ul>
                             <li id="usuario"><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i> Usuarios</a></li>
-                            <ul id="usuario-item" class="inline">
+                            <ul id="usuario-item" class="<?= esc($usuario==true? "online" : "inline"); ?>">
                                 <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Usuarios</a></li>
                                 <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Rool</a></li>
-                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Nuevo</a></li>
+                                <li class="<?=esc($user_active ?? "")?> mb-1"><a class="text-decoration-none px-3 py-2 d-block" href="/user/registrate"><i class="fal fa-home"></i> Nuevo</a></li>
                             </ul>
                         </ul>
                     </li>
@@ -73,8 +73,8 @@
                         <div class="container-fluid">
                             <a id="sider_desplegar" type="button" class="btn btn-outline-success p-0 display-visible"><i class="bi bi-list"></i></a>
                             <a class="navbar-brand text-white" href="/"><?php echo $usuario ?></a>
-                            <a id="sider_cerrar_sesion_l" href="/cerrar" class="btn btn-outline-success display-none" type="buttom">Cerrar secion</a>
-                            <a id="sider_cerrar_sesion_m" href="/cerrar" class="btn btn-outline-success p-0 display-visible"><i class="bi bi-x-lg"></i></a>
+                            <a id="sider_cerrar_sesion_l" href="/user/cerrar" class="btn btn-outline-success display-none" type="buttom">Cerrar secion</a>
+                            <a id="sider_cerrar_sesion_m" href="/user/cerrar" class="btn btn-outline-success p-0 display-visible"><i class="bi bi-x-lg"></i></a>
                         </div>
                     </nav>
                 </div>
