@@ -59,9 +59,10 @@
                                 <li class="<?php echo $sider["nuevo_servicio"] ?? "" ?>"><a class="text-decoration-none px-3 py-2 d-block" href="/servicionuevo"><i class="bi bi-plus"></i> Nuevo</a></li>                            </ul>
                             <li id="usuario"><a class="text-decoration-none px-3 py-2 d-block" href="#"><i class="fal fa-home"></i> Usuarios</a></li>
                             <ul id="usuario-item" class="<?= esc($usuario==true? "online" : "inline"); ?>">
-                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Usuarios</a></li>
-                                <li><a class="text-decoration-none px-3 py-2 d-block" href=""><i class="fal fa-home"></i> Rool</a></li>
+                                <li class="<?= esc($usuarios_active ?? "")?>"><a class="text-decoration-none px-3 py-2 d-block" href="/user/findall"><i class="fal fa-home"></i> Usuarios</a></li>
+                                <li class="<?=esc($roll_active ?? "")?>"><a class="text-decoration-none px-3 py-2 d-block" href="/user/finroll"><i class="fal fa-home"></i> Rool</a></li>
                                 <li class="<?=esc($user_active ?? "")?> mb-1"><a class="text-decoration-none px-3 py-2 d-block" href="/user/registrate"><i class="fal fa-home"></i> Nuevo</a></li>
+                                <li class="<?=esc($asignar_roles ?? "")?> mb-1"><a class="text-decoration-none px-3 py-2 d-block" href="/user/addroll"><i class="fal fa-home"></i> Asignar Roll</a></li>
                             </ul>
                         </ul>
                     </li>

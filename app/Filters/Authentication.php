@@ -12,7 +12,7 @@ class Authentication implements FilterInterface
     {
         $session = session();
         if(!$session->has("usuario")){
-            return redirect()->redirect("authentication/login");
+            return redirect()->redirect("/authentication/login");
         }
     }
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/build/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/build/css/app.css?v=17">
-    <title>Document</title>
+    <title>Log In</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
             <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2">CM</span><span class="text-white">Citas Medicas</span></h1>
         </div>
      </nav>
-    <div class="card p-3 mt-3 ms-auto me-auto" style="width: 40rem;">
+    <div class="card p-3 mt-3 ms-auto me-auto container-sm container-md"> 
         <?php
         if (isset($errores)) {
             foreach ($errores as $err) {

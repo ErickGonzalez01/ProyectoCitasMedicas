@@ -31,22 +31,24 @@ class RolesOfUsuario
 
 
     private $rutas = [
-        "user/registrate" => ["ROOT", "ADMIN"],
-        "api/paciente" => ["ROOT", "P_PACIENTE", "CREAR_PACIENTE"],
-        "api/paciente/listar" => ["ROOT", "P_PACIENTE"],
-        "api/cita/listar" => ["ROOT", "P_CITAS_PROGRAMADAS"],
-        "traveler/cita_creada"=>["ROOT", "P_CREAR_CITA"],
-        "paciente" => ["ROOT", "CREAR_PACIENTE", "P_PACIENTE"],
-        "listarcitas"=>["ROOT", "P_CITAS_PROGRAMADAS"],
-        "programarcita"=>["ROOT", "P_CREAR_CITA","CREAR_CITA"],
-        "listarpacientes"=>["ROOT", "P_PACIENTE"],
-        "servicios"=>["ROOT", "ADMIN","ROOT"],
-        "api/paciente/busqueda" => ["ROOT", "P_PACIENTE"],
-        "traveler"=>["ROOT", "P_CREAR_CITA","CREAR_CITA"],
-        "paciente"=>["ROOT", "CREAR_PACIENTE","P_PACIENTE"],
-        "listarcitas"=>["ROOT", "P_CITAS_PROGRAMADAS"],
-        "servicionuevo"=>["ROOT", "ADMIN","ROOT"],
-        "report/pdf/cita"=>["ROOT", "P_CITAS_PROGRAMADAS","CREAR_CITA"]
+        "user/registrate"           =>      ["ROOT"],
+        "api/paciente"              =>      ["ROOT", "P_PACIENTE", "CREAR_PACIENTE"],
+        "api/paciente/listar"       =>      ["ROOT", "P_PACIENTE"],
+        "api/cita/listar"           =>      ["ROOT", "P_CITAS_PROGRAMADAS"],
+        "traveler/cita_creada"      =>      ["ROOT", "P_CREAR_CITA"],
+        "paciente"                  =>      ["ROOT", "CREAR_PACIENTE", "P_PACIENTE"],
+        "listarcitas"               =>      ["ROOT", "P_CITAS_PROGRAMADAS"],
+        "programarcita"             =>      ["ROOT", "P_CREAR_CITA","CREAR_CITA"],
+        "listarpacientes"           =>      ["ROOT", "P_PACIENTE"],
+        "servicios"                 =>      ["ROOT", "ADMIN","ROOT"],
+        "api/paciente/busqueda"     =>      ["ROOT", "P_PACIENTE"],
+        "traveler"                  =>      ["ROOT", "P_CREAR_CITA","CREAR_CITA"],
+        "paciente"                  =>      ["ROOT", "CREAR_PACIENTE","P_PACIENTE"],
+        "listarcitas"               =>      ["ROOT", "P_CITAS_PROGRAMADAS"],
+        "servicionuevo"             =>      ["ROOT", "ADMIN","ROOT"],
+        "report/pdf/cita"           =>      ["ROOT", "P_CITAS_PROGRAMADAS","CREAR_CITA"],
+        "user/findall"              =>      ["ROOT", "ADMIN"],
+        "user/addroll"              =>      ["ROOT"],
     ];
 
     function __construct()

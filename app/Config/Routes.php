@@ -64,3 +64,12 @@ $routes->get("/servicionuevo","ServicioController::nuevoServicio");//ok
 $routes->post("/servicionuevo","ServicioController::Guardar");//ok
 
 $routes->post("/report/pdf/cita","PDFController::CitaMedica"); //ok
+
+$routes->get("/user/findall","LoginController::FindAll"); //ok
+$routes->get("/user/finroll","LoginController::FindRoll"); //ok
+$routes->get("/user/addroll","LoginController::GetAddRoll"); //ok
+$routes->get("/user/rollofuser","LoginController::GetRollOfUser"); //ok
+$routes->get("/user/roles","LoginController::GetRoles"); //ok
+
+$routes->post("/user/addroll","LoginController::AddRoll"); //ok
+$routes->post("/user/removeroll","LoginController::RemoveRoll"); //ok
