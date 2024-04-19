@@ -64,6 +64,8 @@ writable/debugbar/*
 !writable/debugbar/.gitkeep
 
 public/null
+
+node_modules/
 php_errors.log
 
 #-------------------------
