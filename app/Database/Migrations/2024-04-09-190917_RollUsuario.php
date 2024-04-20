@@ -18,7 +18,9 @@ class RollUsuario extends Migration
                 'type' => 'INT',
             ],
             'id_usuario' => [
-                'type' => 'INT'
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true
             ]
         ]);
 
@@ -26,6 +28,8 @@ class RollUsuario extends Migration
         $this->forge->addForeignKey('id_roll', 'roll', 'id', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('id_usuario', 'administracion', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('roll_usuario', true, ['ENGINE' => 'InnoDB']);
+
+        $this->db->table('roll_usuario')->insert(['id_roll' => 8, 'id_usuario' => 1]);
         
     }
 

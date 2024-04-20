@@ -49,6 +49,7 @@ class RolesOfUsuario
         "report/pdf/cita"           =>      ["ROOT", "P_CITAS_PROGRAMADAS","CREAR_CITA"],
         "user/findall"              =>      ["ROOT", "ADMIN"],
         "user/addroll"              =>      ["ROOT"],
+        "user/finroll"              =>      ["ROOT"],
     ];
 
     function __construct()
