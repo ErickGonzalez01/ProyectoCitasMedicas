@@ -2,7 +2,7 @@
 
 namespace CitasMedicas\Controllers;
 
-use CitasMedicas\PDF\ConfirmarCitaPDF;
+use CitasMedicas\PDF\ConfirmarCitaPdf;
 
 class PDFController extends BaseController{
 
@@ -24,7 +24,7 @@ class PDFController extends BaseController{
         
         //$this->response->setHeader("Content-Type", "application/pdf");
 
-        $pdf = new ConfirmarCitaPDF();
+        $pdf = new ConfirmarCitaPdf();
         $pdf->Start($data); 
 
         return $this->response->download($pdf->Start($data));

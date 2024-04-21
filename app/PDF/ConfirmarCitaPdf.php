@@ -4,7 +4,7 @@ namespace CitasMedicas\PDF;
 
 use TCPDF;
 
-class ConfirmarCitaPDF{
+class ConfirmarCitaPdf{
     
     /**
      * Inicia el generador pdf
