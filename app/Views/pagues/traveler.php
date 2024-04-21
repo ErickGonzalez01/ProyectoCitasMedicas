@@ -79,7 +79,7 @@
                 //});
                 console.log(busqueda);
                 $.ajax({
-                    url: "/api/paciente/busqueda",
+                    url: "<?base_url("/api/paciente/busqueda")?>",
                     type: "post",
                     data: json
                 }).done(function(response) {
