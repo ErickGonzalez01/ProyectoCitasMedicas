@@ -19,7 +19,7 @@ class Database extends Config
      * Lets you choose which connection group to
      * use if no other is specified.
      */
-    public string $defaultGroup = 'default';
+    public string $defaultGroup = 'production';
 
     /**
      * The default database connection.
@@ -29,9 +29,9 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'u848756462_citas_medicas',
-        'password'     => 'asi/(3j))kkh?jjj·44%&GFFGVHhgy5',
-        'database'     => 'u848756462_citas_medicas',
+        'username'     => 'root',
+        'password'     => '12345678',
+        'database'     => 'citasmedicas',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
@@ -55,9 +55,9 @@ class Database extends Config
     public array $production = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => '',
-        'password'     => '',
-        'database'     => '',
+        'username'     => 'u848756462_citas_medicas',
+        'password'     => 'asi/(3j))kkh?jjj·44%&GFFGVHhgy5',
+        'database'     => 'u848756462_citas_medicas',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
